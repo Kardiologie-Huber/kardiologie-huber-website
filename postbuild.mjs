@@ -55,6 +55,12 @@ if ((argvs[0] === '--p' || argvs[0] === '-path') && argvs[1]) {
             /url\('\//g,
             `url('${PRODUCTION_URL}`
           );
+
+          content = String(content).replace(
+            /kardiologie-huber-website\/kardiologie-huber-website/g,
+            `kardiologie-huber-website`
+          );
+
           fs.writeFileSync(filePath, content);
         }
       }
