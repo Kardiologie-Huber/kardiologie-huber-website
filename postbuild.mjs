@@ -1,3 +1,4 @@
+// https://dev.to/jonas_duri/use-astro-with-gitlab-pages-or-github-pages-3eb7
 import fs from 'fs';
 import path from 'path';
 import astroConfig from './astro.config.mjs';
@@ -59,6 +60,14 @@ if ((argvs[0] === '--p' || argvs[0] === '-path') && argvs[1]) {
   };
 
   if (PRODUCTION_URL && process.env.NODE_ENV === 'production') {
+    console.log(
+      'PRODUCTION_URL',
+      PRODUCTION_URL,
+      'PUBLIC_DIR',
+      PUBLIC_DIR,
+      'files',
+      files
+    );
     replaceUrlsInFiles(PUBLIC_DIR, files);
   } else {
     console.log('skip postbuild');
