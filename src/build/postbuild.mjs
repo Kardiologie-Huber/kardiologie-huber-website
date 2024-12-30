@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import astroConfig from './astro.config.mjs';
+import astroConfig from './../../astro.config.mjs';
 
 const PUBLIC_DIR = astroConfig.dist || 'dist';
 const argvs = process.argv.slice(2);
