@@ -6,4 +6,7 @@ import mdx from '@astrojs/mdx';
 export default defineConfig({
   site: 'https://www.kardiologie-huber.at',
   integrations: [mdx()],
+  buildOptions: {
+    site: 'https://karin112358.github.io/kardiologie-huber-website',
+  },
 });
