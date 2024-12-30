@@ -1,0 +1,22 @@
+{
+  "name": "kardiologie-huber-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@astrojs/mdx": "^4.0.3",
+    "@astrojs/ts-plugin": "^1.10.4",
+    "astro": "^5.1.1",
+    "sass": "^1.83.0"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  }
+}

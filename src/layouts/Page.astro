@@ -1,0 +1,35 @@
+---
+import Head from '../components/page/Head.astro';
+import Navbar from '../components/page/Navbar.astro';
+import Footer from '../components/page/Footer.astro';
+import bootstrap from 'bootstrap/dist/js/bootstrap.bundle.min.js?url';
+
+let { title, description } = Astro.props;
+
+import '../styles/styles.scss';
+---
+
+<html lang="de">
+  <head>
+    <Head
+      title={title ? title + ' | Kardiologie Huber' : 'Kardiologie Huber'}
+      description={description}
+    />
+  </head>
+
+  <body>
+    <header>
+      <Navbar />
+    </header>
+
+    <main>
+      <div class="container">
+        <slot />
+      </div>
+    </main>
+
+    <footer>
+      <Footer />
+    </footer>
+  </body><script src={bootstrap}></script>
+</html>
