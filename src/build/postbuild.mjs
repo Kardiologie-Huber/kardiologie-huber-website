@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import astroConfig from './../../astro.config.mjs';
 
-const PUBLIC_DIR = astroConfig.dist || '../../dist';
+const PUBLIC_DIR = astroConfig.dist || './../../dist';
 const argvs = process.argv.slice(2);
 
 if ((argvs[0] === '--p' || argvs[0] === '-path') && argvs[1]) {
