@@ -1,8 +1,8 @@
 import fs from 'fs';
 import path from 'path';
-import astroConfig from './../../astro.config.mjs';
+import astroConfig from './astro.config.mjs';
 
-const PUBLIC_DIR = astroConfig.dist || './../../dist';
+const PUBLIC_DIR = astroConfig.dist || 'dist';
 const argvs = process.argv.slice(2);
 
 if ((argvs[0] === '--p' || argvs[0] === '-path') && argvs[1]) {
@@ -61,7 +61,7 @@ if ((argvs[0] === '--p' || argvs[0] === '-path') && argvs[1]) {
   if (PRODUCTION_URL && process.env.NODE_ENV === 'production') {
     replaceUrlsInFiles(PUBLIC_DIR, files);
   } else {
-    console.log('skip postbuild', PRODUCTION_URL, process.env.NODE_ENV);
+    console.log('skip postbuild');
     process.exit(0);
   }
 } else {
