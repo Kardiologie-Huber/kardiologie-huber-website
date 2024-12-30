@@ -77,6 +77,8 @@ jobs:
         with:
           path: ${{ env.BUILD_PATH }}/dist
       - name: Postbuild
+        env:
+          NODE_ENV: production
         run: npm run postbuild
         working-directory: ${{ env.BUILD_PATH }}
 
