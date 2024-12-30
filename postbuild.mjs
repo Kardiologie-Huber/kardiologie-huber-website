@@ -15,6 +15,8 @@ if ((argvs[0] === '--p' || argvs[0] === '-path') && argvs[1]) {
     files = fs.readdirSync(dirPath);
 
     files.forEach(function (file) {
+      console.log('file', file);
+
       const current = fs.statSync(dirPath + '/' + file);
       if (current.isDirectory()) {
         replaceUrlsInFiles(dirPath + '/' + file, arrayOfFiles);
