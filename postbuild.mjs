@@ -42,6 +42,10 @@ if ((argvs[0] === '--p' || argvs[0] === '-path') && argvs[1]) {
             /url\("\//g,
             `url("${PRODUCTION_URL}`
           );
+          content = String(content).replace(
+            /url\(&#34;\//g,
+            `url(&#34;${PRODUCTION_URL}`
+          );
 
           content = String(content).replace(
             /src='\//g,
