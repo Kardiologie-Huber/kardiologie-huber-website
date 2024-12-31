@@ -74,7 +74,7 @@ h3 {
 }
 
 .navbar {
-  margin-bottom: $padding;
+  margin-bottom: $padding * 2;
   position: fixed;
   top: 0;
   right: 0;
@@ -88,6 +88,26 @@ h3 {
   background-size: cover;
   background-position: center;
   height: 200px;
-  margin-top: -$padding;
-  margin-bottom: $padding;
+  margin-top: -$padding * 2;
+  margin-bottom: $padding * 2;
+
+  > .container {
+    height: 100%;
+    align-content: center;
+  }
+}
+
+.hero-image-large {
+  height: max(30vw, 300px);
+  background-position: center top;
+}
+
+.hero-title {
+  h1 {
+    color: #fff;
+  }
+}
+
+.hero-description {
+  color: rgba(#fff, 0.8);
 }

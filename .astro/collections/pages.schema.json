@@ -16,6 +16,12 @@
         "heroimage": {
           "type": "string"
         },
+        "herotitle": {
+          "type": "string"
+        },
+        "herodescription": {
+          "type": "string"
+        },
         "$schema": {
           "type": "string"
         }

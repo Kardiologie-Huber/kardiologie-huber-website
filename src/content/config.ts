@@ -10,6 +10,8 @@ const pagesCollection = defineCollection({
     description: z.string(),
     slug: z.string().optional(),
     heroimage: z.string().optional(),
+    herotitle: z.string().optional(),
+    herodescription: z.string().optional(),
     // Add other fields as needed
   }),
 });

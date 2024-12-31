@@ -5,9 +5,10 @@ import Footer from '../components/page/Footer.astro';
 import bootstrap from 'bootstrap/dist/js/bootstrap.bundle.min.js?url';
 import '../styles/styles.scss';
 
-const { title, description, heroimage } = Astro.props;
+const { title, description, heroimage, herotitle, herodescription } =
+  Astro.props;
 
-console.log(title, description, heroimage);
+console.log(title, description, heroimage, herotitle, herodescription);
 ---
 
 <html lang="de">
@@ -27,9 +28,27 @@ console.log(title, description, heroimage);
       {
         heroimage && (
           <div
-            class="hero-image"
+            class={herotitle ? 'hero-image hero-image-large' : 'hero-image'}
             style={'background-image: url("/images/' + heroimage + '")'}
-          />
+          >
+            {herotitle && (
+              <div class="container">
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <div class="hero-title">
+                      <h1>{herotitle}</h1>
+                    </div>
+
+                    {herodescription && (
+                      <div class="hero-description">
+                        <p>{herodescription}</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
         )
       }
       <div class="container">
