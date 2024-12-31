@@ -1,0 +1,9 @@
+---
+const { text, href } = Astro.props;
+---
+
+<p class="text-center">
+  <a class="btn btn-primary" aria-current="page" role="button" href={href}
+    >{text}</a
+  >
+</p>

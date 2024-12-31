@@ -2,7 +2,7 @@
 @import 'bootstrap/scss/functions';
 
 // 2. Include any default variable overrides here
-$primary: #344554;
+$primary: #132d44;
 $body-bg: #fff;
 $body-color: #333;
 
@@ -41,6 +41,10 @@ body {
   flex-direction: column;
 }
 
+header {
+  height: calc(60px + $padding);
+}
+
 main {
   flex-grow: 1;
 }
@@ -63,10 +67,27 @@ footer {
   }
 }
 
-h1 {
-  color: $primary;
+h1,
+h2,
+h3 {
+  color: lighten($primary, 20%);
 }
 
 .navbar {
+  margin-bottom: $padding;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: $body-bg;
+  border-bottom: 1px solid rgba($primary, 0.2);
+  box-shadow: 0 0 40px rgba($primary, 0.2);
+}
+
+.hero-image {
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  margin-top: -$padding;
   margin-bottom: $padding;
 }

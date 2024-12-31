@@ -3,10 +3,11 @@ import Head from '../components/page/Head.astro';
 import Navbar from '../components/page/Navbar.astro';
 import Footer from '../components/page/Footer.astro';
 import bootstrap from 'bootstrap/dist/js/bootstrap.bundle.min.js?url';
-
-let { title, description } = Astro.props;
-
 import '../styles/styles.scss';
+
+const { title, description, heroimage } = Astro.props;
+
+console.log(title, description, heroimage);
 ---
 
 <html lang="de">
@@ -23,6 +24,14 @@ import '../styles/styles.scss';
     </header>
 
     <main>
+      {
+        heroimage && (
+          <div
+            class="hero-image"
+            style={'background-image: url("/images/' + heroimage + '")'}
+          />
+        )
+      }
       <div class="container">
         <slot />
       </div>

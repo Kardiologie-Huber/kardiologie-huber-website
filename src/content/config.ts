@@ -8,6 +8,8 @@ const pagesCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
+    slug: z.string().optional(),
+    heroimage: z.string().optional(),
     // Add other fields as needed
   }),
 });

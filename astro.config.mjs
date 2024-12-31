@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config';
-
 import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
@@ -8,5 +7,12 @@ export default defineConfig({
   integrations: [mdx()],
   buildOptions: {
     site: 'https://karin112358.github.io/kardiologie-huber-website',
+  },
+  vite: {
+    resolve: {
+      alias: {
+        '@components': '/src/components',
+      },
+    },
   },
 });
