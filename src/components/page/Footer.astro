@@ -5,11 +5,18 @@ import { EMAIL, PHONE } from '../../constants';
 <div class="container-fluid">
   <div class="container">
     <div class="row">
-      <div class="col-12 col-md-4 text-center text-sm-start">
+      <div class="col-12 col-md-4 text-center text-md-start">
         <img src="/images/logo-white.png" width="200" alt="Kardiologie Huber" />
       </div>
-      <div class="col-12 col-md-4"></div>
-      <div class="col-12 col-md-4 text-center text-sm-start mt-4 mt-sm-0">
+      <div class="col-12 col-md-4 text-center text-md-start mt-4 mt-md-0">
+        <a href="/leistungen">Leistungen</a><br />
+        <a href="/ordination">Ordination</a><br />
+        <a href="/wahlarzt">Wahlarzt</a><br />
+        <a href="/dr-peter-huber">Über mich</a><br />
+        <a href="/kontakt">Kontakt</a><br />
+        <a href="/impressum">Impressum</a>
+      </div>
+      <div class="col-12 col-md-4 text-center text-md-start mt-4 mt-md-0">
         <p>
           Kardiologie Huber
           <br />
@@ -18,6 +25,8 @@ import { EMAIL, PHONE } from '../../constants';
           <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
           <br />
           <a href={`tel:${PHONE}`}>{PHONE}</a>
+          <br /><br />
+          &copy; {new Date().getFullYear()} Dr. med. Peter Huber
         </p>
       </div>
     </div>
