@@ -114,7 +114,7 @@ p {
     border: none;
   }
 
-  .navbar-collapse {
+  @include media-breakpoint-down(lg) {
     .btn-primary {
       width: 100%;
       margin-left: 0 !important;
