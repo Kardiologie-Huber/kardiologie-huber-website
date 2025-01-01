@@ -1,0 +1,32 @@
+---
+const { title, description } = Astro.props;
+import LinkButton from '@components/LinkButton.astro';
+import { PHONE } from '../constants';
+---
+
+<section class="highlight schedule-appointment">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <h2>{title ? title : 'Termin buchen'}</h2>
+
+        <p>
+          {
+            description
+              ? description
+              : 'Nutzen Sie die Möglichkeit, schnell und einfach einen Termin in unserer Ordination zu vereinbaren. Wir freuen uns darauf, Sie individuell zu betreuen. Oder rufen Sie uns direkt an: ' +
+                PHONE
+          }
+        </p>
+
+        <LinkButton href="/termin-buchen" text="Termin buchen" />
+      </div>
+
+      <div
+        class="col-12 col-md-6 d-flex justify-content-center align-items-center"
+      >
+        <i class="icon fa-sharp-duotone fa-solid fa-calendar-heart"></i>
+      </div>
+    </div>
+  </div>
+</section>

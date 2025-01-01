@@ -34,6 +34,13 @@ $body-color: #333;
 @import 'bootstrap/scss/utilities/api';
 
 $padding: 20px;
+$highlight-bg: #f0f0f0;
+
+:root {
+  // font-awesome colors
+  --fa-primary-color: #132d44;
+  --fa-secondary-color: #5e6f7e;
+}
 
 body {
   min-height: 100vh;
@@ -52,10 +59,11 @@ main {
 footer {
   background-color: $primary;
   color: #fff;
+  margin-block-start: $padding * 2;
 
   > .container-fluid {
-    padding-top: $padding;
-    padding-bottom: $padding;
+    padding-top: $padding * 2;
+    padding-bottom: $padding * 2;
   }
 
   p {
@@ -69,8 +77,27 @@ footer {
 
 h1,
 h2,
-h3 {
+h3,
+h4,
+h5 {
   color: lighten($primary, 20%);
+  margin-block-end: 1rem;
+}
+
+h2,
+h3,
+h4 {
+  margin-block-start: 1.2em;
+}
+
+p {
+  margin-block-end: 1rem;
+}
+
+.icon {
+  font-size: 120px;
+  filter: drop-shadow(0 0 12px #00000066);
+  transform: rotate(15deg);
 }
 
 .navbar {
@@ -85,6 +112,15 @@ h3 {
 
   button.navbar-toggler {
     border: none;
+  }
+
+  .navbar-collapse {
+    .btn-primary {
+      width: 100%;
+      margin-left: 0 !important;
+      margin-top: $padding;
+      margin-bottom: $padding;
+    }
   }
 }
 
@@ -114,4 +150,33 @@ h3 {
 
 .hero-description {
   color: rgba(#fff, 0.8);
+}
+
+section.highlight {
+  background-color: $highlight-bg;
+  width: calc(100vw - 17px);
+  position: relative;
+  margin-left: calc((100vw - 100%) / -2 + 8px);
+  padding-top: $padding;
+  padding-bottom: $padding;
+  margin-block-start: $padding * 2;
+  margin-block-end: $padding * 2;
+
+  main > div.container > &:last-child {
+    margin-block-end: $padding * -2;
+  }
+}
+
+.contact-map {
+  width: calc(100vw - 17px);
+  position: relative;
+  left: 0;
+  border: 0;
+  margin-block-start: $padding * 2;
+  margin-block-end: $padding * -2 - 5px;
+  margin-left: calc((100vw - 100%) / -2 + 8px);
+
+  section.highlight + & {
+    margin-top: $padding * -2;
+  }
 }

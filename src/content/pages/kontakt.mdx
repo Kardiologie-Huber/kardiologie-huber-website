@@ -5,7 +5,7 @@ slug: kontakt
 heroimage: kontakt.png
 ---
 
-import LinkButton from '@components/LinkButton.astro';
+import ScheduleAppointment from '@components/ScheduleAppointment.astro';
 import { EMAIL, PHONE, WEB } from '../../constants';
 
 # Kontakt
@@ -38,14 +38,14 @@ Vom Hauptbahnhof Linz erreichen Sie uns bequem mit den Buslinien 12, 25, 45 und 
 
 Donnerstag und Freitag nach Terminvereinbarung
 
-<LinkButton href="/termin-buchen" text="Termin buchen" />
-
 Wir freuen uns darauf, Sie in unserer Praxis begrüßen zu dürfen und stehen Ihnen für alle Fragen rund um Ihre Herzgesundheit gerne zur Verfügung.
+
+<ScheduleAppointment />
 
 <iframe
   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4896.724904683261!2d14.296769977625896!3d48.303303039607634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47739748b1bec515%3A0xfaae8ab5c343c89a!2sWei%C3%9Fenwolffstra%C3%9Fe%201%2C%204020%20Linz!5e1!3m2!1sen!2sat!4v1735626351550!5m2!1sen!2sat"
-  style="width: calc(100vw - 17px); position: relative; left: 0; border: 0; margin-bottom: -5px; margin-left: calc((100vw - 100%) / -2 + 8px)"
   height="450"
+  class="contact-map"
   allowfullscreen=""
   loading="lazy"
   referrerpolicy="no-referrer-when-downgrade"
