@@ -1,9 +1,13 @@
 ---
-const { text, href } = Astro.props;
+const { text, href, target, color } = Astro.props;
 ---
 
 <p class="text-center">
-  <a class="btn btn-primary" aria-current="page" role="button" href={href}
-    >{text}</a
+  <a
+    class={'btn btn-' + (color ? color : 'primary')}
+    aria-current="page"
+    role="button"
+    href={href}
+    target={target ?? '_self'}>{text}</a
   >
 </p>

@@ -4,11 +4,11 @@ import Navbar from '../components/page/Navbar.astro';
 import Footer from '../components/page/Footer.astro';
 import bootstrap from 'bootstrap/dist/js/bootstrap.bundle.min.js?url';
 import '../styles/styles.scss';
+import LinkButton from '@components/LinkButton.astro';
 
 const { title, description, heroimage, herotitle, herodescription } =
   Astro.props;
 
-console.log(title, description, heroimage, herotitle, herodescription);
 ---
 
 <html lang="de">
@@ -34,7 +34,7 @@ console.log(title, description, heroimage, herotitle, herodescription);
             {herotitle && (
               <div class="container">
                 <div class="row">
-                  <div class="col-12 col-md-6">
+                  <div class="col-12 col-lg-8 col-xl-6">
                     <div class="hero-title">
                       <h1>{herotitle}</h1>
                     </div>
@@ -43,6 +43,22 @@ console.log(title, description, heroimage, herotitle, herodescription);
                       <div class="hero-description">
                         <p>{herodescription}</p>
                       </div>
+
+                      <p class="text-center actions">
+                        <a class="btn btn-secondary d-none d-md-inline-block"
+                            aria-current="page"
+                            role="button"
+                            href="/termin-buchen"
+                            target="_blank"
+                            >Online Termin buchen</a>
+
+                        <a
+                            class="btn btn-primary"
+                            aria-current="page"
+                            role="button"
+                            href="/leistungen"
+                            >Meine Leistungen</a>
+                      </p>
                     )}
                   </div>
                 </div>
@@ -52,7 +68,11 @@ console.log(title, description, heroimage, herotitle, herodescription);
         )
       }
       <div class="container">
-        <slot />
+        <div class="row">
+          <div class="col-12">
+            <slot />
+          </div>
+        </div>
       </div>
     </main>
 

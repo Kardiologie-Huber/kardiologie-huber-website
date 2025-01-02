@@ -3,8 +3,10 @@
 
 // 2. Include any default variable overrides here
 $primary: #132d44;
+$secondary: #427613;
 $body-bg: #fff;
-$body-color: #333;
+$body-color: hsl(0, 0%, 20%);
+$border-radius: 3px;
 
 // 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
 @import 'bootstrap/scss/variables';
@@ -95,6 +97,10 @@ p {
   margin-block-end: 1rem;
 }
 
+.btn {
+  text-transform: uppercase;
+}
+
 .icon {
   font-size: 120px;
   filter: drop-shadow(0 0 20px #00000088);
@@ -136,10 +142,22 @@ p {
     height: 100%;
     align-content: center;
   }
+
+  .actions {
+    margin-block-start: $padding * 2;
+
+    .btn-primary {
+      background-color: rgba($body-bg, 0.8);
+      color: $primary;
+      min-width: 210px;
+      margin-left: $padding;
+      margin-right: $padding;
+    }
+  }
 }
 
 .hero-image-large {
-  height: max(30vw, 300px);
+  height: max(30vw, 400px);
   background-position: center top;
 }
 
@@ -168,7 +186,21 @@ section.highlight {
   }
 }
 
-.contact-map {
+main
+  > div.container
+  > div.row
+  > div.col-12
+  > :last-child:is(section.highlight) {
+  margin-block-end: $padding * -2;
+}
+
+.location {
+  background-image: url('/images/weissenwolffstrasse-1-map.png');
+  background-size: cover;
+  background-position: 50% 50%;
+  height: 40vw;
+  font-size: 14px;
+
   width: calc(100vw - 17px);
   position: relative;
   left: 0;
@@ -179,5 +211,18 @@ section.highlight {
 
   section.highlight + & {
     margin-top: $padding * -2;
+  }
+
+  > div {
+    position: absolute;
+    top: $padding;
+    left: $padding;
+    padding: $padding * 0.5 $padding;
+    background-color: rgba(#fff, 0.9);
+  }
+
+  p {
+    margin-bottom: 0;
+    margin-block-end: 0;
   }
 }
