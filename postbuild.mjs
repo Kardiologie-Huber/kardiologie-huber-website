@@ -61,8 +61,8 @@ if ((argvs[0] === '--p' || argvs[0] === '-path') && argvs[1]) {
           );
 
           content = String(content).replace(
-            /kardiologie-huber-website\/kardiologie-huber-website/g,
-            `kardiologie-huber-website`
+            /kardiologie-huber-website\//g,
+            `/`
           );
 
           fs.writeFileSync(filePath, content);
