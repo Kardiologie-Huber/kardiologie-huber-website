@@ -34,7 +34,7 @@ const { title, description, heroimage, herotitle, herodescription } =
             {herotitle && (
               <div class="container">
                 <div class="row">
-                  <div class="col-12 col-lg-8 col-xl-6">
+                  <div class="col-12 col-lg-8 col-xl-6 offset-lg-2 offset-xl-3">
                     <div class="hero-title">
                       <h1>{herotitle}</h1>
                     </div>
@@ -49,15 +49,14 @@ const { title, description, heroimage, herotitle, herodescription } =
                             aria-current="page"
                             role="button"
                             href="/termin-buchen"
-                            target="_blank"
                             >Online Termin buchen</a>
 
-                        <a
+                        {/* <a
                             class="btn btn-primary"
                             aria-current="page"
                             role="button"
                             href="/leistungen"
-                            >Meine Leistungen</a>
+                            >Meine Leistungen</a> */}
                       </p>
                     )}
                   </div>
