@@ -78,23 +78,7 @@ const { title, description, heroimage, herotitle, herodescription } =
     <footer>
       <Footer />
     </footer>
-
-    <!-- comming soon overlay -->
-    <div class="comming-soon-overlay">
-      <div class="comming-soon-overlay-content">
-        <h1>Herzlich Willkommen in Ihrer kardiologischen Praxis</h1>
-        <p>Ab Sommer 2025 sind wir für Sie da!</p>
-
-        <p>Unsere neue Praxis bietet Ihnen modernste Diagnostik und individuelle Betreuung in allen Bereichen der Herzgesundheit. Unser Ziel ist es, Ihre Gesundheit nachhaltig zu fördern und Sie auf Ihrem Weg zu einem starken und gesunden Herzen bestmöglich zu unterstützen.</p>
-
-        <p>Im Moment ist die Webseite noch in Arbeit. Schauen Sie gerne in Kürze wieder vorbei, um die neuesten Updates zu entdecken!</p>
-
-        <p>Wir freuen uns darauf, Sie schon bald persönlich in unserer Praxis willkommen zu heißen!</p>
-
-        <p><strong>Ihr Dr. med. Peter Huber</strong></p>
-      </div>
-    </div>
-
+    
     <!-- 100% privacy-first analytics -->
     <script data-collect-dnt="true" async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
   </body>
@@ -102,11 +86,4 @@ const { title, description, heroimage, herotitle, herodescription } =
   <script
     src="https://kit.fontawesome.com/9fc80d8fb2.js"
     crossorigin="anonymous"></script>
-  <script>
-    // if query param "preview" is true, do not show the comming soon overlay
-    if (localStorage.getItem('preview') === 'true' || window.location.search.includes('preview=true')) {
-      localStorage.setItem('preview', 'true');
-      document.querySelector('.comming-soon-overlay').style.display = 'none';
-    }
-  </script>
 </html>

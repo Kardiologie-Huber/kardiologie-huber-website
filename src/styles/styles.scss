@@ -227,33 +227,6 @@ main
   }
 }
 
-.comming-soon-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(#000, 0.5);
-  z-index: 2000;
-  backdrop-filter: blur(6px);
-
-  h1 {
-    font-size: 1.8rem;
-  }
-
-  .comming-soon-overlay-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: calc(100dvw - $padding * 2);
-    max-width: 600px;
-    background-color: #fff;
-    padding: $padding * 2;
-    border-radius: $border-radius;
-  }
-}
-
 @media (max-width: 768px) {
   .comming-soon-overlay-content {
     h1 {
