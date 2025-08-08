@@ -6,7 +6,7 @@ import bootstrap from 'bootstrap/dist/js/bootstrap.bundle.min.js?url';
 import '../styles/styles.scss';
 import LinkButton from '@components/LinkButton.astro';
 
-const { title, description, heroimage, herotitle, herodescription } =
+const { title, description, heroimage, heroimagedarkness, herotitle, herodescription } =
   Astro.props;
 
 ---
@@ -31,6 +31,7 @@ const { title, description, heroimage, herotitle, herodescription } =
             class={herotitle ? 'hero-image hero-image-large' : 'hero-image'}
             style={'background-image: url("/images/' + heroimage + '")'}
           >
+            <div class="hero-image-overlay" style={'opacity: ' + (heroimagedarkness ?? 0)}></div>
             {herotitle && (
               <div class="container">
                 <div class="row">
@@ -42,6 +43,7 @@ const { title, description, heroimage, herotitle, herodescription } =
                     {herodescription && (
                       <div class="hero-description">
                         <p>{herodescription}</p>
+                        <p class="open-soon"><span>Wir eröffnen im September!</span><span>Wir freuen uns, Sie bald persönlich in unserer Praxis begrüßen zu dürfen.</span></p>
                       </div>
 
                       <p class="text-center actions">
@@ -78,7 +80,7 @@ const { title, description, heroimage, herotitle, herodescription } =
     <footer>
       <Footer />
     </footer>
-    
+
     <!-- 100% privacy-first analytics -->
     <script data-collect-dnt="true" async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
   </body>

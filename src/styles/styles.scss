@@ -137,10 +137,23 @@ p {
   height: 200px;
   margin-top: -$padding * 2;
   margin-bottom: $padding * 2;
+  position: relative;
+
+  .hero-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    z-index: 1;
+  }
 
   > .container {
+    position: relative;
     height: 100%;
     align-content: center;
+    z-index: 2;
   }
 
   .actions {
@@ -227,10 +240,21 @@ main
   }
 }
 
-@media (max-width: 768px) {
-  .comming-soon-overlay-content {
-    h1 {
-      font-size: 1.4rem;
-    }
+.open-soon {
+  font-size: 1.1rem;
+  color: lighten($primary, 20%);
+  background-color: #ffffffdd;
+  padding: $padding * 0.5 $padding;
+  border-radius: $border-radius;
+  text-align: center;
+  margin-top: $padding * 0.5;
+  margin-bottom: $padding * -0.5;
+  padding: $padding;
+
+  span:first-of-type {
+    font-weight: bold;
+    font-size: 1.3rem;
+    display: block;
+    margin-bottom: $padding * 0.5;
   }
 }
