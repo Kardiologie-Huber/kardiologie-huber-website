@@ -12,14 +12,14 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@astrojs/mdx": "^4.0.3",
+    "@astrojs/mdx": "^4.3.3",
     "@astrojs/sitemap": "^3.4.2",
     "@astrojs/ts-plugin": "^1.10.4",
     "astro": "^5.1.1",
     "prettier": "^3.4.2",
     "prettier-plugin-astro": "^0.14.1",
     "sass": "^1.83.0",
-    "typescript": "^5.7.2"
+    "typescript": "^5.9.2"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
