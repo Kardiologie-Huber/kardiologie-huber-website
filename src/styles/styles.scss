@@ -2,7 +2,7 @@
 @import 'bootstrap/scss/functions';
 
 // 2. Include any default variable overrides here
-$primary: #132d44;
+$primary: #132d44; // #080633;
 $secondary: #527e15;
 $body-bg: #fff;
 $body-color: hsl(0, 0%, 20%);
@@ -113,6 +113,8 @@ p {
   top: 0;
   right: 0;
   left: 0;
+  padding-top: 0;
+  padding-bottom: 0;
   background-color: $body-bg;
   border-bottom: 1px solid rgba($primary, 0.2);
   box-shadow: 0 0 40px rgba($primary, 0.2);
