@@ -1,7 +1,7 @@
 ---
 const { title, description } = Astro.props;
 import LinkButton from '@components/LinkButton.astro';
-import { PHONE, LATIDO } from '../constants';
+import { PHONE, EMAIL, LATIDO } from '../constants';
 ---
 
 <section class="highlight schedule-appointment">
@@ -15,10 +15,9 @@ import { PHONE, LATIDO } from '../constants';
           {
             !description && (
               <div>
-                Nutzen Sie die Möglichkeit, schnell und einfach einen Termin in
-                unserer Ordination zu vereinbaren. Wir freuen uns darauf, Sie
-                individuell zu betreuen. Oder rufen Sie uns direkt an:{' '}
-                <a href={`tel:${PHONE}`}>{PHONE}</a>.
+                Buchen Sie Ihren Termin am einfachsten und schnellsten online –
+                rund um die Uhr und ohne Wartezeiten am Telefon. So können Sie
+                in Ruhe den für Sie passenden Zeitpunkt auswählen.
               </div>
             )
           }
@@ -30,6 +29,15 @@ import { PHONE, LATIDO } from '../constants';
           color="secondary"
           target="_blank"
         />
+
+        <p>
+          Falls Sie lieber telefonisch oder per E-Mail einen Termin vereinbaren
+          möchten:
+        </p>
+        <p class="text-center">
+          ✉️ Email: <a href={`mailto:${EMAIL}`}>{EMAIL}</a><br />
+          📞 Telefon: <a href={`tel:${PHONE}`}>{PHONE}</a>
+        </p>
       </div>
     </div>
   </div>
