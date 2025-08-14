@@ -1,7 +1,7 @@
 ---
 const { title, description } = Astro.props;
 import LinkButton from '@components/LinkButton.astro';
-import { PHONE } from '../constants';
+import { PHONE, LATIDO } from '../constants';
 ---
 
 <section class="highlight schedule-appointment">
@@ -18,32 +18,19 @@ import { PHONE } from '../constants';
                 Nutzen Sie die Möglichkeit, schnell und einfach einen Termin in
                 unserer Ordination zu vereinbaren. Wir freuen uns darauf, Sie
                 individuell zu betreuen. Oder rufen Sie uns direkt an:{' '}
-                <a href={`tel:${PHONE}`}>{PHONE}</a>
+                <a href={`tel:${PHONE}`}>{PHONE}</a>.
               </div>
             )
           }
         </p>
 
-        <p style="font-weight: bold">
-          Die Praxis eröffnet im September. Die Möglichkeit zur
-          Online-Terminvereinbarung steht Ihnen voraussichtlich ab Mitte August
-          zur Verfügung. Wir freuen uns, Ihnen diesen Service in Kürze anbieten
-          zu können.
-        </p>
-
-        <!-- <LinkButton
-          href="/termin-buchen"
+        <LinkButton
+          href={LATIDO}
           text="Online Termin buchen"
           color="secondary"
           target="_blank"
-        /> -->
+        />
       </div>
-
-      <!--<div
-        class="d-none d-md-flex col-12 col-md-6 justify-content-center align-items-center"
-      >
-        <i class="icon fa-sharp-duotone fa-solid fa-calendar-heart"></i>
-      </div> -->
     </div>
   </div>
 </section>

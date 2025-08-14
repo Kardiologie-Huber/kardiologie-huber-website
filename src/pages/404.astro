@@ -1,5 +1,6 @@
 ---
 import Page from '../layouts/Page.astro';
+import { PHONE } from '../constants';
 ---
 
 <Page
@@ -7,4 +8,19 @@ import Page from '../layouts/Page.astro';
   description="Diese Seite konnte nicht gefunden werden."
 >
   <h1>Seite wurde nicht gefunden</h1>
+  <p>
+    Leider konnten wir die von Ihnen aufgerufene Seite nicht finden.
+    Möglicherweise wurde die Adresse geändert oder der Inhalt ist vorübergehend
+    nicht verfügbar.
+  </p>
+
+  <p>
+    Bitte nutzen Sie die Navigation, um zur gewünschten Information zu gelangen,
+    oder gehen Sie zurück zur <a href="/">Startseite</a>.
+  </p>
+
+  <p>
+    Falls Sie Unterstützung benötigen oder einen Termin vereinbaren möchten,
+    erreichen Sie uns telefonisch unter <a href={`tel:${PHONE}`}>{PHONE}</a>.
+  </p>
 </Page>

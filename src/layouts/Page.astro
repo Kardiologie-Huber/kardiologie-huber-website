@@ -5,6 +5,7 @@ import Footer from '../components/page/Footer.astro';
 import bootstrap from 'bootstrap/dist/js/bootstrap.bundle.min.js?url';
 import '../styles/styles.scss';
 import LinkButton from '@components/LinkButton.astro';
+import { LATIDO } from '../constants';
 
 const { title, description, heroimage, heroimagedarkness, herotitle, herodescription } =
   Astro.props;
@@ -43,14 +44,14 @@ const { title, description, heroimage, heroimagedarkness, herotitle, herodescrip
                     {herodescription && (
                       <div class="hero-description">
                         <p>{herodescription}</p>
-                        <p class="open-soon"><span>Wir eröffnen im September!</span><span>Wir freuen uns, Sie bald persönlich in unserer Praxis begrüßen zu dürfen.</span></p>
                       </div>
 
                       <p class="text-center actions">
-                        <a class="btn btn-secondary d-none d-md-inline-block"
+                        <a class="btn btn-secondary d-md-inline-block"
                             aria-current="page"
                             role="button"
-                            href="/termin-buchen"
+                            target="_blank"
+                            href={LATIDO}
                             >Online Termin buchen</a>
 
                         {/* <a

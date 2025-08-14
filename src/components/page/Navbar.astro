@@ -1,3 +1,7 @@
+---
+import { LATIDO } from '../../constants';
+---
+
 <nav class="navbar fixed-top navbar-expand-lg navbar-light">
   <div class="container">
     <a class="navbar-brand text-primary" href="/"
@@ -62,10 +66,11 @@
 
           <li class="nav-item">
             <a
-              class="btn btn-primary ms-4"
+              class="btn btn-secondary ms-4"
               aria-current="page"
               role="button"
-              href="/termin-buchen">Termin buchen</a
+              target="_blank"
+              href={LATIDO}>Termin buchen</a
             >
           </li>
         </li>
