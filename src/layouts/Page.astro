@@ -4,10 +4,9 @@ import Navbar from '../components/page/Navbar.astro';
 import Footer from '../components/page/Footer.astro';
 import bootstrap from 'bootstrap/dist/js/bootstrap.bundle.min.js?url';
 import '../styles/styles.scss';
-import LinkButton from '@components/LinkButton.astro';
 import { LATIDO } from '../constants';
 
-const { title, description, heroimage, heroimagedarkness, herotitle, herodescription } =
+const { title, description, heroimage, heroimagedarkness, herotitle, herodescription, heroimageposition } =
   Astro.props;
 
 ---
@@ -30,7 +29,7 @@ const { title, description, heroimage, heroimagedarkness, herotitle, herodescrip
         heroimage && (
           <div
             class={herotitle ? 'hero-image hero-image-large' : 'hero-image'}
-            style={'background-image: url("/images/' + heroimage + '")'}
+            style={'background-image: url("/images/' + heroimage + '"); background-position: ' + (heroimageposition ?? 'center top') + ';' }
           >
             <div class="hero-image-overlay" style={'opacity: ' + (heroimagedarkness ?? 0)}></div>
             {herotitle && (

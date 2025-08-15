@@ -11,6 +11,7 @@ const pagesCollection = defineCollection({
     slug: z.string().optional(),
     heroimage: z.string().optional(),
     heroimagedarkness: z.number().optional(),
+    heroimageposition: z.string().optional(),
     herotitle: z.string().optional(),
     herodescription: z.string().optional(),
     // Add other fields as needed
