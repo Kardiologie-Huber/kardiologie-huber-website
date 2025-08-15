@@ -1,12 +1,13 @@
 ---
-title: Kontakt
-description: Kontakt
+title: Kontakt Dr. med. Peter Huber, Kardiologe & Wahlarzt in Linz
+description: Praxis für Herzgesundheit mit individueller Betreuung und modernster Diagnostik.
 slug: kontakt
 heroimage: kontakt.png
 heroimageposition: 0 40%
 ---
 
 import ScheduleAppointment from '@components/ScheduleAppointment.astro';
+import TwoColumns from '@components/TwoColumns.astro';
 import { EMAIL, PHONE, WEB } from '../../constants';
 
 # Kontakt
@@ -34,13 +35,20 @@ Webseite: <a href={`${WEB}`}>{WEB}</a>
 
 ### Anfahrt
 
+<TwoColumns>
+<div slot="column-1">
 **Mit dem Auto:**
 
 Vor dem Haus stehen Ihnen vier kostenfreie Parkplätze zur Verfügung. Bitte beachten Sie, dass in der Umgebung gebührenpflichtige Kurzparkzonen vorhanden sind.
 
+</div>
+<div slot="column-2">
 **Mit öffentlichen Verkehrsmitteln:**
 
 Vom Hauptbahnhof Linz erreichen Sie uns bequem mit den Buslinien 12, 25, 45 und 46 der LINZ AG. Steigen Sie an der Haltestelle Gruberstraße aus. Unsere Ordination befindet sich unmittelbar neben der Bushaltestelle.
+
+</div>
+</TwoColumns>
 
 ### Öffnungszeiten
 
