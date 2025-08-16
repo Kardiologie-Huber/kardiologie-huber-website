@@ -14,7 +14,7 @@ export default defineConfig({
         {
           title: 'Complete site',
           description: 'The full site of time cockpit',
-          url: '/llms-full.txt',
+          url: '/llms.txt',
           include: ['**'],
           promote: ['/'],
         },
