@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "astro dev --host 127.0.0.1",
     "build": "astro build",
-    "preview": "astro preview",
-    "postbuild": "node ./postbuild.mjs -path https://kardiologie-huber.at/"
+    "preview": "astro preview"
   },
   "author": "",
   "license": "ISC",

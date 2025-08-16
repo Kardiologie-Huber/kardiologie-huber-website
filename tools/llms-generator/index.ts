@@ -40,7 +40,9 @@ interface PluginContext {
  * @param configOptions
  * @returns
  */
-export default function astroLlmsTxt(configOptions: LlmsConfig): AstroIntegration {
+export default function astroLlmsTxt(
+  configOptions: LlmsConfig
+): AstroIntegration {
   let astroConfig: AstroConfig;
 
   return {
@@ -62,7 +64,12 @@ export default function astroLlmsTxt(configOptions: LlmsConfig): AstroIntegratio
         };
 
         const allDocSetsContent = await processAllDocSets(context);
-        const llmsTxt = buildLlmsIndex(configOptions, allDocSetsContent, pages, context);
+        const llmsTxt = buildLlmsIndex(
+          configOptions,
+          allDocSetsContent,
+          pages,
+          context
+        );
 
         // read llms.txt from public folder
         const llmsTxtPath = path.join(context.distDir, 'llms.txt');
@@ -74,7 +81,7 @@ export default function astroLlmsTxt(configOptions: LlmsConfig): AstroIntegratio
         await fs.writeFile(llmsTxtPath, newLlmsTxt, 'utf-8');
         console.log('✅ llms.txt generated');
 
-        const llmsTxtContentNew = await fs.readFile(llmsTxtPath, 'utf-8');
+        //const llmsTxtContentNew = await fs.readFile(llmsTxtPath, 'utf-8');
       },
     },
   };
@@ -104,11 +111,17 @@ async function processAllDocSets(context: PluginContext): Promise<string[]> {
  * Process a single documentation set.
  * @param args
  */
-async function processDocSet(args: { context: PluginContext; collator: Intl.Collator; set: DocSet }): Promise<void> {
+async function processDocSet(args: {
+  context: PluginContext;
+  collator: Intl.Collator;
+  set: DocSet;
+}): Promise<void> {
   const { context, collator, set } = args;
   const { distDir, pages, config } = context;
 
-  const matches = pages.map((p) => p.pathname).filter((pn) => set.include.some((pat) => micromatch.isMatch(pn, pat)));
+  const matches = pages
+    .map((p) => p.pathname)
+    .filter((pn) => set.include.some((pat) => micromatch.isMatch(pn, pat)));
 
   const sorted = matches.sort((a, b) => {
     const pa = prioritizePathname(a, set.promote, set.demote);
@@ -122,7 +135,12 @@ async function processDocSet(args: { context: PluginContext; collator: Intl.Coll
     const htmlPath = path.join(distDir, pn.replace(/\/$/, ''), 'index.html');
     try {
       await fs.access(htmlPath);
-      const entry = await buildEntryFromHtml(htmlPath, set.mainSelector, set.ignoreSelectors, set.onlyStructure ?? false);
+      const entry = await buildEntryFromHtml(
+        htmlPath,
+        set.mainSelector,
+        set.ignoreSelectors,
+        set.onlyStructure ?? false
+      );
       entries.push(entry);
     } catch (e) {
       //console.warn(`❌ File not found: ${htmlPath} - ${e}`);
@@ -159,9 +177,16 @@ async function buildEntryFromHtml(
   const title = h1?.textContent?.trim() ?? 'Untitled';
   if (h1) h1.remove();
 
-  const metaDesc = doc.querySelector('meta[name="description"]')?.getAttribute('content')?.trim();
+  const metaDesc = doc
+    .querySelector('meta[name="description"]')
+    ?.getAttribute('content')
+    ?.trim();
 
-  const markdown = await entryToSimpleMarkdown(main.innerHTML.trim(), ['h1', 'footer', 'header', ...ignoreSelectors], onlyStructure);
+  const markdown = await entryToSimpleMarkdown(
+    main.innerHTML.trim(),
+    ['h1', 'footer', 'header', ...ignoreSelectors],
+    onlyStructure
+  );
 
   const parts = [`# ${title}\n`];
   if (metaDesc) parts.push(`> ${metaDesc}`);
@@ -176,7 +201,12 @@ async function buildEntryFromHtml(
  * @param docSetsLines Lines representing documentation sets.
  * @returns The formatted llms.txt content.
  */
-function buildLlmsIndex(opts: LlmsConfig, docSetsLines: string[], pages: { pathname: string }[], context: PluginContext): string {
+function buildLlmsIndex(
+  opts: LlmsConfig,
+  docSetsLines: string[],
+  pages: { pathname: string }[],
+  context: PluginContext
+): string {
   const lines: string[] = [];
 
   if (docSetsLines.length) {
@@ -195,7 +225,9 @@ function buildLlmsIndex(opts: LlmsConfig, docSetsLines: string[], pages: { pathn
       file: p.pathname.split('/')[p.pathname.split('/').length - 2],
     }))
     .sort((a, b) => {
-      const compare = a.title.replace(/^German Pages/g, 'ZZZ').localeCompare(b.title.replace(/^German Pages/g, 'ZZZ'));
+      const compare = a.title
+        .replace(/^German Pages/g, 'ZZZ')
+        .localeCompare(b.title.replace(/^German Pages/g, 'ZZZ'));
       if (compare === 0) {
         return a.pathname.localeCompare(b.pathname);
       }
@@ -217,11 +249,22 @@ function buildLlmsIndex(opts: LlmsConfig, docSetsLines: string[], pages: { pathn
         // const title = frontmatterObj.title;
         // const description = frontmatterObj.description;
         // const abstract = frontmatterObj.abstract;
-        const html = fsSync.readFileSync(context.distDir + '/' + page.pathname + 'index.html', 'utf-8');
+        const html = fsSync.readFileSync(
+          context.distDir + '/' + page.pathname + 'index.html',
+          'utf-8'
+        );
         const dom = new JSDOM(html);
         const doc = dom.window.document;
-        const title = doc.querySelector('meta[name="title"]')?.getAttribute('content')?.trim() ?? page.pathname;
-        const description = doc.querySelector('meta[name="description"]')?.getAttribute('content')?.trim() ?? '';
+        const title =
+          doc
+            .querySelector('meta[name="title"]')
+            ?.getAttribute('content')
+            ?.trim() ?? page.pathname;
+        const description =
+          doc
+            .querySelector('meta[name="description"]')
+            ?.getAttribute('content')
+            ?.trim() ?? '';
 
         if (page.title !== prevTitle) {
           const pageParts = page.title.split('/');
@@ -231,11 +274,15 @@ function buildLlmsIndex(opts: LlmsConfig, docSetsLines: string[], pages: { pathn
             .split(' ')
             .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
             .join(' ');
-          lines.push(`\n##${'#'.repeat(pageParts.length)} ${capitalizedHeader}\n`);
+          lines.push(
+            `\n##${'#'.repeat(pageParts.length)} ${capitalizedHeader}\n`
+          );
           prevTitle = page.title;
         }
 
-        lines.push(`- [${title}](${new URL(page.pathname, context.astroConfig.site)}): ${description}`);
+        lines.push(
+          `- [${title}](${new URL(page.pathname, context.astroConfig.site)}): ${description}`
+        );
       } catch (e) {
         //console.warn(`❌ Could not read file: ${page.pathname} - ${e}`);
       }
@@ -248,7 +295,13 @@ function buildLlmsIndex(opts: LlmsConfig, docSetsLines: string[], pages: { pathn
 
   if (opts.optionalLinks?.length) {
     lines.push(
-      '\n## Optional\n\n' + opts.optionalLinks.map((l) => `- [${l.label}](${l.url})${l.description ? `: ${l.description}` : ''}`).join('\n')
+      '\n## Optional\n\n' +
+        opts.optionalLinks
+          .map(
+            (l) =>
+              `- [${l.label}](${l.url})${l.description ? `: ${l.description}` : ''}`
+          )
+          .join('\n')
     );
   }
 
@@ -262,9 +315,20 @@ function buildLlmsIndex(opts: LlmsConfig, docSetsLines: string[], pages: { pathn
  * @param demote
  * @returns
  */
-function prioritizePathname(id: string, promote: string[] = [], demote: string[] = []) {
+function prioritizePathname(
+  id: string,
+  promote: string[] = [],
+  demote: string[] = []
+) {
   const demoted = demote.findIndex((expr) => micromatch.isMatch(id, expr));
-  const promoted = demoted > -1 ? -1 : promote.findIndex((expr) => micromatch.isMatch(id, expr));
-  const prefixLength = (promoted > -1 ? promote.length - promoted : 0) + demote.length - demoted - 1;
+  const promoted =
+    demoted > -1
+      ? -1
+      : promote.findIndex((expr) => micromatch.isMatch(id, expr));
+  const prefixLength =
+    (promoted > -1 ? promote.length - promoted : 0) +
+    demote.length -
+    demoted -
+    1;
   return '_'.repeat(prefixLength) + id;
 }

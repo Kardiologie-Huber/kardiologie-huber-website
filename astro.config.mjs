@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import astroLlmsTxt from './tools/llms-generator';
+import astroLlmsTxt from './tools/llms-generator/index';
 
 // https://astro.build/config
 export default defineConfig({
