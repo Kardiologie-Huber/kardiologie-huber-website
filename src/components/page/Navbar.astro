@@ -22,7 +22,7 @@ import { LATIDO } from '../../constants';
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-15">
-        <!-- <li class="nav-item dropdown">
+        <li class="nav-item dropdown">
           <a
             class="nav-link active dropdown-toggle"
             href="#"
@@ -36,21 +36,72 @@ import { LATIDO } from '../../constants';
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="/leistungen">Übersicht</a></li>
             <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" href="#">Echokardiographie</a></li>
-            <li><a class="dropdown-item" href="#">Ergometrie</a></li>
-            <li><a class="dropdown-item" href="#">Langzeit-EKG </a></li>
+            <li>
+              <a class="dropdown-item" href="/leistungen/24-stunden-blutdruck"
+                >24 Stunden Blutdruck</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                href="/leistungen/abdomen-nieren-sonographie"
+                >Abdomen- und Nieren-Sonographie</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                href="/leistungen/anamnese-und-untersuchung"
+                >Anamnese & Untersuchung</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="/leistungen/echokardiographie"
+                >Echokardiographie</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="/leistungen/ergometrie"
+                >Ergometrie</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="/leistungen/langzeit-ekg"
+                >Langzeit EKG</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="/leistungen/polygraphie"
+                >Polygraphie</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="/leistungen/ruhe-ekg">Ruhe EKG</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="/leistungen/spirometrie"
+                >Spirometrie</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                href="/leistungen/ultraschall-halsschlagader"
+                >Ultraschall der Halsschlagader</a
+              >
+            </li>
           </ul>
-        </li> -->
+        </li>
         <!-- <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/ordination"
             >Ordination</a
           >
         </li> -->
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/leistungen"
             >Leistungen</a
           >
-        </li>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/wahlarzt"
             >Wahlarzt</a
@@ -70,9 +121,9 @@ import { LATIDO } from '../../constants';
           >
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item book-appointment">
           <a
-            class="btn btn-secondary ms-4"
+            class="btn btn-secondary"
             aria-current="page"
             role="button"
             target="_blank"

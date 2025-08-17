@@ -123,6 +123,20 @@ p {
     border: none;
   }
 
+  .nav-item.book-appointment {
+    margin-top: $padding;
+    margin-bottom: $padding;
+    text-align: center;
+    margin-left: 0;
+
+    @include media-breakpoint-up(lg) {
+      margin-left: $padding;
+      margin-top: 0;
+      margin-bottom: 0;
+      text-align: left;
+    }
+  }
+
   @include media-breakpoint-down(lg) {
     .btn-primary {
       width: 100%;
