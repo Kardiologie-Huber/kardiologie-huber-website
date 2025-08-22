@@ -6,7 +6,7 @@ import bootstrap from 'bootstrap/dist/js/bootstrap.bundle.min.js?url';
 import '../styles/styles.scss';
 import { LATIDO } from '../constants';
 
-const { title, description, heroimage, heroimagedarkness, herotitle, herodescription, heroimageposition } =
+const { title, description, heroimage, heroimagedarkness, herotitle, herosubtitle, herodescription, heroimageposition } =
   Astro.props;
 
 ---
@@ -37,7 +37,11 @@ const { title, description, heroimage, heroimagedarkness, herotitle, herodescrip
                 <div class="row">
                   <div class="col-12 col-lg-8 col-xl-6 offset-lg-2 offset-xl-3">
                     <div class="hero-title">
-                      <h1>{herotitle}</h1>
+                      <h1>{herotitle}<br/>
+                      {herosubtitle && (
+                        <span class="hero-subtitle">{herosubtitle}</span>
+                      )}
+                      </h1>
                     </div>
 
                     {herodescription && (

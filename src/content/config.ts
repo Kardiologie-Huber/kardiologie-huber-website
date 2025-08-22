@@ -13,6 +13,7 @@ const pagesCollection = defineCollection({
     heroimagedarkness: z.number().optional(),
     heroimageposition: z.string().optional(),
     herotitle: z.string().optional(),
+    herosubtitle: z.string().optional(),
     herodescription: z.string().optional(),
     // Add other fields as needed
   }),

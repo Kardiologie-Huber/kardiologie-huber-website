@@ -154,6 +154,7 @@ p {
   margin-top: -$padding * 2;
   margin-bottom: $padding * 2;
   position: relative;
+  text-align: center;
 
   .hero-image-overlay {
     position: absolute;
@@ -186,13 +187,21 @@ p {
 }
 
 .hero-image-large {
-  height: max(30vw, 350px);
+  height: max(33vh, 350px);
   background-position: center top;
 }
 
 .hero-title {
   h1 {
     color: #fff;
+
+    .hero-subtitle {
+      display: block;
+      font-size: 1.4rem;
+      line-height: 1.4;
+      font-weight: 300;
+      color: rgba(#fff, 0.9);
+    }
   }
 }
 

@@ -25,6 +25,9 @@
         "herotitle": {
           "type": "string"
         },
+        "herosubtitle": {
+          "type": "string"
+        },
         "herodescription": {
           "type": "string"
         },
