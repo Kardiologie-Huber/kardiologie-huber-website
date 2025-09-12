@@ -201,8 +201,12 @@ p {
 }
 
 .hero-image-large {
-  height: max(calc(38vh - 60px), 350px);
+  height: max(calc(38vh - 60px), 300px);
   background-position: center top;
+
+  @include media-breakpoint-up(xl) {
+    height: max(calc(50vh - 60px), 350px);
+  }
 }
 
 .hero-title {
