@@ -1,13 +1,14 @@
 ---
 import { getImage } from 'astro:assets';
+import mapImage from '../assets/images/weissenwolffstrasse-1-map.png';
 
 const optimizedBackground = await getImage({
-  src: '/src/assets/images/weissenwolffstrasse-1-map.png',
+  src: mapImage,
   format: 'webp',
   width: 1920,
   height: 500,
 });
-const locationStyle = `background-image: url('/public/images/weissenwolffstrasse-1-map.png');`;
+const locationStyle = `background-image: url('${optimizedBackground.src}')`;
 ---
 
 <div class="location" style={locationStyle}>
