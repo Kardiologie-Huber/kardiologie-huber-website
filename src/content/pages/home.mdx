@@ -10,6 +10,7 @@ herodescription: Vorsorge-Checks, präzise Diagnostik (z. B. Echokardiografie, E
 ---
 
 import ScheduleAppointment from '@components/ScheduleAppointment.astro';
+import Services from '@components/Services.astro';
 import LinkButton from '@components/LinkButton.astro';
 import { LATIDO } from '../../constants';
 
@@ -31,14 +32,6 @@ Wir nehmen uns Zeit, beantworten Ihre Fragen und finden gemeinsam die beste Lös
 
 ## Unsere Schwerpunkte
 
-- Prävention & Vorsorgeuntersuchungen
-- Diagnostik von Herz-Kreislauf-Erkrankungen
-- Individuell abgestimmte Therapie
-
-## Leistungen im Überblick
-
-Entdecken Sie unser gesamtes Angebot, von Vorsorge-Checks über präzise Diagnostik (z. B. Echokardiografie, Ergometrie, Langzeit-EKG, 24-Stunden-Blutdruck, Gefäß-Ultraschall) bis hin zu Abdomen- und Nieren-Sonographie, individueller Therapieplanung, OP-Freigaben und strukturierter Nachsorge. Auf den jeweiligen Leistungsseiten finden Sie Ablauf, Vorbereitung und Antworten auf häufige Fragen.
-
-<LinkButton text="Zur Leistungsübersicht" href="/leistungen/" />
+<Services />
 
 <ScheduleAppointment />

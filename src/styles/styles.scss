@@ -3,6 +3,9 @@
 
 // 2. Include any default variable overrides here
 $primary: #132d44; // #080633;
+$primary-contrast: #ffffff; // #080633;
+$primary-light-background: #3e5d79;
+$header-color: $primary-light-background;
 $secondary: #527e15;
 $body-bg: #fff;
 $body-color: hsl(0, 0%, 20%);
@@ -85,7 +88,7 @@ h2,
 h3,
 h4,
 h5 {
-  color: lighten($primary, 20%);
+  color: $header-color;
   margin-block-end: 1rem;
 }
 
@@ -298,5 +301,54 @@ main
     font-size: 1.3rem;
     display: block;
     margin-bottom: $padding * 0.5;
+  }
+}
+
+// services
+.services {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $padding * 2;
+
+  @include media-breakpoint-down(lg) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.services > div {
+  //border-radius: $border-radius * 2;
+  background-color: $primary-light-background;
+  color: $primary-contrast;
+  padding: $padding;
+
+  h3 {
+    margin-top: 0;
+    color: $primary-contrast;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: calc(1rem + 0.6vw);
+    border-bottom: 1px solid #ffffff66;
+    padding-bottom: $padding;
+    margin-left: -$padding;
+    margin-right: -$padding;
+  }
+
+  a {
+    color: $primary-contrast;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  ul > li {
+    font-weight: 300;
+    margin-bottom: 1em * 0.5;
+
+    .details {
+      display: block;
+      color: rgba($primary-contrast, 0.8);
+    }
   }
 }
