@@ -1,0 +1,32 @@
+---
+import { getImage } from 'astro:assets';
+
+const optimizedBackground = await getImage({
+  src: '/src/assets/images/weissenwolffstrasse-1-map.png',
+  format: 'webp',
+  width: 1920,
+  height: 500,
+});
+const locationStyle = `background-image: url(${optimizedBackground.src});`;
+---
+
+<div class="location" style={locationStyle}>
+  <div>
+    Weißenwolffstraße 1<br />
+    4020 Linz
+    <br />
+    <a href="https://maps.app.goo.gl/USqswJky77wg3Hms7" target="_blank">
+      In Google Maps anzeigen
+    </a>
+    <a
+      href="https://www.openstreetmap.org/#map=18/48.302882/14.299991"
+      target="_blank"
+    >
+      In OpenStreetMap anzeigen
+    </a>
+    <br />
+    <a href="http://openstreetmap.org/copyright" target="_blank">
+      &copy; OpenStreetMap
+    </a>
+  </div>
+</div>
