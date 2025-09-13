@@ -4,6 +4,7 @@
 // 2. Include any default variable overrides here
 $primary: #132d44; // #080633;
 $primary-contrast: #ffffff; // #080633;
+$primary-contrast-light: rgba($primary-contrast, 0.8); // #080633;
 $primary-light-background: #3e5d79;
 $header-color: $primary-light-background;
 $secondary: #527e15;
@@ -64,7 +65,7 @@ main {
 
 footer {
   background-color: $primary;
-  color: #fff;
+  color: $primary-contrast-light;
   margin-block-start: $padding * 2;
 
   > .container-fluid {
@@ -79,7 +80,7 @@ footer {
   }
 
   a {
-    color: #fff;
+    color: $primary-contrast-light;
   }
 }
 
@@ -98,8 +99,19 @@ h4 {
   margin-block-start: 1.2em;
 }
 
+.header-subtitle {
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: rgba($header-color, 0.8);
+  display: block;
+}
+
 p {
   margin-block-end: 1rem;
+}
+
+ul {
+  list-style: disclosure-closed;
 }
 
 .btn {
@@ -306,6 +318,7 @@ main
 
 // services
 .services {
+  margin-block-start: $padding * 1.5;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: $padding * 2;
@@ -319,10 +332,9 @@ main
   //border-radius: $border-radius * 2;
   background-color: $primary-light-background;
   color: $primary-contrast;
-  padding: $padding;
+  padding: $padding * 1.5;
 
   h3 {
-    margin-top: 0;
     color: $primary-contrast;
     font-weight: 300;
     text-transform: uppercase;
@@ -330,8 +342,10 @@ main
     font-size: calc(1rem + 0.6vw);
     border-bottom: 1px solid #ffffff66;
     padding-bottom: $padding;
-    margin-left: -$padding;
-    margin-right: -$padding;
+    margin-left: -$padding * 1.5;
+    margin-right: -$padding * 1.5;
+    margin-top: -$padding * 0.5;
+    margin-bottom: $padding * 0.5;
   }
 
   a {
@@ -342,13 +356,32 @@ main
     }
   }
 
+  ul {
+    margin-top: $padding;
+    padding-left: 1.3em;
+  }
+
   ul > li {
-    font-weight: 300;
     margin-bottom: 1em * 0.5;
 
     .details {
-      display: block;
+      font-weight: 300;
+      margin-left: $padding * 0.25;
       color: rgba($primary-contrast, 0.8);
+
+      a {
+        color: rgba($primary-contrast, 0.8);
+      }
     }
   }
+}
+
+// home
+.home-peter-huber-img {
+  margin-block-start: 40px;
+  float: right;
+  margin-left: $padding * 2;
+  margin-bottom: $padding;
+  border-radius: $border-radius * 3;
+  box-shadow: 0 0 10px rgba($primary, 0.2);
 }

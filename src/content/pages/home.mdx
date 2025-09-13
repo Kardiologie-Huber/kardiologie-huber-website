@@ -6,31 +6,36 @@ heroimage: 'src/assets/images/home.jpg'
 heroimageposition: 0 40%
 herotitle: Dr. Peter Huber
 herosubtitle: Kardiologe und Wahlarzt in Linz
-herodescription: Vorsorge-Checks, präzise Diagnostik (z. B. Echokardiografie, Ergometrie, Langzeit-EKG, 24-Stunden-Blutdruck, Gefäß-Ultraschall) bis hin zu Abdomen- und Nieren-Sonographie, individueller Therapieplanung, OP-Freigaben und strukturierter Nachsorge
+herodescription: ''
 ---
 
 import ScheduleAppointment from '@components/ScheduleAppointment.astro';
 import Services from '@components/Services.astro';
 import LinkButton from '@components/LinkButton.astro';
+import Header from '@components/Header.astro';
 import { LATIDO } from '../../constants';
+import { Image } from 'astro:assets';
 
-## Herzlich Willkommen
+<Image
+  class="home-peter-huber-img"
+  src={import('/src/assets/images/peter-huber.jpg')}
+  alt="Dr. Peter Huber, Kardiologe und Wahlarzt in Linz"
+  width="250"
+/>
 
-Willkommen in meiner Ordination für Kardiologie, Ihrem Partner für ein gesundes Herz.  
-Mit über 15 Jahren Erfahrung in der Kardiologie und modernsten Behandlungsmethoden biete ich Ihnen eine individuelle Diagnostik, gezielte Therapie und persönliche Betreuung - alles auf Ihre Bedürfnisse abgestimmt.
+## Willkommen in meiner Praxis für Kardiologie
 
-Als **interventioneller Kardiologe** bin ich spezialisiert auf:
+Ich bin Facharzt für Innere Medizin mit den Zusatzfächern Kardiologie und Intensivmedizin und seit vielen Jahren als Oberarzt im Klinikum Wels-Grieskirchen tätig.
+Dort liegt mein Schwerpunkt in der interventionellen Kardiologie, also in Eingriffen am Herzen wie Stent- oder Klappenimplantationen und Schrittmacherimplantationen bei bestimmten Rythmusstörungen.
 
-- **Stentimplantationen** bei koronarer Herzerkrankung
-- **Schrittmacherimplantationen** (inkl. Conduction System Pacing)
-- **TAVI**-Eingriffe bei Aortenklappen-Erkrankungen
+Im Krankenhaus ist die Zeit für persönliche Gespräche oft knapp bemessen. Mit der neuen Praxis in Linz möchte ich einen Ort schaffen, an dem mehr Raum für individuelle Betreuung bleibt. Hier biete ich Ihnen das gesamte Spektrum der kardiologischen Abklärung – von Vorsorgeuntersuchungen über bildgebende Verfahren bis hin zur Betreuung bei bestehenden Herz-Kreislauf-Erkrankungen.
 
-Zusätzlich verfüge ich über fundierte Erfahrung in der **Abdomensonographie** und im **kontrastverstärkten Ultraschall (CEUS)** durch meine langjährige Tätigkeit in der Gastroenterologie.
+Mir ist wichtig, dass wir in Ruhe über Ihre Fragen sprechen können und die Diagnostik sorgfältig erfolgt. So entsteht eine Betreuung, die nicht nur fachlich fundiert, sondern auch persönlich auf Ihre Bedürfnisse abgestimmt ist.
 
-**Unser Ziel:** Ihre Herzgesundheit zu schützen und zu stärken.  
-Wir nehmen uns Zeit, beantworten Ihre Fragen und finden gemeinsam die beste Lösung für Ihre Anliegen.
-
-## Unsere Schwerpunkte
+<Header
+  title="Untersuchungen & Behandlungen"
+  subtitle="Von Vorsorge bis Therapie – alles aus einer Hand."
+/>
 
 <Services />
 
