@@ -396,3 +396,29 @@ main
     display: block;
   }
 }
+
+// about-me
+.education {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1px;
+
+  > div {
+    background-color: $primary-light-background;
+    color: $primary-contrast-light;
+    padding: $padding * 0.5 $padding;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.education .header {
+  grid-column: span 2;
+  color: $primary-contrast;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: calc(1rem + 0.6vw);
+}
