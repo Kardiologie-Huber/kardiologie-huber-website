@@ -169,7 +169,6 @@ ul {
   background-position: center;
   height: 200px;
   margin-top: -$padding * 2 - 1;
-  margin-bottom: $padding * 2;
   position: relative;
   text-align: center;
 
@@ -382,6 +381,18 @@ main
   float: right;
   margin-left: $padding * 2;
   margin-bottom: $padding;
-  border-radius: $border-radius * 3;
   box-shadow: 0 0 10px rgba($primary, 0.2);
+  width: 250px;
+  aspect-ratio: 250 / 271;
+  height: auto;
+
+  @include media-breakpoint-down(sm) {
+    float: none;
+    margin-left: 0;
+    margin-bottom: 0;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
 }
