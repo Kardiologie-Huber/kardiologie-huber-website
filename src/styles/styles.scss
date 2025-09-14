@@ -114,17 +114,36 @@ ul {
   list-style: disclosure-closed;
 }
 
-.display-xs-only {
-  display: none;
+.img-right {
+  box-shadow: 0 0 10px rgba($primary, 0.2);
+  margin-block-start: 40px;
+  float: right;
+  margin-left: $padding * 2;
+  margin-bottom: $padding;
+  height: auto;
 
   @include media-breakpoint-down(sm) {
+    float: none;
     display: block;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+}
+
+.display-xs-only {
+  display: none !important;
+
+  @include media-breakpoint-down(sm) {
+    display: block !important;
   }
 }
 
 .display-xs-none {
   @include media-breakpoint-down(sm) {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -386,27 +405,6 @@ main
         color: rgba($primary-contrast, 0.8);
       }
     }
-  }
-}
-
-// home
-.home-peter-huber-img {
-  margin-block-start: 40px;
-  float: right;
-  margin-left: $padding * 2;
-  margin-bottom: $padding;
-  box-shadow: 0 0 10px rgba($primary, 0.2);
-  width: 250px;
-  aspect-ratio: 250 / 271;
-  height: auto;
-
-  @include media-breakpoint-down(sm) {
-    float: none;
-    margin-left: 0;
-    margin-bottom: 0;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 
