@@ -114,6 +114,20 @@ ul {
   list-style: disclosure-closed;
 }
 
+.display-xs-only {
+  display: none;
+
+  @include media-breakpoint-down(sm) {
+    display: block;
+  }
+}
+
+.display-xs-none {
+  @include media-breakpoint-down(sm) {
+    display: none;
+  }
+}
+
 .btn {
   text-transform: uppercase;
 }
@@ -393,7 +407,6 @@ main
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    display: block;
   }
 }
 

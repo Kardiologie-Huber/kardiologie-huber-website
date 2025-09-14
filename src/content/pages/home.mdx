@@ -17,7 +17,7 @@ import { LATIDO } from '../../constants';
 import { Image } from 'astro:assets';
 
 <Image
-  class="home-peter-huber-img"
+  class="home-peter-huber-img display-xs-none"
   src={import('/src/assets/images/peter-huber.jpg')}
   alt="Dr. Peter Huber, Kardiologe und Wahlarzt in Linz"
   width={500}
@@ -31,6 +31,13 @@ Dort liegt mein Schwerpunkt in der interventionellen Kardiologie, also in Eingri
 Im Krankenhaus ist die Zeit für persönliche Gespräche oft knapp bemessen. Mit der neuen Praxis in Linz möchte ich einen Ort schaffen, an dem mehr Raum für individuelle Betreuung bleibt. Hier biete ich Ihnen das gesamte Spektrum der kardiologischen Abklärung, von Vorsorgeuntersuchungen über bildgebende Verfahren bis hin zur Betreuung bei bestehenden Herz-Kreislauf-Erkrankungen.
 
 Mir ist wichtig, dass wir in Ruhe über Ihre Fragen sprechen können und die Diagnostik sorgfältig erfolgt. So entsteht eine Betreuung, die nicht nur fachlich fundiert, sondern auch persönlich auf Ihre Bedürfnisse abgestimmt ist.
+
+<Image
+  class="home-peter-huber-img display-xs-only"
+  src={import('/src/assets/images/peter-huber.jpg')}
+  alt="Dr. Peter Huber, Kardiologe und Wahlarzt in Linz"
+  width={500}
+/>
 
 <Header
   title="Untersuchungen & Behandlungen"
