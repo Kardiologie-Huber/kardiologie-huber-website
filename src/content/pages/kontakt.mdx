@@ -2,8 +2,8 @@
 title: Kontakt Dr. med. Peter Huber, 4020 Linz
 description: Praxis für Herzgesundheit mit individueller Betreuung und modernster Diagnostik.
 slug: kontakt
-herotitle: Kontakt
-herodescription: Dr. med. Peter Huber, Facharzt für Kardiologie<br/>Weißenwolffstraße 1<br/>4020 Linz
+herotitle: Dr. med. Peter Huber, Kardiologe Linz
+herodescription: Facharzt für Innere Medizin und Kardiologie<br/>Weißenwolffstraße 1<br/>4020 Linz
 heroimage: 'src/assets/images/kontakt.jpg'
 heroimageposition: 0 50%
 ---
@@ -12,14 +12,15 @@ import ScheduleAppointment from '@components/ScheduleAppointment.astro';
 import Map from '@components/Map.astro';
 import TwoColumns from '@components/TwoColumns.astro';
 import { EMAIL, PHONE, WEB, LATIDO } from '../../constants';
+import { Image } from 'astro:assets';
 
-## Dr. med. Peter Huber, Facharzt für Kardiologie
-
-Praxis für Herzgesundheit mit individueller Betreuung und modernster Diagnostik
+<TwoColumns>
+<div slot="column-1">
 
 ## Ordinationszeiten
 
-Nach Vereinbarung  
+Nach Vereinbarung
+
 🔗 <a href={LATIDO} target="_blank">Online Termin vereinbaren</a>  
 ✉️ Email: <a href={`mailto:${EMAIL}`}>{EMAIL}</a>  
 📞 Telefon: <a href={`tel:${PHONE}`}>{PHONE}</a>
@@ -36,9 +37,15 @@ Email: <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
 Telefon: <a href={`tel:${PHONE}`}>{PHONE}</a>  
 Webseite: <a href={`${WEB}`}>{WEB}</a>
 
+</div>
+<div slot="column-2">
+
+</div>
+</TwoColumns>
+
 <ScheduleAppointment />
 
-### Anfahrt
+## Anfahrt
 
 <TwoColumns>
 <div slot="column-1">

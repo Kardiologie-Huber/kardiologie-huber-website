@@ -23,3 +23,40 @@ let canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+
+<!-- schema.org -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Physician",
+    "@id": "https://kardiologie-huber.at/#identity",
+    "name": "Kardiologe Linz - Ordination Dr. Huber",
+    "url": "https://kardiologie-huber.at/",
+    "description": "Facharzt für Innere Medizin und Kardiologie in Linz für Vorsorge, Diagnostik und Behandlung von Herz-Kreislauf-Erkrankungen.",
+    "medicalSpecialty": "Cardiovascular",
+    "telephone": "+43 681 813 612 95",
+    "email": "ordination@kardiologie-huber.at",
+    "image": "https://kardiologie-huber.at/images/dr-peter-huber-2.jpg",
+    "logo": "https://kardiologie-huber.at/logo.svg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Weißenwolffstraße 1",
+      "postalCode": "4020",
+      "addressLocality": "Linz",
+      "addressRegion": "Oberösterreich",
+      "addressCountry": "AT"
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Linz" },
+      { "@type": "AdministrativeArea", "name": "Oberösterreich" }
+    ],
+    "knowsLanguage": ["de", "en"],
+    "paymentAccepted": ["Cash", "DebitCard", "CreditCard"],
+    "sameAs": [
+      "https://maps.app.goo.gl/MRHuxkkUXDvoFzDJ7",
+      "https://www.docfinder.at/internist/4020-linz/dr-peter-huber",
+      "https://www.herold.at/gelbe-seiten/linz/jGS2Z/kardiologe-huber/",
+      "https://arztsuche24.at/innere-medizin/4020-linz/kardiologe-huber-MjAyNjE4MA/"
+    ]
+  }
+</script>
