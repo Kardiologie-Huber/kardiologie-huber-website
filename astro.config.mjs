@@ -2,10 +2,14 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import astroLlmsTxt from './tools/llms-generator/index';
+import { targetBlank } from './src/plugins/target-blank';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.kardiologie-huber.at',
+  markdown: {
+    rehypePlugins: [[targetBlank, { domain: 'www.kardiologie-huber.at' }]],
+  },
   integrations: [
     mdx(),
     sitemap(),
