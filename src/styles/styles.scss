@@ -116,10 +116,8 @@ ul {
 
 .img-right {
   box-shadow: 0 0 10px rgba($primary, 0.2);
-  margin-block-start: 40px;
   float: right;
   margin-left: $padding * 2;
-  margin-bottom: $padding;
   height: auto;
 
   @include media-breakpoint-down(sm) {
