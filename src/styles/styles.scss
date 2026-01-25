@@ -68,7 +68,7 @@ footer {
   color: $primary-contrast-light;
   margin-block-start: $padding * 2;
 
-  > .container-fluid {
+  >.container-fluid {
     padding-top: $padding * 2;
     padding-bottom: $padding * 2;
     padding-left: $padding;
@@ -213,20 +213,18 @@ ul {
     z-index: 1;
   }
 
-  > .container-fluid {
+  >.container-fluid {
     position: relative;
     height: 100%;
     align-content: end;
     z-index: 2;
     text-shadow: 2px 2px 18px black;
 
-    > .row {
+    >.row {
       //background-color: rgba(#000000, 0.33);
-      background: linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.5) 50%,
-        rgba(0, 0, 0, 0) 100%
-      );
+      background: linear-gradient(0deg,
+          rgba(0, 0, 0, 0.5) 50%,
+          rgba(0, 0, 0, 0) 100%);
       padding-top: $padding * 0.5;
       padding-bottom: $padding * 0.5;
     }
@@ -282,16 +280,12 @@ section.highlight {
   margin-block-start: $padding * 2;
   margin-block-end: $padding * 2;
 
-  main > div.container > &:last-child {
+  main>div.container>&:last-child {
     margin-block-end: $padding * -2;
   }
 }
 
-main
-  > div.container
-  > div.row
-  > div.col-12
-  > :last-child:is(section.highlight) {
+main>div.container>div.row>div.col-12> :last-child:is(section.highlight) {
   margin-block-end: $padding * -2;
 }
 
@@ -309,11 +303,11 @@ main
   margin-block-end: $padding * -2 - 5px;
   margin-left: calc((100vw - 100%) / -2 + 8px);
 
-  section.highlight + & {
+  section.highlight+& {
     margin-top: $padding * -2;
   }
 
-  > div {
+  >div {
     position: absolute;
     top: $padding;
     left: $padding;
@@ -358,7 +352,7 @@ main
   }
 }
 
-.services > div {
+.services>div {
   //border-radius: $border-radius * 2;
   background-color: $primary-light-background;
   color: $primary-contrast;
@@ -391,7 +385,7 @@ main
     padding-left: 1.3em;
   }
 
-  ul > li {
+  ul>li {
     margin-bottom: 1em * 0.5;
 
     .details {
@@ -412,7 +406,7 @@ main
   grid-template-columns: auto 1fr;
   gap: 1px;
 
-  > div {
+  >div {
     background-color: $primary-light-background;
     color: $primary-contrast-light;
     padding: $padding * 0.5 $padding;
@@ -430,4 +424,23 @@ main
   text-transform: uppercase;
   font-weight: 300;
   font-size: calc(1rem + 0.6vw);
+}
+
+.faq {
+  p {
+    padding-left: $padding;
+    padding-right: $padding;
+
+    &>strong:first-of-type {
+      display: block;
+      background-color: $primary-light-background;
+      color: $primary-contrast;
+      padding: $padding * 0.25 $padding;
+      margin-left: -$padding;
+      margin-right: -$padding;
+      margin-bottom: -$padding * 0.5;
+      border-radius: $border-radius;
+      font-weight: 500;
+    }
+  }
 }
