@@ -41,6 +41,7 @@ $border-radius: 8px;
 
 $padding: 20px;
 $highlight-bg: #f0f0f0;
+$background-light: #d0d0d0;
 
 :root {
   // font-awesome colors
@@ -191,6 +192,22 @@ ul {
       margin-left: 0 !important;
       margin-top: $padding;
       margin-bottom: $padding;
+    }
+  }
+
+  .dropdown-menu {
+    padding-top: 0;
+  }
+
+  .dropdown-header {
+    font-weight: 500;
+    color: $primary;
+    text-transform: uppercase;
+    background-color: $background-light;
+
+    &:first-of-type {
+      border-top-left-radius: $border-radius;
+      border-top-right-radius: $border-radius;
     }
   }
 }
