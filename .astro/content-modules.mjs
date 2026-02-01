@@ -20,5 +20,6 @@ export default new Map([
 ["src/content/pages/leistungen/spirometrie.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fpages%2Fleistungen%2Fspirometrie.mdx&astroContentModuleFlag=true")],
 ["src/content/pages/leistungen/polygraphie.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fpages%2Fleistungen%2Fpolygraphie.mdx&astroContentModuleFlag=true")],
 ["src/content/pages/leistungen/nachkontrolle-nach-herzinfarkt.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fpages%2Fleistungen%2Fnachkontrolle-nach-herzinfarkt.mdx&astroContentModuleFlag=true")],
-["src/content/pages/leistungen/ultraschall-halsschlagader.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fpages%2Fleistungen%2Fultraschall-halsschlagader.mdx&astroContentModuleFlag=true")]]);
+["src/content/pages/leistungen/ultraschall-halsschlagader.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fpages%2Fleistungen%2Fultraschall-halsschlagader.mdx&astroContentModuleFlag=true")],
+["src/content/pages/leistungen/diabetes.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fpages%2Fleistungen%2Fdiabetes.mdx&astroContentModuleFlag=true")]]);
 		
