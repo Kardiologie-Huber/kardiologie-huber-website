@@ -1,0 +1,58 @@
+---
+title: x
+description: x
+slug: leistungen/laborkontrolle-blutuntersuchung
+---
+
+import ScheduleAppointment from '@components/ScheduleAppointment.astro';
+
+# Laborkontrolle (Blutuntersuchung)
+
+Blutuntersuchungen sind ein wichtiger Bestandteil der ärztlichen Diagnostik und Verlaufskontrolle. Sie liefern wesentliche Informationen über Stoffwechsel, Organfunktion und kardiovaskuläre Risikofaktoren und bilden häufig die Grundlage für therapeutische Entscheidungen.
+
+In meiner Ordination in Linz werden Laborkontrollen indikationsbezogen durchgeführt. Die Laboranalysen und Befundauswertungen erfolgen in Zusammenarbeit mit dem externen medizinischen Labor **my-lab**.
+
+## Wann sind Laborkontrollen sinnvoll?
+
+Laborkontrollen werden durchgeführt, wenn sie für die Diagnostik, Therapieentscheidung oder Verlaufskontrolle medizinisch erforderlich sind. Dies ist unter anderem der Fall bei:
+
+- Diabetes mellitus  
+- Fettstoffwechselstörungen (erhöhtes Cholesterin, Triglyzeride)  
+- Bluthochdruck  
+- kardiovaskulären Risikokonstellationen  
+- medikamentöser Therapie mit erforderlicher Verlaufskontrolle  
+
+Nicht bei jeder Untersuchung ist eine Blutabnahme notwendig. Art und Umfang der Laborkontrollen richten sich nach der individuellen Fragestellung.
+
+## Welche Laborwerte werden typischerweise bestimmt?
+
+Je nach medizinischer Situation können unter anderem folgende Laborparameter untersucht werden:
+
+- Blutzucker und HbA1c  
+- Blutfettwerte  
+  - Gesamtcholesterin  
+  - LDL- und HDL-Cholesterin  
+  - Triglyzeride  
+  - gegebenenfalls Lipoprotein(a)  
+- Nierenwerte  
+- Leberwerte zur Therapiekontrolle  
+- weitere Laborwerte je nach Fragestellung  
+
+Die Auswahl der Laborparameter erfolgt individuell und orientiert sich an der jeweiligen Erkrankung und Therapie.
+
+## Laboranalyse und Befundauswertung
+
+Die Analyse der Blutproben erfolgt durch das externe medizinische Labor **my-lab**  
+(https://www.my-lab.at).
+
+Die Laborbefunde werden anschließend ärztlich beurteilt und in den Gesamtkontext der bestehenden Erkrankungen, der Medikation und des individuellen Risikoprofils eingeordnet. Auf dieser Basis werden therapeutische Entscheidungen getroffen oder bestehende Behandlungen angepasst.
+
+## Einordnung in die weitere Betreuung
+
+Laborkontrollen sind Teil einer umfassenden ärztlichen Betreuung und werden in Zusammenhang mit klinischer Untersuchung, Blutdruckmessung, EKG- oder Ultraschallbefunden beurteilt. Sie ersetzen keine ärztliche Untersuchung, sondern ergänzen diese sinnvoll.
+
+## Terminvereinbarung
+
+Wenn im Rahmen der ärztlichen Betreuung eine Laborkontrolle erforderlich ist, wird diese entsprechend geplant und durchgeführt. Für eine medizinische Abklärung oder Verlaufskontrolle können Sie gerne einen Termin in meiner Ordination in Linz vereinbaren.
+
+<ScheduleAppointment></ScheduleAppointment>
