@@ -838,6 +838,70 @@ main>div.container>div.row>div.col-12> :last-child:is(section.highlight) {
 }
 
 // services
+// Startseite: Häufige Anlässe auf einem Navy-Band über die volle Breite, zweispaltig
+.reasons {
+  $reasons-bg: mix($secondary, $primary, 10%);
+  margin-block: 24px;
+  padding-block: 40px 36px;
+  background: $reasons-bg;
+  box-shadow: 0 0 0 100vmax $reasons-bg;
+  clip-path: inset(0 -100vmax);
+
+  @include media-breakpoint-up(lg) {
+    margin-block: 40px;
+    padding-block: 64px 56px;
+  }
+
+  h2 {
+    margin-top: 0;
+    color: #fff;
+  }
+
+  ul {
+    display: grid;
+    column-gap: 48px;
+    margin: 8px 0 0;
+    padding: 0;
+    list-style: none;
+
+    @include media-breakpoint-up(md) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  li {
+    margin: 0;
+    padding-block: 14px 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    line-height: 1.55;
+    color: rgba(234, 244, 250, 0.8);
+
+    &::marker {
+      content: none;
+    }
+
+    strong {
+      display: block;
+      margin-bottom: 2px;
+      color: #fff;
+      font-size: 1.0625rem;
+    }
+  }
+
+  a {
+    color: #fff;
+    text-decoration-color: rgba(169, 219, 232, 0.7);
+
+    &:hover {
+      text-decoration-color: #fff;
+    }
+  }
+
+  :focus-visible {
+    outline-color: #fff;
+  }
+}
+
 // Startseite: Untersuchungen & Behandlungen als Register.
 // Je Gruppe eine Zeile: Gruppenname links (läuft beim Scrollen mit), Leistungen in zwei Spalten rechts.
 .services {
