@@ -47,9 +47,10 @@ $background-light: #d3e1ec;
 $surface: #eef4f8;
 $surface-strong: #e1eaf2;
 $navbar-bg: #fdfdfe;
-$footer-bg: #10384d;
+$footer-bg: #0f2437;
 $footer-color: rgba(234, 244, 250, 0.78);
-$footer-link-color: rgba(234, 244, 250, 0.92);
+$footer-link-color: rgba(234, 244, 250, 0.94);
+$footer-muted: rgba(234, 244, 250, 0.66);
 
 :root {
   // font-awesome colors
@@ -82,27 +83,124 @@ main {
   flex-grow: 1;
 }
 
+// Footer: vier ruhige Spalten (Logo | Adresse | Kontakt | Links), ohne Linien und Symbole
 footer {
   background-color: $footer-bg;
   color: $footer-color;
   margin-block-start: $padding * 2;
+  padding-block: 32px 20px;
+  font-size: 0.9375rem;
+  line-height: 1.6;
 
-  >.container-fluid {
-    padding-top: $padding * 2;
-    padding-bottom: $padding * 2;
-    padding-left: $padding;
-    padding-right: $padding;
+  @include media-breakpoint-up(lg) {
+    padding-top: 40px;
   }
 
-  p {
-    margin-bottom: 0;
+  p,
+  address {
+    margin: 0;
+    font-style: normal;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    margin: 0;
+
+    &::marker {
+      content: none;
+    }
   }
 
   a {
     color: $footer-link-color;
+    text-decoration: none;
 
     &:hover {
       color: $primary-contrast;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+  }
+
+  :focus-visible {
+    outline-color: #fff;
+  }
+
+  .footer-grid {
+    display: grid;
+    gap: 24px 32px;
+
+    @include media-breakpoint-up(md) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @include media-breakpoint-up(xl) {
+      grid-template-columns: 180px minmax(0, 1.1fr) minmax(0, 1fr) max-content;
+      column-gap: 48px;
+    }
+  }
+
+  .footer-logo img {
+    display: block;
+    width: 140px;
+    height: auto;
+  }
+
+  .footer-address strong {
+    display: block;
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .footer-contact {
+    display: grid;
+    justify-items: start;
+    align-content: start;
+
+    a {
+      font-variant-numeric: tabular-nums;
+    }
+
+    p {
+      margin-top: 2px;
+    }
+  }
+
+  // Seiten in zwei Spalten à drei Zeilen, Tagebücher daneben (bricht um, wenn der Platz fehlt)
+  .footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 32px;
+    align-content: start;
+
+    ul:first-child {
+      display: grid;
+      grid-template-rows: repeat(3, auto);
+      grid-auto-flow: column;
+      column-gap: 32px;
+    }
+
+    a {
+      display: inline-block;
+      padding-block: 2px;
+    }
+  }
+
+  .footer-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 24px;
+    margin-top: 32px;
+    font-size: 0.8125rem;
+    color: $footer-muted;
+
+    a {
+      color: $footer-color;
     }
   }
 }

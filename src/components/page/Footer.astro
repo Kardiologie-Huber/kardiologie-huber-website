@@ -1,44 +1,39 @@
 ---
 import { EMAIL, PHONE } from '../../constants';
+const phoneHref = `tel:+43${PHONE.replace(/\s/g, '').replace(/^0/, '')}`;
 ---
 
-<div class="container-fluid">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 col-md-5 text-center text-md-start">
-        <img src="/images/logo-white.svg" width="250" alt="Kardiologie Huber" />
-      </div>
-      <div class="col-12 col-md-3 text-center text-md-start mt-4 mt-md-0">
-        <a href="/leistungen/">Leistungen</a><br />
-        <!--<a href="/ordination/">Ordination</a><br /> -->
-        <a href="/wahlarzt/">Wahlarzt</a><br />
-        <a href="/dr-peter-huber/">Über mich</a><br />
-        <a href="/faqs/">FAQs</a><br />
-        <a href="/kontakt/">Kontakt</a><br />
-        <a href="/downloads/blutdruck-tagebuch/">Blutdruck-Tagebuch</a><br />
-        <a href="/downloads/langzeit-ekg-tagebuch/">Langzeit-EKG-Tagebuch</a><br />
-        <a href="/impressum/">Impressum</a><br />
-        <a href="/dsgvo/">DSGVO</a>
-      </div>
-      <div class="col-12 col-md-4 text-center text-md-start mt-4 mt-md-0">
-        <p>
-          Kardiologie Huber
-          <br />
-          Dr. med. Peter Huber
-          <br />
-          Facharzt für Innere Medizin und Kardiologie
-          <br />
-          Weißenwolffstraße 1, 4020 Linz
-          <br />
-          <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
-          <br />
-          <a href={`tel:${PHONE}`}>{PHONE}</a>
-          <br /><br />
-          Ordinationszeiten nach Vereinbarung
-          <br /><br />
-          &copy; {new Date().getFullYear()} Dr. med. Peter Huber
-        </p>
-      </div>
+<div class="container">
+  <div class="footer-grid">
+    <a class="footer-logo" href="/"><img src="/images/logo-white.svg" width="250" alt="Kardiologie Huber" /></a>
+    <address class="footer-address">
+      <strong>Kardiologie Huber</strong>
+      Dr. med. Peter Huber<br />
+      Facharzt für Innere Medizin und Kardiologie<br />
+      Weißenwolffstraße 1, 4020 Linz
+    </address>
+    <div class="footer-contact">
+      <a href={phoneHref}>{PHONE}</a>
+      <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+      <p>Ordinationszeiten nach Vereinbarung</p>
     </div>
+    <nav class="footer-nav" aria-label="Fußzeile">
+      <ul>
+        <li><a href="/leistungen/">Leistungen</a></li>
+        <li><a href="/wahlarzt/">Wahlarzt</a></li>
+        <li><a href="/dr-peter-huber/">Über mich</a></li>
+        <li><a href="/faqs/">FAQs</a></li>
+        <li><a href="/kontakt/">Kontakt</a></li>
+      </ul>
+      <ul>
+        <li><a href="/downloads/blutdruck-tagebuch/">Blutdruck-Tagebuch</a></li>
+        <li><a href="/downloads/langzeit-ekg-tagebuch/">Langzeit-EKG-Tagebuch</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="footer-meta">
+    <span>&copy; {new Date().getFullYear()} Dr. med. Peter Huber</span>
+    <a href="/impressum/">Impressum</a>
+    <a href="/dsgvo/">DSGVO</a>
   </div>
 </div>
