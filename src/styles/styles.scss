@@ -763,26 +763,105 @@ main {
   }
 }
 
-section.highlight {
-  background-color: $highlight-bg;
+// Termin-Block (ScheduleAppointment, auf fast allen Seiten): weiße Karte auf einem Nebelblau-Band über die volle Breite
+.schedule-appointment {
+  margin-block: $padding * 2;
+  padding-block: 48px;
+  background: $surface;
+  box-shadow: 0 0 0 100vmax $surface;
+  clip-path: inset(0 -100vmax);
+
+  @include media-breakpoint-up(lg) {
+    padding-block: 64px;
+  }
 
   h2 {
+    margin: 0 0 12px;
     color: $primary;
+    text-wrap: balance;
   }
-  width: calc(100vw - 17px);
-  position: relative;
-  margin-left: calc((100vw - 100%) / -2 + 8px);
-  padding-top: $padding;
-  padding-bottom: $padding;
-  margin-block-start: $padding * 2;
-  margin-block-end: $padding * 2;
 
-  main>div.container>&:last-child {
-    margin-block-end: $padding * -2;
+  p {
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .appointment-card {
+    max-width: 760px;
+    margin-inline: auto;
+    padding: 32px 24px;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 24px 48px -32px rgba($primary, 0.4), 0 1px 3px rgba($primary, 0.06);
+    text-align: center;
+
+    @include media-breakpoint-up(md) {
+      padding: 48px 56px 40px;
+    }
+  }
+
+  .appointment-desc {
+    max-width: 56ch;
+    margin-inline: auto;
+    color: #3d5266;
+  }
+
+  .appointment-btn {
+    margin-top: 24px;
+  }
+
+  .appointment-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 52px;
+    padding: 13px 28px;
+    border-radius: 999px;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .appointment-foot {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid rgba($primary, 0.14);
+    color: #3d5266;
+  }
+
+  .appointment-contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 32px;
+    margin-top: 10px;
+
+    span {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    a {
+      font-variant-numeric: tabular-nums;
+    }
+
+    svg {
+      color: $secondary;
+    }
+  }
+
+  .appointment-cta svg,
+  .appointment-contact svg {
+    flex: none;
+    width: 18px;
+    height: 18px;
   }
 }
 
-main>div.container>div.row>div.col-12> :last-child:is(section.highlight) {
+// Steht der Termin-Block am Seitenende, schließt das Band direkt an den Footer an
+main > div.container > div.row > div.col-12 > :last-child:is(.schedule-appointment) {
   margin-block-end: $padding * -2;
 }
 
