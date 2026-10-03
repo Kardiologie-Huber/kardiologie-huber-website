@@ -1102,9 +1102,14 @@ main table {
   }
 }
 
-// Abschnitt Erfahrung auf der Startseite: Text links, Porträt rechts
+// Abschnitt Erfahrung auf der Startseite: Porträt links, Text rechts
 .experience {
   display: flow-root;
+  padding-top: 8px;
+
+  @include media-breakpoint-up(lg) {
+    padding-top: 40px;
+  }
 
   figure {
     margin: 0;
@@ -1123,8 +1128,8 @@ main table {
     gap: 24px;
 
     @include media-breakpoint-up(lg) {
-      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-      column-gap: 56px;
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      column-gap: 64px;
       align-items: center;
 
       h2 {
@@ -1139,5 +1144,31 @@ main table {
     @include media-breakpoint-up(lg) {
       max-width: none;
     }
+  }
+}
+
+// Startseite: "Wahlarzt statt Kassenarzt" und "Ordination im Zentrum" nebeneinander auf einem Nebelblau-Band
+.topic-pair {
+  display: grid;
+  gap: 0 56px;
+  margin-top: 40px;
+  padding-block: 8px 32px;
+  background: $surface;
+  box-shadow: 0 0 0 100vmax $surface;
+  clip-path: inset(0 -100vmax);
+
+  @include media-breakpoint-up(lg) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 72px;
+    margin-top: 64px;
+    padding-block: 24px 48px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    line-height: 1.6;
   }
 }
