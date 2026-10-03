@@ -10,7 +10,7 @@ export const targetBlank: RehypePlugin = ({ domain = '' } = {}) => {
         e.properties?.href &&
         ((e.properties.href.toString().startsWith('http') &&
           !e.properties.href.toString().includes(domain)) ||
-          e.properties.href.toString().includes('/downloads/'))
+          /.(pdf|docx?)$/i.test(e.properties.href.toString()))
       ) {
         e.properties!['target'] = '_blank';
         e.properties!['rel'] = '_noopener';
