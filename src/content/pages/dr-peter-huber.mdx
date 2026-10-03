@@ -11,9 +11,15 @@ herodescription: In meiner Praxis in Linz behandle ich Patientinnen und Patiente
 
 import ScheduleAppointment from '@components/ScheduleAppointment.astro';
 
+<section class="welcome">
+<div class="welcome-lead">
+
 ## Willkommen in meiner kardiologischen Wahlarztordination
 
 Mit mehr als 15 Jahren ärztlicher Erfahrung, einer kontinuierlichen Weiterbildung in den neuesten medizinischen Verfahren und einer Spezialisierung als interventioneller Kardiologe kann ich Ihnen ein breites Leistungsspektrum anbieten.
+
+</div>
+<div class="welcome-areas">
 
 ### Meine Spezialgebiete
 
@@ -21,56 +27,52 @@ Mit mehr als 15 Jahren ärztlicher Erfahrung, einer kontinuierlichen Weiterbildu
 - **Schrittmacherimplantationen**, insbesondere **Conduction System Pacing** (physiologische Stimulation des Herzleitungssystems)
 - **Klappeninterventionen** (TAVI / Transkatheter‑Aortenklappenimplantation)
 
+</div>
+<div class="welcome-extra">
+
 ### Zusatzexpertise in Ultraschallverfahren
 
 Durch meine langjährige Tätigkeit in einer **gastroenterologischen Abteilung** verfüge ich über fundierte Erfahrung in der **Abdomensonographie** sowie im **kontrastverstärkten Ultraschall (CEUS)**. Diese Erfahrung ermöglicht mir, Herz-Kreislauf-Erkrankungen auch im Zusammenspiel mit anderen Organen präzise zu beurteilen.
 
+</div>
+</section>
+
 ## Ausbildung
 
-<div class="education">
-<div class="header">Schule und Studium</div>
-
-<div>2001</div>
-<div>Matura, Khevenhüller Gymnasium Linz</div>
-<div>2001 – 2010</div>
-<div>
-  <div>Medizinstudium, Karl-Franzens-Universität Graz</div>
-  <div>Präsenzdienst</div>
-  <div>Auslandspraktikum im La Loma Luz Hospital, Santa Elena, Belize</div>
+<div class="cv-timeline">
+  <section class="cv-group">
+    <h3>Schule und Studium</h3>
+    <dl>
+      <div><dt>2001</dt><dd>Matura, Khevenhüller Gymnasium Linz</dd></div>
+      <div>
+        <dt>2001 – 2010</dt>
+        <dd>Medizinstudium, Karl-Franzens-Universität Graz</dd>
+        <dd>Präsenzdienst</dd>
+        <dd>Auslandspraktikum im La Loma Luz Hospital, Santa Elena, Belize</dd>
+      </div>
+    </dl>
+  </section>
+  <section class="cv-group">
+    <h3>Ärztliche Ausbildung</h3>
+    <dl>
+      <div><dt>2010 – 2014</dt><dd>Turnusausbildung in den Spitälern Oberwart, Oberpullendorf, Vöcklabruck, Friesach sowie an der Rudolfstiftung Wien</dd></div>
+      <div><dt>2014</dt><dd>Abschluss der Ausbildung zum Allgemeinmediziner</dd></div>
+      <div><dt>2014 – 2019</dt><dd>Facharztausbildung zum Allgemeininternisten, Klinikum Wels-Grieskirchen</dd></div>
+    </dl>
+  </section>
+  <section class="cv-group">
+    <h3>Berufliche Laufbahn</h3>
+    <dl>
+      <div><dt>2019 – 2021</dt><dd>Facharzt für Innere Medizin, 5. Interne Abteilung mit gastroenterologischem Schwerpunkt, Klinikum Wels-Grieskirchen</dd></div>
+      <div><dt>2021 - heute</dt><dd>Oberarzt, 2. Interne Abteilung Klinikum Wels-Grieskirchen, tägliche Tätigkeit im Bereich der interventionellen Kardiologie</dd></div>
+      <div><dt>seit 2023</dt><dd>Zusatzfach Kardiologie</dd></div>
+      <div><dt>seit 2025</dt><dd>Zusatzfach Intensivmedizin</dd></div>
+    </dl>
+  </section>
 </div>
 
-<div class="header">Ärztliche Ausbildung</div>
-
-<div>2010 – 2014</div>
-<div>
-  Turnusausbildung in den Spitälern Oberwart, Oberpullendorf, Vöcklabruck,
-  Friesach sowie an der Rudolfstiftung Wien
-</div>
-<div>2014</div>
-<div>Abschluss der Ausbildung zum Allgemeinmediziner</div>
-<div>2014 – 2019</div>
-<div>
-  Facharztausbildung zum Allgemeininternisten, Klinikum Wels-Grieskirchen
-</div>
-
-<div class="header">Berufliche Laufbahn</div>
-
-<div>2019 – 2021</div>
-<div>
-  Facharzt für Innere Medizin, 5. Interne Abteilung mit gastroenterologischem
-  Schwerpunkt, Klinikum Wels-Grieskirchen
-</div>
-<div>2021 - heute</div>
-<div>
-  Oberarzt, 2. Interne Abteilung Klinikum Wels-Grieskirchen, tägliche Tätigkeit
-  im Bereich der interventionellen Kardiologie
-</div>
-<div>seit 2023</div>
-<div>Zusatzfach Kardiologie</div>
-<div>seit 2025</div>
-<div>Zusatzfach Intensivmedizin</div>
-
-</div>
+<div class="topic-rows">
+<section class="topic-row">
 
 ## Mein Behandlungsansatz
 
@@ -80,11 +82,18 @@ Ihre Fragen und Anliegen einzugehen, Untersuchungen in Ruhe durchzuführen und g
 
 Müssen Untersuchungen stationär erfolgen, koordiniere ich diese entweder direkt für Sie im Klinikum Wels oder stelle eine Überweisung in ein anderes Krankenhaus aus.
 
+</section>
+<section class="topic-row">
+
 ## Kardiologe in Wels und Wahlarzt in Linz
 
 Als Oberarzt an der 2. Internen Abteilung des Klinikums Wels-Grieskirchen arbeite ich täglich im Herzkatheterlabor: Stentimplantationen bei Herzinfarkt und koronarer Herzkrankheit, Schrittmacherimplantationen und Klappeneingriffe (TAVI). Diese Erfahrung aus dem Spital bringe ich in die Ordination ein. Wer bei mir in Linz zur Kontrolle kommt, wird von jemandem betreut, der die Eingriffe selbst durchführt und weiß, worauf es danach ankommt.
 
 Meine Wahlarztordination befindet sich in Linz, nicht in Wels. Patientinnen und Patienten aus Wels, Grieskirchen und dem Hausruckviertel sind ebenso willkommen wie jene aus Linz, Urfahr, Linz-Land und dem Mühlviertel. Viele nutzen den Termin in Linz gerade deshalb, weil sie mich bereits aus dem Klinikum kennen und die Nachsorge nach Stent, Schrittmacher oder Klappeneingriff in Ruhe und ohne Spitalsbetrieb besprechen möchten. Die [Anfahrt ist auf der Kontaktseite beschrieben](/kontakt/).
+
+</section>
+</div>
+<div class="topic-sign">
 
 Ich freue mich darauf, Sie in meiner neu gestalteten Praxis in Linz begrüßen zu dürfen.
 
@@ -95,5 +104,7 @@ _Facharzt für Kardiologie und Intensivmedizin
 Allgemeine Innere Medizin  
 Allgemeinmedizin  
 Wahlarzt in Linz_
+
+</div>
 
 <ScheduleAppointment></ScheduleAppointment>
