@@ -1012,22 +1012,61 @@ main>div.container>div.row>div.col-12> :last-child:is(section.highlight) {
   font-size: calc(1rem + 0.6vw);
 }
 
+// FAQs (alle Seiten, gleiches Markdown): Frage = Absatz, der mit **fett** + Zeilenumbruch beginnt.
+// Ab 992 px zweispaltig (CSS-Spalten, damit eine Frage nie von ihrer Aufzählung getrennt wird);
+// Zwischenüberschriften laufen über beide Spalten.
 .faq {
-  p {
-    padding-left: $padding;
-    padding-right: $padding;
+  @include media-breakpoint-up(lg) {
+    columns: 2;
+    column-gap: 56px;
+  }
 
-    &>strong:first-of-type {
-      display: block;
-      background-color: $surface-strong;
-      color: $primary;
-      padding: $padding * 0.25 $padding;
-      margin-left: -$padding;
-      margin-right: -$padding;
-      margin-bottom: -$padding * 0.5;
-      border-radius: $border-radius;
-      font-weight: 500;
+  > h2,
+  > h3 {
+    column-span: all;
+  }
+
+  > p {
+    margin: 0;
+    line-height: 1.6;
+    color: #3d5266;
+  }
+
+  > p:has(> strong:first-child + br) {
+    padding-bottom: 22px;
+    break-inside: avoid;
+  }
+
+  > p:has(> strong:first-child + br):has(+ :is(ul, ol)) {
+    padding-bottom: 8px;
+    break-after: avoid;
+  }
+
+  > p > strong:first-child {
+    color: $primary;
+  }
+
+  > p > strong:first-child:has(+ br) {
+    display: block;
+    margin-bottom: 10px;
+    padding: 10px 16px;
+    border-radius: $border-radius;
+    background: $surface-strong;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    line-height: 1.4;
+
+    + br {
+      display: none;
     }
+  }
+
+  > ul,
+  > ol {
+    margin: 0;
+    padding-bottom: 22px;
+    break-inside: avoid;
+    color: #3d5266;
   }
 }
 // Download-Landingpages (Tagebuch-Vorlagen)
