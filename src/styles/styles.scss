@@ -663,58 +663,22 @@ main {
   }
 }
 
-// Startseite: Einleitung mit Foto, darunter die Zusagen auf einem Nebelblau-Band
+// Startseite: Einleitung links, Zusagen mit Häkchen rechts (ab 992 px), getrennt durch eine Haarlinie
 .intro {
-  display: flow-root;
+  display: grid;
+  gap: 8px;
   padding-top: 12px;
   padding-bottom: 24px;
 
   @include media-breakpoint-up(lg) {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    column-gap: 72px;
+    align-items: start;
     padding-top: 72px;
     padding-bottom: 32px;
-  }
 
-  figure {
-    margin: 0;
-  }
-
-  img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 18px 40px -24px rgba($primary, 0.45);
-  }
-
-  .intro-split {
-    display: grid;
-    gap: 24px;
-
-    // Zwischen 992 und 1199 px ist die Textspalte deutlich höher als das Foto:
-    // mehr Platz für den Text, Foto oben bündig statt mittig.
-    @include media-breakpoint-up(lg) {
-      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-      column-gap: 56px;
-      align-items: start;
-
-      h2 {
-        margin-top: 0;
-      }
-    }
-
-    @include media-breakpoint-up(xl) {
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      column-gap: 64px;
-      align-items: center;
-    }
-  }
-
-  .intro-media {
-    max-width: 560px;
-
-    @include media-breakpoint-up(lg) {
-      max-width: none;
-      margin-top: 6px;
+    h2 {
+      margin-top: 0;
     }
   }
 
@@ -730,16 +694,16 @@ main {
     color: #1e3348;
   }
 
-  .intro-band {
-    margin-top: 40px;
-    padding-block: 40px 44px;
-    background: $surface;
-    box-shadow: 0 0 0 100vmax $surface;
-    clip-path: inset(0 -100vmax);
+  .intro-list {
+    margin-top: 16px;
+    padding-top: 28px;
+    border-top: 1px solid rgba($primary, 0.14);
 
     @include media-breakpoint-up(lg) {
-      margin-top: 56px;
-      padding-block: 56px 60px;
+      margin-top: 0;
+      padding: 4px 0 4px 40px;
+      border-top: 0;
+      border-left: 1px solid rgba($primary, 0.14);
     }
 
     > p {
@@ -750,18 +714,10 @@ main {
 
     ul {
       display: grid;
-      gap: 16px 48px;
+      gap: 14px;
       margin: 0;
       padding: 0;
       list-style: none;
-
-      @include media-breakpoint-up(md) {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      @include media-breakpoint-up(lg) {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
     }
 
     li {
