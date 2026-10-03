@@ -12,22 +12,24 @@ const {
   title,
   description,
   heroimage,
-  heroimagedarkness,
   herotitle,
   herosubtitle,
   herodescription,
   heroimageposition,
+  herowash,
+  herotextside,
 } = Astro.props;
 
 let heroStyle = '';
 if (heroimage) {
-  const optimizedBackground = await getImage({
-    src: heroimage,
-    format: 'webp',
-    width: 1920,
-    height: 500,
-  });
-  heroStyle = `background-image: url(${optimizedBackground.src}); background-position: ${heroimageposition ?? 'center top'};'`;
+  // Large hero: uncropped photo, subject placed per page via heroimageposition (desktop).
+  // Small hero (no title): fixed 1920x500 strip.
+  const optimizedBackground = herotitle
+    ? await getImage({ src: heroimage, format: 'webp', width: Math.min(2400, heroimage.width) })
+    : await getImage({ src: heroimage, format: 'webp', width: 1920, height: 500 });
+  heroStyle = herotitle
+    ? `background-image: url(${optimizedBackground.src}); --hero-pos: ${heroimageposition ?? '50% 30%'}; --hero-wash: ${herowash ?? 0.6}`
+    : `background-image: url(${optimizedBackground.src}); background-position: ${heroimageposition ?? 'center top'}`;
 }
 ---
 
@@ -48,38 +50,27 @@ if (heroimage) {
     <main>
       {
         heroimage && (
-          <div
-            class={herotitle ? 'hero-image hero-image-large' : 'hero-image'}
-            style={heroStyle}
-          >
-            <div
-              class="hero-image-overlay"
-              style={'opacity: ' + (heroimagedarkness ?? 0)}
-            />
-            {herotitle && (
-              <div class="container-fluid hero-container">
-                <div class="row">
-                  <div class="col-12 col-lg-8 col-xl-6 offset-lg-2 offset-xl-3">
-                    <div class="hero-title">
-                      <h1>
-                        {herotitle}
-                        <br />
-                        {herosubtitle && (
-                          <span class="hero-subtitle">{herosubtitle}</span>
-                        )}
-                      </h1>
+          herotitle ? (
+            <div class={herotextside === 'right' ? 'hero hero-right' : 'hero'}>
+              <div class="hero-photo" style={heroStyle} aria-hidden="true" />
+              <div class="container hero-inner">
+                <div class="hero-copy">
+                  <h1>
+                    {herotitle}
+                    <br />
+                    {herosubtitle && <span class="hero-subtitle">{herosubtitle}</span>}
+                  </h1>
+                  {herodescription && (
+                    <div class="hero-description">
+                      <p set:html={herodescription} />
                     </div>
-
-                    {herodescription && (
-                      <div class="hero-description">
-                        <p set:html={herodescription} />
-                      </div>
-                    )}
-                  </div>
+                  )}
                 </div>
               </div>
-            )}
-          </div>
+            </div>
+          ) : (
+            <div class="hero-image" style={heroStyle} />
+          )
         )
       }
       <div class="container">

@@ -3,7 +3,7 @@ title: "Kardiologe in Linz – Dr. Peter Huber, Wahlarzt"
 description: "Kardiologe und Internist in Linz: Herzultraschall, Belastungs-EKG, Langzeit-EKG, Stent-Kontrolle und Vorsorge. Wahlarzt ohne Überweisung, kurze Wartezeiten, Online-Termin."
 slug: '/'
 heroimage: 'src/assets/images/home-1.jpg'
-heroimageposition: 50% 20%
+heroimageposition: 10% 25%
 herotitle: Kardiologe in Linz
 herosubtitle: Dr. Peter Huber – Facharzt für Innere Medizin und Kardiologie
 herodescription: 'Herzultraschall, Belastungs-EKG und Langzeit-EKG in einer Ordination. Termine ohne Überweisung, meist innerhalb weniger Wochen.'
@@ -16,18 +16,27 @@ import Header from '@components/Header.astro';
 import { LATIDO } from '../../constants';
 import { Image } from 'astro:assets';
 
+<section class="intro">
+<div class="intro-split">
+<div class="intro-text">
+
 ## Herzmedizin mit Zeit: Wahlarztordination Dr. Peter Huber
 
 Ich bin Facharzt für Innere Medizin (Internist) mit den Zusatzfächern **Kardiologie** und **Intensivmedizin** und betreue Sie in meiner Ordination im Zentrum von Linz. Als Oberarzt am Klinikum Wels-Grieskirchen arbeite ich täglich in der **interventionellen Kardiologie**: Stentimplantationen bei Herzinfarkt und koronarer Herzkrankheit, Herzschrittmacher und Klappeneingriffe (TAVI). Diese Erfahrung bringe ich in die Ordination ein.
 
-<Image
-  class="img-right display-xs-none"
-  src={import('/src/assets/images/dr-peter-huber-2.jpg')}
-  alt="Dr. Peter Huber – Kardiologe und Wahlarzt in Linz"
-  width={300}
-/>
-
 Im Krankenhaus bleibt für Gespräche oft wenig Zeit. In der Ordination nehme ich mir diese Zeit: für eine sorgfältige Diagnostik, für Ihre Fragen und für eine verständliche Erklärung der nächsten Schritte. Das Spektrum reicht von der **Herzvorsorge** über [Herzultraschall](/leistungen/echokardiographie/), [Belastungs-EKG](/leistungen/ergometrie/) und [Langzeit-EKG](/leistungen/langzeit-ekg/) bis zur langfristigen Betreuung bei [Bluthochdruck](/leistungen/bluthochdruck/), nach [Stentimplantation](/leistungen/stent-kontrolle/) oder nach einem [Herzinfarkt](/leistungen/nachkontrolle-nach-herzinfarkt/).
+
+</div>
+<figure class="intro-media">
+  <Image
+    src={import('/src/assets/images/dr-peter-huber-2.jpg')}
+    alt="Dr. Peter Huber – Kardiologe und Wahlarzt in Linz"
+    width={1067}
+    loading="eager"
+  />
+</figure>
+</div>
+<div class="intro-band">
 
 **Das erwartet Sie in meiner Ordination:**
 
@@ -38,12 +47,8 @@ Im Krankenhaus bleibt für Gespräche oft wenig Zeit. In der Ordination nehme ic
 - **Abgestimmte Betreuung.** Auf Wunsch gehen Befunde direkt an Ihre Hausärztin oder Ihren Hausarzt. Stationäre Untersuchungen organisiere ich am Klinikum Wels-Grieskirchen.
 - **Deutsch und Englisch.**
 
-<Image
-  class="img-right display-xs-only"
-  src={import('/src/assets/images/dr-peter-huber-2.jpg')}
-  alt="Dr. Peter Huber, Kardiologe und Wahlarzt in Linz"
-  width={520}
-/>
+</div>
+</section>
 
 <Header
   title="Untersuchungen & Behandlungen"

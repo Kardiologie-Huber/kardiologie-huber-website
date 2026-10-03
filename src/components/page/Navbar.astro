@@ -1,5 +1,32 @@
 ---
-import { LATIDO } from '../../constants';
+import { LATIDO, PHONE } from '../../constants';
+const pathname = Astro.url.pathname;
+const phoneHref = `tel:+43${PHONE.replace(/\s/g, '').replace(/^0/, '')}`;
+const serviceGroups = [
+  { title: 'Herzrisiko & Begleiterkrankungen', items: [
+    { name: 'Bluthochdruck', href: '/leistungen/bluthochdruck/' },
+    { name: 'Diabetes mellitus', href: '/leistungen/diabetes-mellitus/' },
+    { name: 'Fettstoffwechselstörungen', href: '/leistungen/fettstoffwechselstoerungen/' },
+  ] },
+  { title: 'Nachsorge & Kontrollen', items: [
+    { name: 'Nachkontrolle nach Herzinfarkt', href: '/leistungen/nachkontrolle-nach-herzinfarkt/' },
+    { name: 'Nachkontrolle nach Herzklappen-Operation', href: '/leistungen/herzklappen-nachsorge/' },
+    { name: 'Nachkontrolle nach Stent Implantation', href: '/leistungen/stent-kontrolle/' },
+  ] },
+  { title: 'Diagnostische Untersuchungen', items: [
+    { name: '24 Stunden Blutdruck', href: '/leistungen/24-stunden-blutdruck/' },
+    { name: 'Abdomen- und Nieren-Sonographie', href: '/leistungen/abdomen-nieren-sonographie/' },
+    { name: 'Anamnese & Untersuchung', href: '/leistungen/anamnese-und-untersuchung/' },
+    { name: 'Echokardiographie', href: '/leistungen/echokardiographie/' },
+    { name: 'Ergometrie', href: '/leistungen/ergometrie/' },
+    { name: 'Langzeit EKG', href: '/leistungen/langzeit-ekg/' },
+    { name: 'Laborkontrolle (Blutuntersuchung)', href: '/leistungen/laborkontrolle-blutuntersuchung/' },
+    { name: 'Polygraphie', href: '/leistungen/polygraphie/' },
+    { name: 'Ruhe EKG', href: '/leistungen/ruhe-ekg/' },
+    { name: 'Kleine Spirometrie', href: '/leistungen/spirometrie/' },
+    { name: 'Ultraschall der Halsschlagader', href: '/leistungen/ultraschall-halsschlagader/' },
+  ] },
+];
 ---
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-light">
@@ -15,162 +42,85 @@ import { LATIDO } from '../../constants';
       data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent"
       aria-expanded="false"
-      aria-label="Toggle navigation"
+      aria-label="Menü öffnen"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto mb-15">
-        <li class="nav-item dropdown">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown mega">
           <a
             class="nav-link active dropdown-toggle"
             href="#"
             id="navbarDropdown"
             role="button"
             data-bs-toggle="dropdown"
+            data-bs-display="static"
             aria-expanded="false"
           >
             Leistungen
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li class="dropdown-header">Herzrisiko & Begleiterkrankungen</li>
-            <li>
-              <a class="dropdown-item" href="/leistungen/bluthochdruck/"
-                >Bluthochdruck</a
-              >
-            </li>
-            <li>
-              <a class="dropdown-item" href="/leistungen/diabetes-mellitus/"
-                >Diabetes mellitus</a
-              >
-            </li>
-            <li>
-              <a
-                class="dropdown-item"
-                href="/leistungen/fettstoffwechselstoerungen/"
-                >Fettstoffwechselstörungen</a
-              >
-            </li>
-            <li class="dropdown-header">Nachsorge & Kontrollen</li>
-            <li>
-              <a
-                class="dropdown-item"
-                href="/leistungen/nachkontrolle-nach-herzinfarkt/"
-                >Nachkontrolle nach Herzinfarkt</a
-              >
-            </li>
-            <li>
-              <a class="dropdown-item" href="/leistungen/herzklappen-nachsorge/"
-                >Nachkontrolle nach Herzklappen-Operation</a
-              >
-            </li>
-            <li>
-              <a class="dropdown-item" href="/leistungen/stent-kontrolle/"
-                >Nachkontrolle nach Stent Implantation</a
-              >
-            </li>
-            <li class="dropdown-header">Diagnostische Untersuchungen</li>
-            <li>
-              <a class="dropdown-item" href="/leistungen/24-stunden-blutdruck/"
-                >24 Stunden Blutdruck</a
-              >
-            </li>
-            <li>
-              <a
-                class="dropdown-item"
-                href="/leistungen/abdomen-nieren-sonographie/"
-                >Abdomen- und Nieren-Sonographie</a
-              >
-            </li>
-            <li>
-              <a
-                class="dropdown-item"
-                href="/leistungen/anamnese-und-untersuchung/"
-                >Anamnese & Untersuchung</a
-              >
-            </li>
-            <li>
-              <a class="dropdown-item" href="/leistungen/echokardiographie/"
-                >Echokardiographie</a
-              >
-            </li>
-            <li>
-              <a class="dropdown-item" href="/leistungen/ergometrie/"
-                >Ergometrie</a
-              >
-            </li>
-            <li>
-              <a class="dropdown-item" href="/leistungen/langzeit-ekg/"
-                >Langzeit EKG</a
-              >
-            </li>
-            <li>
-              <a
-                class="dropdown-item"
-                href="/leistungen/laborkontrolle-blutuntersuchung/"
-                >Laborkontrolle (Blutuntersuchung)</a
-              >
-            </li>
-            <li>
-              <a class="dropdown-item" href="/leistungen/polygraphie/"
-                >Polygraphie</a
-              >
-            </li>
-            <li>
-              <a class="dropdown-item" href="/leistungen/ruhe-ekg/">Ruhe EKG</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="/leistungen/spirometrie/">
-                Kleine Spirometrie</a
-              >
-            </li>
-            <li>
-              <a
-                class="dropdown-item"
-                href="/leistungen/ultraschall-halsschlagader/"
-                >Ultraschall der Halsschlagader</a
-              >
-            </li>
-          </ul>
-        </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/ordination/"
-            >Ordination</a
-          >
-        </li> -->
-        <!-- <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/leistungen/"
-            >Leistungen</a
-          >
-        </li> -->
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/wahlarzt/"
-            >Wahlarzt</a
-          >
+          <div class="dropdown-menu mega-menu" aria-labelledby="navbarDropdown">
+            <div class="container mega-menu-inner">
+              {
+                serviceGroups.map((group) => (
+                  <div class="mega-menu-group">
+                    <p class="mega-menu-title">{group.title}</p>
+                    <ul class="mega-menu-list">
+                      {group.items.map((item) => (
+                        <li>
+                          <a
+                            href={item.href}
+                            aria-current={pathname === item.href ? 'page' : undefined}
+                          >
+                            {item.name}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))
+              }
+              <div class="mega-menu-footer">
+                <a class="mega-menu-all" href="/leistungen/">Alle Leistungen im Überblick</a>
+                <a class="mega-menu-call" href={phoneHref}>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" />
+                  </svg>
+                  {PHONE}
+                </a>
+                <a class="btn btn-secondary" role="button" target="_blank" href={LATIDO}>Termin buchen</a>
+              </div>
+            </div>
+          </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/dr-peter-huber/"
-            >Über mich</a
-          >
+          <a class="nav-link active" href="/wahlarzt/" aria-current={pathname === '/wahlarzt/' ? 'page' : undefined}>Wahlarzt</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/faqs/">FAQs</a>
+          <a class="nav-link active" href="/dr-peter-huber/" aria-current={pathname === '/dr-peter-huber/' ? 'page' : undefined}>Über mich</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/kontakt/"
-            >Kontakt</a
-          >
+          <a class="nav-link active" href="/faqs/" aria-current={pathname === '/faqs/' ? 'page' : undefined}>FAQs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/kontakt/" aria-current={pathname === '/kontakt/' ? 'page' : undefined}>Kontakt</a>
         </li>
 
+        <li class="nav-item nav-phone">
+          <a class="nav-link" href={phoneHref}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" /></svg>{PHONE}</a>
+        </li>
         <li class="nav-item book-appointment">
-          <a
-            class="btn btn-secondary"
-            aria-current="page"
-            role="button"
-            target="_blank"
-            href={LATIDO}>Termin buchen</a
-          >
+          <a class="btn btn-secondary" role="button" target="_blank" href={LATIDO}>Termin buchen</a>
         </li>
       </ul>
     </div>

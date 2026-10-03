@@ -11,6 +11,8 @@ const pagesCollection = defineCollection({
       heroimage: image().optional(),
       heroimagedarkness: z.number().optional(),
       heroimageposition: z.string().optional(),
+      herowash: z.number().min(0).max(1).optional(),
+      herotextside: z.enum(['left', 'right']).optional(),
       herotitle: z.string().optional(),
       herosubtitle: z.string().optional(),
       herodescription: z.string().optional(),

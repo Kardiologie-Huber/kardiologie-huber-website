@@ -5,11 +5,13 @@
 $primary: #132d44; // #080633;
 $primary-contrast: #ffffff; // #080633;
 $primary-contrast-light: rgba($primary-contrast, 0.8); // #080633;
-$primary-light-background: #3e5d79;
-$header-color: $primary-light-background;
-$secondary: #527e15;
+$primary-light-background: #1d4d6e;
+$header-color: $primary;
+$header-color-2: #1b5f86;
+$secondary: #1b6390;
+$secondary-hover: #154f74;
 $body-bg: #fff;
-$body-color: hsl(0, 0%, 20%);
+$body-color: #25303b;
 $border-radius: 8px;
 
 // 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
@@ -40,14 +42,30 @@ $border-radius: 8px;
 @import 'bootstrap/scss/utilities/api';
 
 $padding: 20px;
-$highlight-bg: #f0f0f0;
-$background-light: #d0d0d0;
+$highlight-bg: #e7eff6;
+$background-light: #d3e1ec;
+$surface: #eef4f8;
+$surface-strong: #e1eaf2;
+$navbar-bg: #fdfdfe;
+$footer-bg: #10384d;
+$footer-color: rgba(234, 244, 250, 0.78);
+$footer-link-color: rgba(234, 244, 250, 0.92);
 
 :root {
   // font-awesome colors
   --fa-primary-color: #132d44;
   --fa-secondary-color: #8fa2b3;
   --fa-secondary-opacity: 1;
+}
+
+::selection {
+  background: #cfe2f0;
+  color: $primary;
+}
+
+:focus-visible {
+  outline: 3px solid $secondary;
+  outline-offset: 3px;
 }
 
 body {
@@ -65,8 +83,8 @@ main {
 }
 
 footer {
-  background-color: $primary;
-  color: $primary-contrast-light;
+  background-color: $footer-bg;
+  color: $footer-color;
   margin-block-start: $padding * 2;
 
   >.container-fluid {
@@ -81,7 +99,11 @@ footer {
   }
 
   a {
-    color: $primary-contrast-light;
+    color: $footer-link-color;
+
+    &:hover {
+      color: $primary-contrast;
+    }
   }
 }
 
@@ -94,6 +116,11 @@ h5 {
   margin-block-end: 1rem;
 }
 
+h3,
+h4 {
+  color: $header-color-2;
+}
+
 h2,
 h3,
 h4 {
@@ -103,7 +130,7 @@ h4 {
 .header-subtitle {
   font-size: 1.3rem;
   font-weight: 300;
-  color: rgba($header-color, 0.8);
+  color: $header-color-2;
   display: block;
 }
 
@@ -115,8 +142,19 @@ ul {
   list-style: disclosure-closed;
 }
 
+main {
+  ul li::marker {
+    color: $secondary;
+  }
+
+  a:not(.btn) {
+    text-decoration-color: rgba($secondary, 0.55);
+    text-underline-offset: 3px;
+  }
+}
+
 .img-right {
-  box-shadow: 0 0 10px rgba($primary, 0.2);
+  box-shadow: 0 10px 28px -12px rgba($primary, 0.35);
   float: right;
   margin-left: $padding * 2;
   height: auto;
@@ -150,6 +188,14 @@ ul {
   text-transform: uppercase;
 }
 
+.btn-secondary {
+  --bs-btn-hover-bg: #{$secondary-hover};
+  --bs-btn-hover-border-color: #{$secondary-hover};
+  --bs-btn-active-bg: #{$secondary-hover};
+  --bs-btn-active-border-color: #{$secondary-hover};
+  font-weight: 600;
+}
+
 .icon {
   font-size: 120px;
   filter: drop-shadow(0 0 20px #00000088);
@@ -164,9 +210,58 @@ ul {
   left: 0;
   padding-top: 0;
   padding-bottom: 0;
-  background-color: $body-bg;
-  border-bottom: 1px solid rgba($primary, 0.5);
-  box-shadow: 0 0 40px rgba($primary, 0.2);
+  background-color: $navbar-bg;
+  border-bottom: 1px solid rgba($primary, 0.1);
+  box-shadow: 0 1px 2px rgba($primary, 0.04);
+  --bs-navbar-color: #{$primary};
+  --bs-navbar-hover-color: #{$secondary};
+  --bs-navbar-active-color: #{$primary};
+
+  .nav-link {
+    font-weight: 500;
+  }
+
+  .nav-link:hover {
+    color: $secondary;
+  }
+
+  // Underline indicator for the current page and hover (desktop bar only)
+  @include media-breakpoint-up(lg) {
+    .navbar-nav > .nav-item > .nav-link {
+      padding-inline: 12px;
+      box-shadow: inset 0 -2px 0 transparent;
+      transition:
+        box-shadow 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+        color 0.2s;
+
+      &[aria-current='page'],
+      &:hover {
+        box-shadow: inset 0 -2px 0 $secondary;
+      }
+    }
+  }
+
+  .nav-phone {
+    display: none;
+
+    @include media-breakpoint-up(xl) {
+      display: block;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+      color: $primary;
+    }
+
+    svg {
+      width: 17px;
+      height: 17px;
+    }
+  }
 
   button.navbar-toggler {
     border: none;
@@ -184,6 +279,16 @@ ul {
       margin-bottom: 0;
       text-align: left;
     }
+
+    .btn {
+      border-radius: 999px;
+      padding: 8px 20px;
+      text-transform: none;
+      font-size: 1rem;
+      transition:
+        background-color 0.2s,
+        color 0.2s;
+    }
   }
 
   @include media-breakpoint-down(lg) {
@@ -195,19 +300,157 @@ ul {
     }
   }
 
-  .dropdown-menu {
-    padding-top: 0;
+  // Leistungen: full-width mega menu
+  .mega > .dropdown-toggle {
+    &::after {
+      vertical-align: 0.2em;
+      transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    &.show {
+      color: $secondary;
+
+      &::after {
+        transform: rotate(180deg);
+      }
+    }
   }
 
-  .dropdown-header {
-    font-weight: 500;
-    color: $primary;
-    text-transform: uppercase;
-    background-color: $background-light;
+  .mega-menu {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background-color: $body-bg;
+    box-shadow: none;
 
-    &:first-of-type {
-      border-top-left-radius: $border-radius;
-      border-top-right-radius: $border-radius;
+    @include media-breakpoint-up(lg) {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      max-height: calc(100vh - 100px);
+      overflow-y: auto;
+      border-top: 1px solid rgba($primary, 0.1);
+      box-shadow: 0 28px 40px -28px rgba($primary, 0.45);
+    }
+  }
+
+  .mega {
+    @include media-breakpoint-up(lg) {
+      position: static;
+    }
+  }
+
+  .mega-menu-inner {
+    display: grid;
+    gap: 18px;
+    padding-top: 8px;
+    padding-bottom: 16px;
+
+    @include media-breakpoint-up(lg) {
+      grid-template-columns: 1fr 1fr 1.7fr;
+      column-gap: 48px;
+      row-gap: 24px;
+      padding-top: 32px;
+      padding-bottom: 24px;
+    }
+  }
+
+  .mega-menu-group:nth-of-type(3) .mega-menu-list {
+    @include media-breakpoint-up(lg) {
+      columns: 2;
+      column-gap: 40px;
+    }
+  }
+
+  .mega-menu-title {
+    margin: 0 0 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba($primary, 0.1);
+    font-size: 0.8125rem;
+    font-weight: 650;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: $header-color-2;
+  }
+
+  .mega-menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      break-inside: avoid;
+    }
+
+    a {
+      display: block;
+      padding: 6px 0;
+      line-height: 1.35;
+      color: $body-color;
+      text-decoration: none;
+
+      &:hover,
+      &[aria-current='page'] {
+        color: $secondary;
+        text-decoration: underline;
+        text-decoration-color: rgba($secondary, 0.5);
+        text-underline-offset: 3px;
+      }
+    }
+  }
+
+  .mega-menu-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 28px;
+    padding-top: 16px;
+    border-top: 1px solid rgba($primary, 0.1);
+
+    @include media-breakpoint-up(lg) {
+      grid-column: 1 / -1;
+    }
+
+    .btn {
+      white-space: nowrap;
+    }
+  }
+
+  .mega-menu-all,
+  .mega-menu-call {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    color: $primary;
+    text-decoration: none;
+  }
+
+  .mega-menu-all {
+    margin-right: auto;
+    font-weight: 600;
+
+    &::after {
+      content: '\2192';
+      transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    &:hover::after {
+      transform: translateX(3px);
+    }
+  }
+
+  .mega-menu-call {
+    font-weight: 500;
+    white-space: nowrap;
+
+    svg {
+      width: 18px;
+      height: 18px;
     }
   }
 }
@@ -217,78 +460,261 @@ ul {
   background-position: center;
   height: 200px;
   margin-top: -$padding * 2 - 1;
+}
+
+// Seiten-Hero: Titel in Navy direkt auf der hellen Wand des Fotos.
+// Pro Seite steuerbar (Frontmatter): heroimageposition (Desktop), herowash (0–1), herotextside (left/right).
+.hero {
+  --hero-a0: calc(0.55 + var(--hero-wash, 0.6) * 0.4);
+  --hero-a1: calc(var(--hero-wash, 0.6) * 0.75);
   position: relative;
-  text-align: center;
+  margin-top: -$padding * 2 - 1;
+  margin-bottom: 8px;
+  background-color: $navbar-bg;
 
-  .hero-image-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000000;
-    z-index: 1;
+  .hero-photo {
+    height: 260px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 30%;
   }
 
-  >.container-fluid {
-    position: relative;
-    height: 100%;
-    align-content: end;
-    z-index: 2;
-    text-shadow: 2px 2px 18px black;
-
-    >.row {
-      //background-color: rgba(#000000, 0.33);
-      background: linear-gradient(0deg,
-          rgba(0, 0, 0, 0.5) 50%,
-          rgba(0, 0, 0, 0) 100%);
-      padding-top: $padding * 0.5;
-      padding-bottom: $padding * 0.5;
-    }
+  .hero-inner {
+    padding-block: 28px 36px;
   }
 
-  .actions {
-    margin-block-start: $padding * 2;
-
-    .btn-primary {
-      background-color: rgba($body-bg, 0.8);
-      color: $primary;
-      min-width: 210px;
-      margin-left: $padding;
-      margin-right: $padding;
-    }
-  }
-}
-
-.hero-image-large {
-  height: max(calc(38vh - 60px), 300px);
-  background-position: center top;
-
-  @include media-breakpoint-up(xl) {
-    height: max(calc(50vh - 60px), 350px);
-  }
-}
-
-.hero-title {
   h1 {
-    color: #fff;
+    margin: 0;
+    color: $primary;
+    font-size: clamp(2.25rem, 3.2vw + 1rem, 4.25rem);
+    font-weight: 650;
+    letter-spacing: -0.02em;
+    line-height: 1.06;
+    text-wrap: balance;
 
-    .hero-subtitle {
-      display: block;
-      font-size: 1.4rem;
-      line-height: 1.4;
-      font-weight: 300;
-      color: rgba(#fff, 0.9);
+    br {
+      display: none;
+    }
+  }
+
+  .hero-subtitle {
+    display: block;
+    margin-top: 0.6em;
+    color: $header-color-2;
+    font-size: clamp(1.125rem, 0.5vw + 1rem, 1.375rem);
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1.45;
+    text-wrap: pretty;
+  }
+
+  .hero-description {
+    margin-top: 20px;
+    color: #3d5266;
+
+    p {
+      margin: 0;
+      max-width: 58ch;
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      text-wrap: pretty;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    display: flex;
+    align-items: center;
+    min-height: clamp(460px, 62vh, 620px);
+
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      height: auto;
+      background-position: var(--hero-pos, 50% 30%);
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: #{'linear-gradient(var(--hero-wash-dir, 90deg), rgb(253 253 254 / var(--hero-a0)) 0%, rgb(253 253 254 / var(--hero-a1)) calc(25% + var(--hero-wash, 0.6) * 25%), rgb(253 253 254 / 0) calc(40% + var(--hero-wash, 0.6) * 40%))'};
+      }
+    }
+
+    .hero-inner {
+      position: relative;
+      padding-block: 64px;
+    }
+
+    .hero-copy {
+      max-width: 560px;
+    }
+
+    &.hero-right {
+      --hero-wash-dir: 270deg;
+
+      .hero-copy {
+        margin-left: auto;
+      }
+    }
+
+    .hero-description {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid rgba($primary, 0.16);
     }
   }
 }
 
-.hero-description {
-  color: rgba(#fff, 0.8);
+// Startseite: Einleitung mit Foto, darunter die Zusagen auf einem Nebelblau-Band
+.intro {
+  display: flow-root;
+  padding-top: 12px;
+  padding-bottom: 24px;
+
+  @include media-breakpoint-up(lg) {
+    padding-top: 72px;
+    padding-bottom: 32px;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 18px 40px -24px rgba($primary, 0.45);
+  }
+
+  .intro-split {
+    display: grid;
+    gap: 24px;
+
+    // Zwischen 992 und 1199 px ist die Textspalte deutlich höher als das Foto:
+    // mehr Platz für den Text, Foto oben bündig statt mittig.
+    @include media-breakpoint-up(lg) {
+      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+      column-gap: 56px;
+      align-items: start;
+
+      h2 {
+        margin-top: 0;
+      }
+    }
+
+    @include media-breakpoint-up(xl) {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      column-gap: 64px;
+      align-items: center;
+    }
+  }
+
+  .intro-media {
+    max-width: 560px;
+
+    @include media-breakpoint-up(lg) {
+      max-width: none;
+      margin-top: 6px;
+    }
+  }
+
+  .intro-text > p {
+    max-width: 68ch;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  .intro-text > p:first-of-type {
+    font-size: 1.1875rem;
+    line-height: 1.65;
+    color: #1e3348;
+  }
+
+  .intro-band {
+    margin-top: 40px;
+    padding-block: 40px 44px;
+    background: $surface;
+    box-shadow: 0 0 0 100vmax $surface;
+    clip-path: inset(0 -100vmax);
+
+    @include media-breakpoint-up(lg) {
+      margin-top: 56px;
+      padding-block: 56px 60px;
+    }
+
+    > p {
+      margin: 0 0 20px;
+      font-size: 1.25rem;
+      color: $primary;
+    }
+
+    ul {
+      display: grid;
+      gap: 16px 48px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      @include media-breakpoint-up(md) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      @include media-breakpoint-up(lg) {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    li {
+      position: relative;
+      margin: 0;
+      padding-left: 36px;
+      line-height: 1.55;
+      color: #3d5266;
+
+      &::marker {
+        content: none;
+      }
+
+      strong {
+        color: $primary;
+      }
+
+      // Häkchen im Petrol-Kreis
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.05em;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: $secondary;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 6px;
+        top: calc(0.05em + 6px);
+        width: 10px;
+        height: 10px;
+        background: #fff;
+        $check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M1 5.2 3.8 8 9 2' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        -webkit-mask: $check center / contain no-repeat;
+        mask: $check center / contain no-repeat;
+      }
+    }
+  }
 }
 
 section.highlight {
   background-color: $highlight-bg;
+
+  h2 {
+    color: $primary;
+  }
   width: calc(100vw - 17px);
   position: relative;
   margin-left: calc((100vw - 100%) / -2 + 8px);
@@ -450,8 +876,8 @@ main>div.container>div.row>div.col-12> :last-child:is(section.highlight) {
 
     &>strong:first-of-type {
       display: block;
-      background-color: $primary-light-background;
-      color: $primary-contrast;
+      background-color: $surface-strong;
+      color: $primary;
       padding: $padding * 0.25 $padding;
       margin-left: -$padding;
       margin-right: -$padding;
