@@ -13,62 +13,71 @@ herotextside: right
 
 import ScheduleAppointment from '@components/ScheduleAppointment.astro';
 import Map from '@components/Map.astro';
-import TwoColumns from '@components/TwoColumns.astro';
 import { EMAIL, PHONE, WEB, LATIDO } from '../../constants';
 import { Image } from 'astro:assets';
 
-<TwoColumns>
-<div slot="column-1">
+export const phoneHref = `tel:+43${PHONE.replace(/\s/g, '').replace(/^0/, '')}`;
+
+<div class="contact-rows">
+<section class="topic-row contact-hours">
 
 ## Ordinationszeiten
 
 Nach Vereinbarung
 
-🔗 <a href={LATIDO} target="_blank">Online Termin vereinbaren</a>  
-📞 Telefon: <a href={`tel:${PHONE}`}>{PHONE}</a>  
-✉️ E‑Mail: <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+<ul class="contact-links">
+  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2" /><path d="M3.5 10h17M8 3v4M16 3v4" /></svg><span><a href={LATIDO} target="_blank">Online Termin vereinbaren</a></span></li>
+  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" /></svg><span>Telefon: <a href={phoneHref}>{PHONE}</a></span></li>
+  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3.5 6.5 8.5 6.5 8.5-6.5" /></svg><span>E‑Mail: <a href={`mailto:${EMAIL}`}>{EMAIL}</a></span></li>
+</ul>
+
+</section>
+<section class="topic-row contact-address">
 
 ## Adresse
 
 **Weißenwolffstraße 1, 1. Stock  
 4020 Linz  
-Oberösterreich**  
-{''}<a href="https://maps.app.goo.gl/USqswJky77wg3Hms7" target="_blank">Google Maps</a><br/>
-{''}<a href="https://www.openstreetmap.org/#map=18/48.302882/14.299991" target="_blank">In OpenStreetMap anzeigen</a>
+Oberösterreich**
+
+<p><a href="https://maps.app.goo.gl/USqswJky77wg3Hms7" target="_blank">Google Maps</a><br/><a href="https://www.openstreetmap.org/#map=18/48.302882/14.299991" target="_blank">In OpenStreetMap anzeigen</a></p>
 
 Email: <a href={`mailto:${EMAIL}`}>{EMAIL}</a>  
-Telefon: <a href={`tel:${PHONE}`}>{PHONE}</a>  
+Telefon: <a href={phoneHref}>{PHONE}</a>  
 Webseite: <a href={`${WEB}`}>{WEB}</a>
 
-</div>
-<div slot="column-2">
-
-</div>
-</TwoColumns>
-
-<ScheduleAppointment />
+</section>
+<section class="topic-row contact-travel">
 
 ## Anfahrt
 
-<TwoColumns>
-<div slot="column-1">
+<div class="contact-mode">
+
 **Mit dem Auto:**
 
 Vor dem Haus stehen Ihnen vier kostenfreie Parkplätze zur Verfügung. Bitte beachten Sie, dass in der Umgebung gebührenpflichtige Kurzparkzonen vorhanden sind.
 
 </div>
-<div slot="column-2">
+<div class="contact-mode">
+
 **Mit öffentlichen Verkehrsmitteln:**
 
 Vom Hauptbahnhof Linz erreichen Sie uns bequem mit den Buslinien 12, 25, 45 und 46 der LINZ AG. Steigen Sie an der Haltestelle Gruberstraße aus. Unsere Ordination befindet sich unmittelbar neben der Bushaltestelle.
 
 </div>
-</TwoColumns>
+<div class="contact-mode">
 
 **Aus Wels, Grieskirchen und dem Hausruckviertel:**
 
 Mit dem Auto erreichen Sie die Ordination über die A25 und A1 in etwa 30 bis 40 Minuten, Abfahrt Linz-Zentrum oder Linz-Hafenstraße. Mit der Bahn fahren Sie vom Bahnhof Wels in rund 20 Minuten zum Linzer Hauptbahnhof und von dort mit einer der oben genannten Buslinien bis zur Haltestelle Gruberstraße.
 
+</div>
+
 Wir freuen uns darauf, Sie in unserer Praxis begrüßen zu dürfen und stehen Ihnen für alle Fragen rund um Ihre Herzgesundheit gerne zur Verfügung.
+
+</section>
+</div>
+
+<ScheduleAppointment />
 
 <Map></Map>
