@@ -1,6 +1,126 @@
 ---
-const { title, description } = Astro.props;
-let canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+import { EMAIL, LATIDO } from '../../constants';
+
+const { title, description, pageTitle } = Astro.props;
+
+const SITE = 'https://kardiologie-huber.at';
+const pathname = Astro.url.pathname;
+const canonicalURL = new URL(pathname, SITE).toString();
+const ogImage = `${SITE}/images/dr-peter-huber-2.jpg`;
+
+// ---------- schema.org: Ordination ----------
+const services = [
+  { name: 'Herzultraschall (Echokardiographie)', path: '/leistungen/echokardiographie/' },
+  { name: 'Belastungs-EKG (Ergometrie)', path: '/leistungen/ergometrie/' },
+  { name: 'Ruhe-EKG', path: '/leistungen/ruhe-ekg/' },
+  { name: 'Langzeit-EKG (Holter-EKG)', path: '/leistungen/langzeit-ekg/' },
+  { name: '24-Stunden-Blutdruckmessung', path: '/leistungen/24-stunden-blutdruck/' },
+  { name: 'Ultraschall der Halsschlagader (Carotis-Duplex)', path: '/leistungen/ultraschall-halsschlagader/' },
+  { name: 'Ultraschall von Bauch und Nieren', path: '/leistungen/abdomen-nieren-sonographie/' },
+  { name: 'Polygraphie (Schlafapnoe-Screening)', path: '/leistungen/polygraphie/' },
+  { name: 'Kleine Spirometrie', path: '/leistungen/spirometrie/' },
+  { name: 'Laborkontrolle (Blutuntersuchung)', path: '/leistungen/laborkontrolle-blutuntersuchung/' },
+  { name: 'Anamnese & kardiologische Untersuchung', path: '/leistungen/anamnese-und-untersuchung/' },
+  { name: 'Stent-Kontrolle', path: '/leistungen/stent-kontrolle/' },
+  { name: 'Nachkontrolle nach Herzinfarkt', path: '/leistungen/nachkontrolle-nach-herzinfarkt/' },
+  { name: 'Herzklappen-Nachsorge', path: '/leistungen/herzklappen-nachsorge/' },
+  { name: 'Bluthochdruck-Behandlung', path: '/leistungen/bluthochdruck/' },
+  { name: 'Diabetes-Betreuung', path: '/leistungen/diabetes-mellitus/' },
+  { name: 'Fettstoffwechselstörungen (Cholesterin)', path: '/leistungen/fettstoffwechselstoerungen/' },
+];
+
+const physician = {
+  '@context': 'https://schema.org',
+  '@type': 'Physician',
+  '@id': `${SITE}/#identity`,
+  name: 'Kardiologe Linz - Ordination Dr. Peter Huber',
+  alternateName: 'Kardiologie Huber',
+  url: `${SITE}/`,
+  description:
+    'Facharzt für Innere Medizin und Kardiologie in Linz. Wahlarztordination für Vorsorge, Diagnostik und Behandlung von Herz-Kreislauf-Erkrankungen.',
+  medicalSpecialty: 'Cardiovascular',
+  isAcceptingNewPatients: true,
+  telephone: '+43 681 813 612 95',
+  email: EMAIL,
+  image: ogImage,
+  logo: `${SITE}/logo.svg`,
+  priceRange: '€€',
+  currenciesAccepted: 'EUR',
+  paymentAccepted: ['Cash', 'DebitCard', 'CreditCard'],
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Weißenwolffstraße 1',
+    postalCode: '4020',
+    addressLocality: 'Linz',
+    addressRegion: 'Oberösterreich',
+    addressCountry: 'AT',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 48.302882,
+    longitude: 14.299991,
+  },
+  hasMap: 'https://maps.app.goo.gl/USqswJky77wg3Hms7',
+  areaServed: [
+    { '@type': 'City', name: 'Linz' },
+    { '@type': 'AdministrativeArea', name: 'Oberösterreich' },
+  ],
+  knowsLanguage: ['de', 'en'],
+  founder: {
+    '@type': 'Person',
+    '@id': `${SITE}/dr-peter-huber/#person`,
+    name: 'Dr. med. Peter Huber',
+    honorificPrefix: 'Dr. med.',
+    jobTitle: 'Facharzt für Innere Medizin, Kardiologie und Intensivmedizin',
+    url: `${SITE}/dr-peter-huber/`,
+    image: ogImage,
+    worksFor: { '@id': `${SITE}/#identity` },
+  },
+  availableService: services.map((s) => ({
+    '@type': 'MedicalProcedure',
+    name: s.name,
+    url: `${SITE}${s.path}`,
+  })),
+  potentialAction: {
+    '@type': 'ReserveAction',
+    name: 'Online Termin buchen',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: LATIDO,
+      actionPlatform: [
+        'http://schema.org/DesktopWebPlatform',
+        'http://schema.org/MobileWebPlatform',
+      ],
+    },
+  },
+  sameAs: [
+    'https://maps.app.goo.gl/MRHuxkkUXDvoFzDJ7',
+    'https://www.docfinder.at/internist/4020-linz/dr-peter-huber',
+    'https://www.herold.at/gelbe-seiten/linz/jGS2Z/kardiologe-huber/',
+    'https://arztsuche24.at/innere-medizin/4020-linz/kardiologe-huber-MjAyNjE4MA/',
+  ],
+};
+
+// ---------- schema.org: Breadcrumbs (nicht auf der Startseite) ----------
+const segments = pathname.split('/').filter(Boolean);
+let breadcrumb: Record<string, unknown> | null = null;
+if (segments.length > 0) {
+  const items = [{ name: 'Startseite', url: `${SITE}/` }];
+  if (segments[0] === 'leistungen' && segments.length > 1) {
+    items.push({ name: 'Leistungen', url: `${SITE}/leistungen/` });
+  }
+  items.push({ name: pageTitle ?? title, url: canonicalURL });
+  breadcrumb = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
+}
 ---
 
 <meta charset="utf-8" />
@@ -21,42 +141,26 @@ let canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 
 <!-- Title and description -->
 <title>{title}</title>
-<meta name="title" content={title} />
 <meta name="description" content={description} />
 
+<!-- Open Graph / Social -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Kardiologie Huber" />
+<meta property="og:locale" content="de_AT" />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:alt" content="Dr. Peter Huber, Kardiologe und Wahlarzt in Linz" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+
 <!-- schema.org -->
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Physician",
-    "@id": "https://kardiologie-huber.at/#identity",
-    "name": "Kardiologe Linz - Ordination Dr. Huber",
-    "url": "https://kardiologie-huber.at/",
-    "description": "Facharzt für Innere Medizin und Kardiologie in Linz für Vorsorge, Diagnostik und Behandlung von Herz-Kreislauf-Erkrankungen.",
-    "medicalSpecialty": "Cardiovascular",
-    "telephone": "+43 681 813 612 95",
-    "email": "ordination@kardiologie-huber.at",
-    "image": "https://kardiologie-huber.at/images/dr-peter-huber-2.jpg",
-    "logo": "https://kardiologie-huber.at/logo.svg",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Weißenwolffstraße 1",
-      "postalCode": "4020",
-      "addressLocality": "Linz",
-      "addressRegion": "Oberösterreich",
-      "addressCountry": "AT"
-    },
-    "areaServed": [
-      { "@type": "City", "name": "Linz" },
-      { "@type": "AdministrativeArea", "name": "Oberösterreich" }
-    ],
-    "knowsLanguage": ["de", "en"],
-    "paymentAccepted": ["Cash", "DebitCard", "CreditCard"],
-    "sameAs": [
-      "https://maps.app.goo.gl/MRHuxkkUXDvoFzDJ7",
-      "https://www.docfinder.at/internist/4020-linz/dr-peter-huber",
-      "https://www.herold.at/gelbe-seiten/linz/jGS2Z/kardiologe-huber/",
-      "https://arztsuche24.at/innere-medizin/4020-linz/kardiologe-huber-MjAyNjE4MA/"
-    ]
-  }
-</script>
+<script type="application/ld+json" is:inline set:html={JSON.stringify(physician)} />
+{
+  breadcrumb && (
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumb)} />
+  )
+}

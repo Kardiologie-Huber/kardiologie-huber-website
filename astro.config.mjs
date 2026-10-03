@@ -6,9 +6,9 @@ import { targetBlank } from './src/plugins/target-blank';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.kardiologie-huber.at',
+  site: 'https://kardiologie-huber.at',
   markdown: {
-    rehypePlugins: [[targetBlank, { domain: 'www.kardiologie-huber.at' }]],
+    rehypePlugins: [[targetBlank, { domain: 'kardiologie-huber.at' }]],
   },
   integrations: [
     mdx(),
@@ -35,7 +35,7 @@ export default defineConfig({
     }),
   ],
   buildOptions: {
-    site: 'https://www.kardiologie-huber.at',
+    site: 'https://kardiologie-huber.at',
   },
   vite: {
     resolve: {
