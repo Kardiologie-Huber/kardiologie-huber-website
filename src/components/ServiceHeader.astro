@@ -1,6 +1,6 @@
 ---
 // Kopfbereich der Leistungsseiten ohne Hero-Foto:
-//   1. helles Band mit Brotkrumen, H1 und Einleitung
+//   1. dunkelblauer Kopf mit Brotkrumen, H1 und Einleitung, rechts "Auf dieser Seite"
 //   2. dunkler Abschnitt "Vor Ihrem Termin" mit allen Hinweisen vor dem Besuch
 //
 // Verwendung in MDX (ersetzt "# Titel" und den ersten Absatz):
@@ -13,6 +13,8 @@
 //       …
 //     ]}
 //   />
+import { getCollection } from 'astro:content';
+
 type Icon = 'clock' | 'food' | 'pill' | 'file' | 'list' | 'shirt' | 'drop';
 interface PrepItem {
   icon: Icon;
@@ -27,6 +29,16 @@ const { title, crumb, lead, prep = [], prepTitle = 'Vor Ihrem Termin' } = Astro.
   prepTitle?: string;
 };
 
+// "Auf dieser Seite": H2-Überschriften der aktuellen Seite (beim Build ermittelt)
+const EXCLUDE = new Set(['Weitere Untersuchungen', 'Termin buchen']);
+const slug = Astro.url.pathname.replace(/^\/|\/$/g, '');
+const entry = (await getCollection('pages')).find((p) => p.slug === slug);
+const headings = entry ? (await entry.render()).headings : [];
+const toc = [
+  ...(prep.length > 0 ? [{ slug: 'vor-ihrem-termin', text: prepTitle }] : []),
+  ...headings.filter((h) => h.depth === 2 && !EXCLUDE.has(h.text)),
+];
+
 const icons: Record<Icon | 'alert', string> = {
   alert: '<path d="M12 3l9.5 16.5h-19z"/><path d="M12 10v4.5M12 17.5v.01"/>',
   clock: '<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>',
@@ -40,13 +52,30 @@ const icons: Record<Icon | 'alert', string> = {
 ---
 
 <div class="svc-head">
-  <ol class="crumbs">
-    <li><a href="/">Startseite</a></li>
-    <li><a href="/leistungen/">Leistungen</a></li>
-    <li aria-current="page">{crumb ?? title}</li>
-  </ol>
-  <h1 class="svc-h1">{title}</h1>
-  {lead && <p class="svc-lead">{lead}</p>}
+  <div>
+    <ol class="crumbs">
+      <li><a href="/">Startseite</a></li>
+      <li><a href="/leistungen/">Leistungen</a></li>
+      <li aria-current="page">{crumb ?? title}</li>
+    </ol>
+    <h1 class="svc-h1">{title}</h1>
+    {lead && <p class="svc-lead">{lead}</p>}
+  </div>
+
+  {
+    toc.length > 1 && (
+      <nav class="svc-toc" aria-label="Auf dieser Seite">
+        <p>Auf dieser Seite</p>
+        <ol>
+          {toc.map((h) => (
+            <li>
+              <a href={`#${h.slug}`}>{h.text}</a>
+            </li>
+          ))}
+        </ol>
+      </nav>
+    )
+  }
 </div>
 
 {
