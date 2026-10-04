@@ -2,6 +2,7 @@
 import Page from '../layouts/Page.astro';
 
 import { CollectionEntry, getCollection } from 'astro:content';
+import { extractFaq } from '../utils/faq';
 
 export async function getStaticPaths() {
   const pages = await getCollection('pages');
@@ -18,8 +19,9 @@ type Props = CollectionEntry<'pages'>;
 
 const page = Astro.props;
 const { Content } = await page.render();
+const faq = extractFaq(page.body, page.slug === 'faqs');
 ---
 
-<Page {...page.data}>
+<Page {...page.data} faq={faq}>
   <Content />
 </Page>

@@ -18,6 +18,7 @@ const {
   heroimageposition,
   herowash,
   herotextside,
+  faq,
 } = Astro.props;
 
 let heroStyle = '';
@@ -39,6 +40,7 @@ if (heroimage) {
       title={title ? title + ' | Kardiologie Huber' : 'Kardiologie Huber'}
       pageTitle={title}
       description={description}
+      faq={faq}
     />
   </head>
 
