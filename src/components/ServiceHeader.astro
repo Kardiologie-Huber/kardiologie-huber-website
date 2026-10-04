@@ -1,34 +1,41 @@
 ---
-// Kopfbereich der Leistungsseiten ohne Hero-Foto: helles Band über die volle
-// Breite mit Brotkrumen, H1, Einleitung und den wichtigsten Fakten vor dem Termin.
+// Kopfbereich der Leistungsseiten ohne Hero-Foto:
+//   1. helles Band mit Brotkrumen, H1 und Einleitung
+//   2. dunkler Abschnitt "Vor Ihrem Termin" mit allen Hinweisen vor dem Besuch
 //
 // Verwendung in MDX (ersetzt "# Titel" und den ersten Absatz):
 //   <ServiceHeader
 //     title="Stent-Kontrolle in Linz"
 //     crumb="Stent-Kontrolle"
 //     lead="Eine Stentimplantation dient dazu, …"
-//     facts={[{ icon: 'clock', label: 'Dauer', value: 'etwa 45 Minuten' }, …]}
-//     bring="Stentpass und Entlassungsbrief, Medikamentenliste, …"
+//     prep={[
+//       { icon: 'food', title: 'Nicht nüchtern', text: 'Sie können vorher normal essen und trinken.' },
+//       …
+//     ]}
 //   />
-interface Fact {
-  icon: 'clock' | 'food' | 'pill' | 'file' | 'shirt';
-  label: string;
-  value: string;
+type Icon = 'clock' | 'food' | 'pill' | 'file' | 'list' | 'shirt' | 'drop';
+interface PrepItem {
+  icon: Icon;
+  title: string;
+  text?: string;
 }
-const { title, crumb, lead, facts = [], bring } = Astro.props as {
+const { title, crumb, lead, prep = [], prepTitle = 'Vor Ihrem Termin' } = Astro.props as {
   title: string;
   crumb?: string;
   lead?: string;
-  facts?: Fact[];
-  bring?: string;
+  prep?: PrepItem[];
+  prepTitle?: string;
 };
 
-const icons: Record<Fact['icon'], string> = {
+const icons: Record<Icon | 'alert', string> = {
+  alert: '<path d="M12 3l9.5 16.5h-19z"/><path d="M12 10v4.5M12 17.5v.01"/>',
   clock: '<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>',
   food: '<path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10"/><path d="M17 21V3c-2 1.5-3 4-3 7h3"/>',
   pill: '<rect x="3.5" y="8.5" width="17" height="7" rx="3.5" transform="rotate(-45 12 12)"/><path d="M9.5 9.5l5 5"/>',
   file: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>',
+  list: '<path d="M9 6h11M9 12h11M9 18h11"/><path d="M4.5 6h.01M4.5 12h.01M4.5 18h.01"/>',
   shirt: '<path d="M8 3l-5 3 2 5 3-1.5V21h8V9.5L19 11l2-5-5-3c-.5 1.5-2 2.5-4 2.5S8.5 4.5 8 3z"/>',
+  drop: '<path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/>',
 };
 ---
 
@@ -40,27 +47,26 @@ const icons: Record<Fact['icon'], string> = {
   </ol>
   <h1 class="svc-h1">{title}</h1>
   {lead && <p class="svc-lead">{lead}</p>}
-
-  {
-    facts.length > 0 && (
-      <dl class="svc-facts" aria-label="Vor Ihrem Termin">
-        {facts.map((f) => (
-          <div>
-            <dt>
-              <svg class="svc-icon" viewBox="0 0 24 24" aria-hidden="true" set:html={icons[f.icon]} />
-              {f.label}
-            </dt>
-            <dd>{f.value}</dd>
-          </div>
-        ))}
-      </dl>
-    )
-  }
-  {
-    bring && (
-      <p class="svc-bring">
-        <strong>Bitte mitbringen:</strong> {bring}
-      </p>
-    )
-  }
 </div>
+
+{
+  prep.length > 0 && (
+    <section class="svc-prep" id="vor-ihrem-termin" aria-labelledby="svc-prep-title">
+      <h2 id="svc-prep-title">
+        <svg class="svc-icon" viewBox="0 0 24 24" aria-hidden="true" set:html={icons.alert} />
+        {prepTitle}
+      </h2>
+      <ul>
+        {prep.map((p) => (
+          <li>
+            <svg class="svc-icon" viewBox="0 0 24 24" aria-hidden="true" set:html={icons[p.icon]} />
+            <span>
+              <strong>{p.title}</strong>
+              {p.text}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}

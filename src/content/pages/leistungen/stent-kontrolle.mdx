@@ -13,13 +13,14 @@ import ServiceHeader from '@components/ServiceHeader.astro';
   title="Stent-Kontrolle in Linz"
   crumb="Stent-Kontrolle"
   lead="Eine Stentimplantation dient dazu, verengte Herzkranzgefäße zu erweitern und die Durchblutung des Herzmuskels zu verbessern. Auch nach einer erfolgreichen Behandlung ist eine regelmäßige kardiologische Kontrolle sinnvoll. Ziel der Stent-Kontrolle ist es, den klinischen Verlauf zu beurteilen, mögliche Beschwerden frühzeitig zu erkennen und die medikamentöse Therapie zu überprüfen."
-  facts={[
-    { icon: 'clock', label: 'Dauer', value: 'etwa 45 Minuten' },
-    { icon: 'food', label: 'Nüchtern?', value: 'Nein, Sie können normal essen' },
-    { icon: 'pill', label: 'Medikamente', value: 'wie gewohnt, Blutverdünner nicht absetzen' },
-    { icon: 'file', label: 'Überweisung', value: 'nicht nötig' },
+  prep={[
+    { icon: 'food', title: 'Nicht nüchtern', text: 'Sie können vorher normal essen und trinken.' },
+    { icon: 'pill', title: 'Medikamente wie gewohnt', text: 'Blutverdünner auf keinen Fall absetzen.' },
+    { icon: 'file', title: 'Stentpass und Entlassungsbrief', text: 'vom Spital, in dem der Stent gesetzt wurde.' },
+    { icon: 'list', title: 'Medikamentenliste und Vorbefunde', text: 'mit Dosierung, dazu EKG, Herzultraschall, Laborwerte.' },
+    { icon: 'shirt', title: 'Bequeme Kleidung', text: 'und Sportschuhe, falls ein Belastungs-EKG geplant ist.' },
+    { icon: 'clock', title: 'Etwa 45 Minuten', text: 'Keine Überweisung nötig. Versicherungskarte mitbringen.' },
   ]}
-  bring="Stentpass und Entlassungsbrief, Medikamentenliste, Vorbefunde und Versicherungskarte. Für ein Belastungs-EKG bequeme Kleidung und Sportschuhe."
 />
 
 In meiner kardiologischen Ordination in Linz führe ich Verlaufskontrollen nach Stentimplantation durch. Diese erfolgen unabhängig davon, ob die Stentimplantation im Rahmen eines Herzinfarkts oder bei stabiler koronarer Herzkrankheit durchgeführt wurde.
