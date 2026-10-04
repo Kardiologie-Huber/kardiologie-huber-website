@@ -767,7 +767,7 @@ main {
 // "Termin buchen" vor dem Footer (ScheduleAppointment.astro): hellblaues Band ohne Karte,
 // links Überschrift und Text, rechts Button sowie Telefon und E-Mail in gleicher Größe.
 .schedule-appointment {
-  margin-block: $padding * 2;
+  margin-block: 56px $padding * 2;
   padding-block: 48px 52px;
   background: $surface;
   box-shadow: 0 0 0 100vmax $surface;
@@ -777,7 +777,7 @@ main {
     display: grid;
     grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
     column-gap: 64px;
-    align-items: center;
+    align-items: start;
     padding-block: 64px 68px;
   }
 
@@ -785,6 +785,7 @@ main {
     margin: 0 0 12px;
     color: $primary;
     font-size: clamp(1.75rem, 1.4vw + 1.2rem, 2.25rem);
+    line-height: 1.15;
     text-wrap: balance;
   }
 
@@ -824,6 +825,10 @@ main {
     &:focus-visible {
       background: $secondary-hover;
     }
+
+    &:active {
+      transform: translateY(1px);
+    }
   }
 
   .appointment-alt {
@@ -835,6 +840,8 @@ main {
   // Telefon und E-Mail bewusst gleich groß
   .appointment-line {
     display: flex;
+    width: fit-content;
+    max-width: 100%;
     align-items: center;
     gap: 12px;
     min-height: 44px;
@@ -843,7 +850,6 @@ main {
     font-weight: 600;
     font-variant-numeric: tabular-nums;
     text-decoration: none !important;
-    overflow-wrap: anywhere;
 
     svg {
       color: $secondary;

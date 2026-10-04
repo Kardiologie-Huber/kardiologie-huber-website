@@ -3,6 +3,7 @@
 // Links Überschrift und Text, rechts Termin-Button, darunter Telefon und E-Mail.
 const { title, description } = Astro.props;
 import { PHONE, EMAIL, LATIDO } from '../constants';
+const [emailUser, emailDomain] = EMAIL.split('@');
 const phoneHref = `tel:+43${PHONE.replace(/\s/g, '').replace(/^0/, '')}`;
 ---
 
@@ -22,6 +23,7 @@ const phoneHref = `tel:+43${PHONE.replace(/\s/g, '').replace(/^0/, '')}`;
     <a class="appointment-cta" href={LATIDO} target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2" /><path d="M3.5 10h17M8 3v4M16 3v4" /></svg>
       Online Termin buchen
+      <span class="visually-hidden"> (öffnet ein neues Fenster)</span>
     </a>
     <p class="appointment-alt">Lieber telefonisch oder per E-Mail?</p>
     <a class="appointment-line" href={phoneHref}>
@@ -30,7 +32,7 @@ const phoneHref = `tel:+43${PHONE.replace(/\s/g, '').replace(/^0/, '')}`;
     </a>
     <a class="appointment-line" href={`mailto:${EMAIL}`}>
       <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3.5 6.5 8.5 6.5 8.5-6.5" /></svg>
-      <span>{EMAIL}</span>
+      <span>{emailUser}@<wbr />{emailDomain}</span>
     </a>
   </div>
 </section>
