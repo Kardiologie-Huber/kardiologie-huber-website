@@ -5,6 +5,7 @@ slug: leistungen/langzeit-ekg
 ---
 
 import ScheduleAppointment from '@components/ScheduleAppointment.astro';
+import RelatedServices from '@components/RelatedServices.astro';
 
 # Langzeit-EKG (Holter-EKG) in Linz
 
@@ -95,5 +96,12 @@ Nein. Elektroden können bei empfindlicher Haut zu leichten Reizungen führen.
 Nein. Es wird nur die elektrische Aktivität des Herzens gemessen.
 
 </div>
+
+<RelatedServices items={[
+  { title: 'Herzrhythmusstörungen', href: '/leistungen/herzrhythmusstoerungen/', text: 'Herzstolpern, Herzrasen, Vorhofflimmern' },
+  { title: 'Herzultraschall', href: '/leistungen/echokardiographie/', text: 'Pumpkraft, Herzklappen und Herzmuskel' },
+  { title: 'Belastungs-EKG', href: '/leistungen/ergometrie/', text: 'Rhythmus und Durchblutung unter Anstrengung' },
+  { title: 'Ruhe-EKG', href: '/leistungen/ruhe-ekg/', text: 'Basisuntersuchung in wenigen Minuten' },
+]} />
 
 <ScheduleAppointment></ScheduleAppointment>
