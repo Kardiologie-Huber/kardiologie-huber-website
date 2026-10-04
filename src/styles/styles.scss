@@ -365,6 +365,19 @@ main {
     border: none;
   }
 
+  // Mobil: Die Navigation ist fixiert. Aufgeklappt (besonders mit "Leistungen")
+  // wird das Menü höher als der Bildschirm, deshalb bekommt es eine eigene
+  // Scrollfläche bis zum unteren Bildschirmrand.
+  @include media-breakpoint-down(lg) {
+    .navbar-collapse {
+      max-height: calc(100vh - 60px);
+      max-height: calc(100dvh - 60px);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+
   .nav-item.book-appointment {
     margin-top: $padding;
     margin-bottom: $padding;
