@@ -1,6 +1,7 @@
 ---
 // Block "Weitere Untersuchungen" am Ende einer Leistungsseite:
-// ruhige Zeilenliste mit Name, Kurzbeschreibung und Pfeil.
+// vier Spalten nebeneinander (auf schmalen Bildschirmen zwei), Name mit Pfeil
+// über einem Kurztext.
 //
 // Verwendung in MDX:
 //   <RelatedServices items={[
@@ -20,16 +21,18 @@ const { title = 'Weitere Untersuchungen', items = [] } = Astro.props as {
 
 <nav class="related" aria-labelledby="related-heading">
   <h2 id="related-heading">{title}</h2>
-  <ul class="related-list">
+  <ul>
     {
       items.map((item) => (
         <li>
           <a href={item.href}>
-            <span class="related-name">{item.title}</span>
+            <span class="related-name">
+              {item.title}
+              <svg class="related-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h13M13 6l6 6-6 6" />
+              </svg>
+            </span>
             {item.text && <span class="related-text">{item.text}</span>}
-            <svg class="related-chevron" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M9 5l7 7-7 7" />
-            </svg>
           </a>
         </li>
       ))
