@@ -16,6 +16,8 @@ const pagesCollection = defineCollection({
       herotitle: z.string().optional(),
       herosubtitle: z.string().optional(),
       herodescription: z.string().optional(),
+      // Leistungsseiten: H2-Abschnitte zweispaltig (siehe src/plugins/sectionize.ts)
+      sections: z.boolean().optional(),
       // Add other fields as needed
     }),
 });

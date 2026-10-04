@@ -3,12 +3,13 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import astroLlmsTxt from './tools/llms-generator/index';
 import { targetBlank } from './src/plugins/target-blank';
+import { sectionize } from './src/plugins/sectionize';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://kardiologie-huber.at',
   markdown: {
-    rehypePlugins: [[targetBlank, { domain: 'kardiologie-huber.at' }]],
+    rehypePlugins: [[targetBlank, { domain: 'kardiologie-huber.at' }], sectionize],
   },
   integrations: [
     mdx(),

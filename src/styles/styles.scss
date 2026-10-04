@@ -1964,3 +1964,150 @@ main table {
     color: rgba($body-color, 0.78);
   }
 }
+
+// Kopfbereich der Leistungsseiten ohne Hero-Foto (ServiceHeader.astro)
+.svc-head {
+  margin-top: -$padding * 2;
+  margin-bottom: 48px;
+  padding-block: 40px 32px;
+  background: $surface;
+  box-shadow: 0 0 0 100vmax $surface;
+  clip-path: inset(0 -100vmax);
+}
+
+.crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  margin: 0 0 18px;
+  padding: 0;
+  list-style: none;
+  font-size: 0.875rem;
+  color: rgba($body-color, 0.78);
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+
+    &::before {
+      content: none;
+    }
+
+    & + li::before {
+      content: '/';
+      color: rgba($primary, 0.3);
+    }
+  }
+
+  a {
+    color: inherit;
+  }
+}
+
+.svc-h1 {
+  margin: 0;
+  color: $primary;
+  font-size: clamp(2.125rem, 2.4vw + 1.2rem, 3.25rem);
+  font-weight: 650;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.svc-lead {
+  max-width: 62ch;
+  margin: 16px 0 0;
+  font-size: 1.1875rem;
+  line-height: 1.6;
+  color: #2b3c4d;
+}
+
+.svc-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 32px 0 0;
+  border-top: 1px solid rgba($primary, 0.14);
+
+  @include media-breakpoint-up(lg) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  div {
+    padding: 16px 16px 4px 0;
+  }
+
+  dt {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: $secondary;
+  }
+
+  dd {
+    margin: 4px 0 0;
+    font-size: 1rem;
+    line-height: 1.45;
+    color: $primary;
+  }
+}
+
+.svc-icon {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.svc-bring {
+  max-width: 80ch;
+  margin: 12px 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+
+  strong {
+    color: $primary;
+  }
+}
+
+// Abschnitte der Leistungsseiten: Überschrift links, Text rechts (sectionize.ts)
+.svc-section {
+  h2 {
+    scroll-margin-top: 100px;
+  }
+
+  > .svc-content > :first-child {
+    margin-top: 0;
+  }
+
+  > .svc-content > p,
+  > .svc-content > ul,
+  > .svc-content > ol {
+    max-width: 68ch;
+  }
+
+  @include media-breakpoint-up(lg) {
+    display: grid;
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    gap: 48px;
+    padding-block: 32px;
+    border-top: 1px solid rgba($primary, 0.14);
+
+    > h2 {
+      margin: 0;
+      font-size: 1.375rem;
+      line-height: 1.3;
+    }
+
+    > .svc-content > :last-child {
+      margin-bottom: 0;
+    }
+  }
+}

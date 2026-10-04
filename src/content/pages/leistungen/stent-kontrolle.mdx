@@ -2,14 +2,25 @@
 title: "Stent-Kontrolle in Linz – Nachsorge nach Stent"
 description: "Stent-Kontrolle beim Kardiologen in Linz: Wann und wie oft kontrollieren, welche Untersuchungen, Belastung und Sport nach Stent. Ohne Überweisung."
 slug: leistungen/stent-kontrolle
+sections: true
 ---
 
 import ScheduleAppointment from '@components/ScheduleAppointment.astro';
 import RelatedServices from '@components/RelatedServices.astro';
+import ServiceHeader from '@components/ServiceHeader.astro';
 
-# Stent-Kontrolle in Linz
-
-Eine Stentimplantation dient dazu, verengte Herzkranzgefäße zu erweitern und die Durchblutung des Herzmuskels zu verbessern. Auch nach einer erfolgreichen Behandlung ist eine regelmäßige kardiologische Kontrolle sinnvoll. Ziel der Stent-Kontrolle ist es, den klinischen Verlauf zu beurteilen, mögliche Beschwerden frühzeitig zu erkennen und die medikamentöse Therapie zu überprüfen.
+<ServiceHeader
+  title="Stent-Kontrolle in Linz"
+  crumb="Stent-Kontrolle"
+  lead="Eine Stentimplantation dient dazu, verengte Herzkranzgefäße zu erweitern und die Durchblutung des Herzmuskels zu verbessern. Auch nach einer erfolgreichen Behandlung ist eine regelmäßige kardiologische Kontrolle sinnvoll. Ziel der Stent-Kontrolle ist es, den klinischen Verlauf zu beurteilen, mögliche Beschwerden frühzeitig zu erkennen und die medikamentöse Therapie zu überprüfen."
+  facts={[
+    { icon: 'clock', label: 'Dauer', value: 'etwa 45 Minuten' },
+    { icon: 'food', label: 'Nüchtern?', value: 'Nein, Sie können normal essen' },
+    { icon: 'pill', label: 'Medikamente', value: 'wie gewohnt, Blutverdünner nicht absetzen' },
+    { icon: 'file', label: 'Überweisung', value: 'nicht nötig' },
+  ]}
+  bring="Stentpass und Entlassungsbrief, Medikamentenliste, Vorbefunde und Versicherungskarte. Für ein Belastungs-EKG bequeme Kleidung und Sportschuhe."
+/>
 
 In meiner kardiologischen Ordination in Linz führe ich Verlaufskontrollen nach Stentimplantation durch. Diese erfolgen unabhängig davon, ob die Stentimplantation im Rahmen eines Herzinfarkts oder bei stabiler koronarer Herzkrankheit durchgeführt wurde.
 
