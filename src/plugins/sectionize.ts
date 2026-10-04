@@ -6,7 +6,8 @@ import type { RehypePlugin } from '@astrojs/markdown-remark';
 //   <section class="svc-section"><h2>…</h2><div class="svc-content">…</div></section>
 //
 // So kann das Layout Überschrift und Text zweispaltig anordnen, ohne JavaScript.
-// Die Blöcke am Seitenende (RelatedServices, ScheduleAppointment) bleiben außerhalb.
+// Die Blöcke am Seitenende (RelatedServices, ScheduleAppointment) bleiben außerhalb,
+// Abschnitte mit Fragen-Block (<div class="faq">) bleiben einspaltig.
 
 const STOP_COMPONENTS = new Set(['RelatedServices', 'ScheduleAppointment']);
 
@@ -38,6 +39,31 @@ export const sectionize: RehypePlugin = () => {
       else out.push(node);
     }
 
-    (tree as any).children = out;
+    // Abschnitte mit Fragen-Block (<div class="faq">) bleiben einspaltig wie bisher:
+    // Hülle wieder entfernen, H2 und Inhalt direkt einsetzen.
+    const final: any[] = [];
+    for (const node of out) {
+      const isSection = node.type === 'element' && node.tagName === 'section' && node.properties?.className?.includes('svc-section');
+      if (isSection && node.children[1].children.some(isFaqBlock)) {
+        final.push(node.children[0], ...node.children[1].children);
+      } else {
+        final.push(node);
+      }
+    }
+
+    (tree as any).children = final;
   };
 };
+
+function isFaqBlock(node: any): boolean {
+  if (node.type === 'element') {
+    const cls = node.properties?.className;
+    return node.tagName === 'div' && (Array.isArray(cls) ? cls.includes('faq') : String(cls ?? '').split(' ').includes('faq'));
+  }
+  if (node.type === 'mdxJsxFlowElement' && node.name === 'div') {
+    return (node.attributes ?? []).some(
+      (a: any) => (a.name === 'class' || a.name === 'className') && String(a.value ?? '').split(' ').includes('faq')
+    );
+  }
+  return false;
+}
