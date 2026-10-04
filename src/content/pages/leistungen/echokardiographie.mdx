@@ -2,14 +2,26 @@
 title: "Herzultraschall (Echokardiographie) in Linz"
 description: "Herzultraschall beim Kardiologen in Linz: Pumpfunktion, Herzklappen und Herzwände schmerzfrei beurteilen. Ablauf, Vorbereitung, Befund gleich im Anschluss."
 slug: leistungen/echokardiographie
+sections: true
 ---
 
 import ScheduleAppointment from '@components/ScheduleAppointment.astro';
+import ServiceHeader from '@components/ServiceHeader.astro';
 import { Image } from 'astro:assets';
 
-# Herzultraschall (Echokardiographie) in Linz
-
-Der Herzultraschall (Echokardiographie) ist die wichtigste bildgebende Untersuchung in der Kardiologie. Herz, Herzklappen und die großen Gefäße werden in Echtzeit dargestellt. So lassen sich Pumpleistung, Klappenfunktion, Herzgröße und Herzstruktur beurteilen – ohne Strahlenbelastung, ohne Kontrastmittel und in der Regel schmerzfrei.
+<ServiceHeader
+  title={"Herzultraschall (Echokardiographie) in Linz"}
+  crumb={"Herzultraschall"}
+  lead={"Der Herzultraschall (Echokardiographie) ist die wichtigste bildgebende Untersuchung in der Kardiologie. Herz, Herzklappen und die großen Gefäße werden in Echtzeit dargestellt. So lassen sich Pumpleistung, Klappenfunktion, Herzgröße und Herzstruktur beurteilen – ohne Strahlenbelastung, ohne Kontrastmittel und in der Regel schmerzfrei."}
+  prep={[
+    { icon: 'food', title: 'Nicht nüchtern', text: 'Sie können vorher normal essen und trinken.' },
+    { icon: 'shirt', title: 'Zweiteilige Kleidung', text: 'Der Oberkörper wird für die Untersuchung frei gemacht.' },
+    { icon: 'drop', title: 'Keine Creme am Brustkorb', text: 'Am Untersuchungstag keine fetthaltigen Cremes oder Lotionen.' },
+    { icon: 'pill', title: 'Medikamente wie gewohnt', text: 'Keine Änderungen ohne ärztliche Rücksprache.' },
+    { icon: 'file', title: 'Vorbefunde', text: 'Frühere Herzultraschall-Befunde und Arztbriefe.' },
+    { icon: 'clock', title: 'Etwa 15 bis 30 Minuten', text: 'Befund direkt im Anschluss. Keine Überweisung nötig.' },
+  ]}
+/>
 
 In meiner kardiologischen Ordination in Linz führe ich den Herzultraschall selbst durch und bespreche den Befund direkt im Anschluss mit Ihnen. Eine Überweisung ist nicht nötig.
 

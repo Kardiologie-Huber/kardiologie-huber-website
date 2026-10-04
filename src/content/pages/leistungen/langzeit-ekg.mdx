@@ -2,14 +2,26 @@
 title: "Langzeit-EKG (Holter-EKG) in Linz"
 description: "Langzeit-EKG beim Kardiologen in Linz: 24–48 Stunden Herzrhythmus aufzeichnen. Ablauf, Schlafen, Duschen, Kleidung und Tagebuch zum Download."
 slug: leistungen/langzeit-ekg
+sections: true
 ---
 
 import ScheduleAppointment from '@components/ScheduleAppointment.astro';
+import ServiceHeader from '@components/ServiceHeader.astro';
 import RelatedServices from '@components/RelatedServices.astro';
 
-# Langzeit-EKG (Holter-EKG) in Linz
-
-Beim Langzeit-EKG wird die elektrische Aktivität des Herzens über 24 bis 48 Stunden kontinuierlich aufgezeichnet. Dadurch können auch seltene Rhythmusstörungen erkannt werden, die in einem kurzen Ruhe-EKG unauffällig bleiben.
+<ServiceHeader
+  title={"Langzeit-EKG (Holter-EKG) in Linz"}
+  crumb={"Langzeit-EKG"}
+  lead={"Beim Langzeit-EKG wird die elektrische Aktivität des Herzens über 24 bis 48 Stunden kontinuierlich aufgezeichnet. Dadurch können auch seltene Rhythmusstörungen erkannt werden, die in einem kurzen Ruhe-EKG unauffällig bleiben."}
+  prep={[
+    { icon: 'shirt', title: 'Zweiteilige Kleidung', text: 'Lockere Oberteile, in denen Sie auch schlafen können.' },
+    { icon: 'drop', title: 'Vorher duschen', text: 'Das Gerät ist nicht wasserfest. Keine Creme am Brustkorb.' },
+    { icon: 'pill', title: 'Medikamente wie gewohnt', text: 'Keine Änderungen ohne ärztliche Rücksprache.' },
+    { icon: 'file', title: 'Tagebuch führen', text: 'Beschwerden mit Uhrzeit notieren. Eine Vorlage gibt es zum Ausdrucken.' },
+    { icon: 'list', title: 'Ein normaler Alltag', text: 'Arbeit, Bewegung und Schlaf wie gewohnt.' },
+    { icon: 'clock', title: 'Zwei Termine', text: 'Anlegen des Geräts und Rückgabe nach 24 bis 48 Stunden. Keine Überweisung nötig.' },
+  ]}
+/>
 
 ## Langzeit-EKG im Überblick
 

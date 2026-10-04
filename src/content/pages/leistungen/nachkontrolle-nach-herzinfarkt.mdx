@@ -2,13 +2,25 @@
 title: "Nachkontrolle nach Herzinfarkt in Linz"
 description: "Kardiologische Nachkontrolle nach Herzinfarkt in Linz: Heilungsverlauf, Herzfunktion, Belastbarkeit und Medikamente überprüfen. Termin ohne Überweisung."
 slug: leistungen/nachkontrolle-nach-herzinfarkt
+sections: true
 ---
 
 import ScheduleAppointment from '@components/ScheduleAppointment.astro';
+import ServiceHeader from '@components/ServiceHeader.astro';
 
-# Nachkontrolle nach Herzinfarkt in Linz
-
-Ein Herzinfarkt stellt für Betroffene eine erhebliche gesundheitliche Belastung dar. Auch nach erfolgreicher Akutbehandlung im Krankenhaus ist eine regelmäßige kardiologische Nachkontrolle notwendig. Ziel dieser Nachkontrollen ist es, den weiteren Heilungsverlauf zu beurteilen, mögliche Komplikationen frühzeitig zu erkennen und die medikamentöse sowie allgemeine Therapie bei Bedarf anzupassen.
+<ServiceHeader
+  title={"Nachkontrolle nach Herzinfarkt in Linz"}
+  crumb={"Nachkontrolle nach Herzinfarkt"}
+  lead={"Ein Herzinfarkt stellt für Betroffene eine erhebliche gesundheitliche Belastung dar. Auch nach erfolgreicher Akutbehandlung im Krankenhaus ist eine regelmäßige kardiologische Nachkontrolle notwendig. Ziel dieser Nachkontrollen ist es, den weiteren Heilungsverlauf zu beurteilen, mögliche Komplikationen frühzeitig zu erkennen und die medikamentöse sowie allgemeine Therapie bei Bedarf anzupassen."}
+  prep={[
+    { icon: 'food', title: 'Nicht nüchtern', text: 'Sie können vorher normal essen und trinken.' },
+    { icon: 'pill', title: 'Medikamente wie gewohnt', text: 'Blutverdünner auf keinen Fall absetzen.' },
+    { icon: 'file', title: 'Entlassungsbrief', text: 'und Bericht der Herzkatheteruntersuchung, Stentpass falls vorhanden.' },
+    { icon: 'list', title: 'Medikamentenliste und Vorbefunde', text: 'Dosierungen, Laborwerte und Arztbriefe.' },
+    { icon: 'shirt', title: 'Bequeme Kleidung', text: 'und Sportschuhe, falls ein Belastungs-EKG geplant ist.' },
+    { icon: 'clock', title: 'Etwa 45 Minuten', text: 'Keine Überweisung nötig. Versicherungskarte mitbringen.' },
+  ]}
+/>
 
 In meiner kardiologischen Ordination in Linz führe ich strukturierte Nachkontrollen nach Herzinfarkt durch. Diese orientieren sich an der individuellen Vorgeschichte, der im Krankenhaus durchgeführten Behandlung sowie am aktuellen Gesundheitszustand.
 

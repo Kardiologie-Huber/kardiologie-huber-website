@@ -2,13 +2,25 @@
 title: "Herzklappen-Nachsorge in Linz"
 description: "Kardiologische Nachkontrolle nach Herzklappen-Operation oder TAVI in Linz: Beurteilung der Klappenfunktion per Herzultraschall und Anpassung der Therapie."
 slug: leistungen/herzklappen-nachsorge
+sections: true
 ---
 
 import ScheduleAppointment from '@components/ScheduleAppointment.astro';
+import ServiceHeader from '@components/ServiceHeader.astro';
 
-# Herzklappen-Nachsorge in Linz
-
-Erkrankungen der Herzklappen können angeboren oder im Laufe des Lebens erworben sein. Auch nach einer operativen oder interventionellen Behandlung ist eine regelmäßige kardiologische Nachsorge erforderlich. Ziel der Herzklappen-Nachsorge ist es, die Funktion der Herzklappe zu überwachen, den Einfluss auf den Herzmuskel zu beurteilen und mögliche Veränderungen frühzeitig zu erkennen.
+<ServiceHeader
+  title={"Herzklappen-Nachsorge in Linz"}
+  crumb={"Herzklappen-Nachsorge"}
+  lead={"Erkrankungen der Herzklappen können angeboren oder im Laufe des Lebens erworben sein. Auch nach einer operativen oder interventionellen Behandlung ist eine regelmäßige kardiologische Nachsorge erforderlich. Ziel der Herzklappen-Nachsorge ist es, die Funktion der Herzklappe zu überwachen, den Einfluss auf den Herzmuskel zu beurteilen und mögliche Veränderungen frühzeitig zu erkennen."}
+  prep={[
+    { icon: 'food', title: 'Nicht nüchtern', text: 'Sie können vorher normal essen und trinken.' },
+    { icon: 'pill', title: 'Medikamente wie gewohnt', text: 'Blutverdünner auf keinen Fall absetzen.' },
+    { icon: 'file', title: 'Klappenpass und OP-Bericht', text: 'dazu der Entlassungsbrief vom Spital.' },
+    { icon: 'list', title: 'Medikamentenliste und Vorbefunde', text: 'Frühere Herzultraschall-Befunde und Arztbriefe.' },
+    { icon: 'shirt', title: 'Zweiteilige Kleidung', text: 'für Herzultraschall und EKG.' },
+    { icon: 'clock', title: 'Etwa 45 Minuten', text: 'Keine Überweisung nötig. Versicherungskarte mitbringen.' },
+  ]}
+/>
 
 In meiner kardiologischen Ordination in Linz führe ich Verlaufskontrollen bei Patientinnen und Patienten mit Herzklappenerkrankungen durch. Dies gilt sowohl nach operativen Eingriffen als auch bei interventionellen Behandlungen oder bei bekannten Herzklappenfehlern ohne bisherige Operation.
 

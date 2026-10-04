@@ -2,14 +2,26 @@
 title: "Polygraphie in Linz – Schlafapnoe-Screening"
 description: "Schlafapnoe-Screening (Polygraphie) in Linz: Messung zu Hause statt im Schlaflabor. Ablauf, Vorbereitung und Fragen bei Schnarchen und Tagesmüdigkeit."
 slug: leistungen/polygraphie
+sections: true
 ---
 
 import ScheduleAppointment from '@components/ScheduleAppointment.astro';
+import ServiceHeader from '@components/ServiceHeader.astro';
 import RelatedServices from '@components/RelatedServices.astro';
 
-# Polygraphie in Linz (ambulantes Schlafapnoe-Screening)
-
-Die Polygraphie ist eine Untersuchung zur Abklärung von Atemaussetzern im Schlaf. Dabei werden Atemfluss, Atembewegungen, Sauerstoffsättigung und weitere Signale in der gewohnten Schlafumgebung gemessen. So können Hinweise auf eine Schlafapnoe festgestellt werden, ohne dass Sie eine Nacht im Schlaflabor verbringen müssen.
+<ServiceHeader
+  title={"Polygraphie in Linz (ambulantes Schlafapnoe-Screening)"}
+  crumb={"Polygraphie"}
+  lead={"Die Polygraphie ist eine Untersuchung zur Abklärung von Atemaussetzern im Schlaf. Dabei werden Atemfluss, Atembewegungen, Sauerstoffsättigung und weitere Signale in der gewohnten Schlafumgebung gemessen. So können Hinweise auf eine Schlafapnoe festgestellt werden, ohne dass Sie eine Nacht im Schlaflabor verbringen müssen."}
+  prep={[
+    { icon: 'clock', title: 'Zwei Termine', text: 'Einweisung in der Ordination, Rückgabe des Geräts am nächsten Tag.' },
+    { icon: 'list', title: 'Gewohnter Tagesablauf', text: 'Normale Schlafenszeiten einhalten.' },
+    { icon: 'food', title: 'Abends leicht essen', text: 'Alkohol meiden, Kaffee ab dem Nachmittag reduzieren.' },
+    { icon: 'drop', title: 'Vorher duschen', text: 'Das Gerät ist nicht wasserfest. Keine fetthaltige Creme.' },
+    { icon: 'pill', title: 'Medikamente wie gewohnt', text: 'Keine Änderungen ohne ärztliche Rücksprache.' },
+    { icon: 'file', title: 'Selbstzahler-Leistung', text: 'Die Polygraphie wird von der Krankenkasse nicht erstattet.' },
+  ]}
+/>
 
 In meiner kardiologischen Ordination in Linz erhalten Sie das Messgerät nach einer kurzen Einweisung mit nach Hause. Die Auswertung und die Besprechung der Ergebnisse erfolgen in der Ordination.
 

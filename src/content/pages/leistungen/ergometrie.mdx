@@ -2,15 +2,27 @@
 title: "Belastungs-EKG (Ergometrie) in Linz – Ablauf"
 description: "Belastungs-EKG beim Kardiologen in Linz: Ablauf am Fahrrad-Ergometer, Vorbereitung, Kleidung, Medikamente und häufige Fragen. Online-Termin ohne Überweisung."
 slug: leistungen/ergometrie
+sections: true
 ---
 
 import ScheduleAppointment from '@components/ScheduleAppointment.astro';
+import ServiceHeader from '@components/ServiceHeader.astro';
 import RelatedServices from '@components/RelatedServices.astro';
 import { Image } from 'astro:assets';
 
-# Belastungs-EKG (Ergometrie) in Linz
-
-Bei der Ergometrie werden Herzstromkurve (EKG), Blutdruck und Belastbarkeit unter körperlicher Aktivität gemessen, meist auf dem Fahrrad-Ergometer. So können Durchblutungsstörungen, Herzrhythmus und die individuelle Leistungsfähigkeit beurteilt werden. Manche Probleme zeigen sich nur unter Anstrengung und bleiben im [Ruhe-EKG](/leistungen/ruhe-ekg/) unsichtbar.
+<ServiceHeader
+  title={"Belastungs-EKG (Ergometrie) in Linz"}
+  crumb={"Belastungs-EKG"}
+  lead={"Bei der Ergometrie werden Herzstromkurve (EKG), Blutdruck und Belastbarkeit unter körperlicher Aktivität gemessen, meist auf dem Fahrrad-Ergometer. So können Durchblutungsstörungen, Herzrhythmus und die individuelle Leistungsfähigkeit beurteilt werden. Manche Probleme zeigen sich nur unter Anstrengung und bleiben im Ruhe-EKG unsichtbar."}
+  prep={[
+    { icon: 'shirt', title: 'Sportkleidung und feste Schuhe', text: 'Ein kleines Handtuch ist hilfreich.' },
+    { icon: 'food', title: 'Leicht essen', text: 'Leichte Mahlzeit bis 2 bis 3 Stunden vorher, Wasser ist erlaubt.' },
+    { icon: 'list', title: 'Kein Kaffee, nicht rauchen', text: 'In den 2 bis 3 Stunden vor der Untersuchung.' },
+    { icon: 'pill', title: 'Medikamente wie gewohnt', text: 'Betablocker nur nach ärztlicher Anweisung pausieren.' },
+    { icon: 'phone', title: 'Bei Infekt vorher anrufen', text: 'Bei Erkältung oder Fieber wird der Termin besser verschoben.' },
+    { icon: 'clock', title: 'Etwa 30 bis 40 Minuten', text: 'inklusive Vorbereitung und Nachbeobachtung. Keine Überweisung nötig.' },
+  ]}
+/>
 
 In meiner kardiologischen Ordination in Linz führe ich das Belastungs-EKG unter durchgehender ärztlicher Überwachung durch. Das Ergebnis besprechen wir direkt im Anschluss.
 

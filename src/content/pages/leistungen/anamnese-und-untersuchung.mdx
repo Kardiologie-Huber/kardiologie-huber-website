@@ -2,13 +2,25 @@
 title: "Anamnese & kardiologische Untersuchung in Linz"
 description: "Ausführliches Arztgespräch und körperliche Untersuchung beim Kardiologen in Linz: Ablauf, was Sie mitbringen sollten und wie es danach weitergeht."
 slug: leistungen/anamnese-und-untersuchung
+sections: true
 ---
 
 import ScheduleAppointment from '@components/ScheduleAppointment.astro';
+import ServiceHeader from '@components/ServiceHeader.astro';
 
-# Anamnese & kardiologische Untersuchung in Linz
-
-Bei Anamnese und Untersuchung werden Beschwerden, Vorerkrankungen und Risikofaktoren besprochen. Dazu kommt eine gründliche körperliche Untersuchung. Auf dieser Grundlage können weitere Untersuchungen geplant werden.
+<ServiceHeader
+  title={"Anamnese & kardiologische Untersuchung in Linz"}
+  crumb={"Anamnese & Untersuchung"}
+  lead={"Bei Anamnese und Untersuchung werden Beschwerden, Vorerkrankungen und Risikofaktoren besprochen. Dazu kommt eine gründliche körperliche Untersuchung. Auf dieser Grundlage können weitere Untersuchungen geplant werden."}
+  prep={[
+    { icon: 'food', title: 'Nicht nüchtern', text: 'Sie können vorher normal essen und trinken.' },
+    { icon: 'list', title: 'Medikamentenliste', text: 'Name, Dosierung und Einnahmezeit.' },
+    { icon: 'file', title: 'Vorbefunde', text: 'Arztbriefe, Laborwerte, EKGs und Entlassungsbriefe.' },
+    { icon: 'list', title: 'Eigene Messwerte', text: 'Blutdruck- oder Pulsprotokolle, Smartwatch-Daten.' },
+    { icon: 'shirt', title: 'Zweiteilige Kleidung', text: 'Schmuck am Hals bitte ablegen.' },
+    { icon: 'clock', title: 'Etwa 45 Minuten', text: 'für den ersten Termin. Keine Überweisung nötig, Versicherungskarte mitbringen.' },
+  ]}
+/>
 
 ## Erster Termin beim Kardiologen im Überblick
 

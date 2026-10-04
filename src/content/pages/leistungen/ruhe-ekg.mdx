@@ -2,13 +2,24 @@
 title: "Ruhe-EKG in Linz – Ablauf & häufige Fragen"
 description: "Ruhe-EKG beim Kardiologen in Linz: Basisuntersuchung des Herzrhythmus in wenigen Minuten. Ablauf, Vorbereitung und häufige Fragen."
 slug: leistungen/ruhe-ekg
+sections: true
 ---
 
 import ScheduleAppointment from '@components/ScheduleAppointment.astro';
+import ServiceHeader from '@components/ServiceHeader.astro';
 
-# Ruhe-EKG (12-Kanal-Elektrokardiogramm) in Linz
-
-Das Ruhe-EKG zeichnet die elektrische Aktivität des Herzens in körperlicher Ruhe auf. Beurteilt werden unter anderem Herzrhythmus, Durchblutungshinweise, Herzmuskelbelastungen, Leitungsstörungen und mögliche Auswirkungen von Medikamenten.
+<ServiceHeader
+  title={"Ruhe-EKG (12-Kanal-Elektrokardiogramm) in Linz"}
+  crumb={"Ruhe-EKG"}
+  lead={"Das Ruhe-EKG zeichnet die elektrische Aktivität des Herzens in körperlicher Ruhe auf. Beurteilt werden unter anderem Herzrhythmus, Durchblutungshinweise, Herzmuskelbelastungen, Leitungsstörungen und mögliche Auswirkungen von Medikamenten."}
+  prep={[
+    { icon: 'food', title: 'Nicht nüchtern', text: 'Sie können vorher normal essen und trinken.' },
+    { icon: 'drop', title: 'Keine Creme am Brustkorb', text: 'Sonst haften die Elektroden schlechter.' },
+    { icon: 'shirt', title: 'Zweiteilige Kleidung', text: 'Schmuck am Hals bitte ablegen.' },
+    { icon: 'file', title: 'Medikamentenliste', text: 'und Schrittmacher- oder ICD-Ausweis, falls vorhanden.' },
+    { icon: 'clock', title: 'Etwa 5 bis 10 Minuten', text: 'Befund direkt im Anschluss. Keine Überweisung nötig.' },
+  ]}
+/>
 
 ## Ruhe-EKG im Überblick
 

@@ -2,13 +2,25 @@
 title: "OP-Freigabe beim Kardiologen in Linz"
 description: "Kardiologische OP-Freigabe in Linz: Untersuchungen vor einer Operation, Befund für Anästhesie und OP-Team, Umgang mit Blutverdünnern. Kurzfristiger Termin."
 slug: leistungen/op-freigabe
+sections: true
 ---
 
 import ScheduleAppointment from '@components/ScheduleAppointment.astro';
+import ServiceHeader from '@components/ServiceHeader.astro';
 
-# OP-Freigabe – kardiologische Beurteilung vor einer Operation in Linz
-
-Vor einer geplanten Operation verlangen Chirurgie und Anästhesie häufig eine kardiologische Freigabe, auch präoperative Risikoeinschätzung oder internistische OP-Freigabe genannt. Dabei wird geklärt, ob Herz und Kreislauf die Belastung durch Narkose und Eingriff gut verkraften und ob vorher etwas angepasst werden muss, etwa die Blutverdünnung.
+<ServiceHeader
+  title={"OP-Freigabe – kardiologische Beurteilung vor einer Operation in Linz"}
+  crumb={"OP-Freigabe"}
+  lead={"Vor einer geplanten Operation verlangen Chirurgie und Anästhesie häufig eine kardiologische Freigabe, auch präoperative Risikoeinschätzung oder internistische OP-Freigabe genannt. Dabei wird geklärt, ob Herz und Kreislauf die Belastung durch Narkose und Eingriff gut verkraften und ob vorher etwas angepasst werden muss, etwa die Blutverdünnung."}
+  prep={[
+    { icon: 'file', title: 'OP-Termin und Spital', text: 'dazu der geplante Eingriff und Unterlagen der Anästhesie.' },
+    { icon: 'list', title: 'Medikamentenliste', text: 'mit Dosierung, besonders Blutverdünner.' },
+    { icon: 'file', title: 'Vorbefunde und Pässe', text: 'EKGs, Herzultraschall, Arztbriefe, Stent-, Schrittmacher- oder Klappenpass.' },
+    { icon: 'pill', title: 'Medikamente wie gewohnt', text: 'Blutverdünner nicht eigenmächtig absetzen.' },
+    { icon: 'food', title: 'Nicht nüchtern', text: 'Sie können vorher normal essen und trinken.' },
+    { icon: 'clock', title: 'Kurzfristige Termine', text: 'meist innerhalb weniger Tage. Versicherungskarte mitbringen.' },
+  ]}
+/>
 
 In meiner Ordination in Linz führe ich OP-Freigaben kurzfristig durch, meist innerhalb weniger Tage. Sie erhalten den schriftlichen Befund direkt mit, sodass der OP-Termin nicht verschoben werden muss.
 

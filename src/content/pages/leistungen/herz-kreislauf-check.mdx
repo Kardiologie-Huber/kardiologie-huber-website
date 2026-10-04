@@ -2,13 +2,25 @@
 title: "Herz-Kreislauf-Check in Linz – Vorsorge"
 description: "Kardiologische Vorsorge in Linz: Herzultraschall, EKG, Belastungs-EKG, Blutdruck, Blutfette und Gefäßultraschall an einem Termin, ohne Überweisung."
 slug: leistungen/herz-kreislauf-check
+sections: true
 ---
 
 import ScheduleAppointment from '@components/ScheduleAppointment.astro';
+import ServiceHeader from '@components/ServiceHeader.astro';
 
-# Herz-Kreislauf-Check – kardiologische Vorsorge in Linz
-
-Herzinfarkt und Schlaganfall kündigen sich selten an. Die Risikofaktoren dahinter, erhöhter Blutdruck, erhöhte Blutfette, Diabetes, Rauchen und familiäre Belastung, wirken aber über Jahre, bevor Beschwerden auftreten. Der Herz-Kreislauf-Check macht diese Risiken sichtbar und zeigt, ob Herz und Gefäße bereits Veränderungen aufweisen. So lässt sich gegensteuern, bevor etwas passiert.
+<ServiceHeader
+  title={"Herz-Kreislauf-Check – kardiologische Vorsorge in Linz"}
+  crumb={"Herz-Kreislauf-Check"}
+  lead={"Herzinfarkt und Schlaganfall kündigen sich selten an. Die Risikofaktoren dahinter, erhöhter Blutdruck, erhöhte Blutfette, Diabetes, Rauchen und familiäre Belastung, wirken aber über Jahre, bevor Beschwerden auftreten. Der Herz-Kreislauf-Check macht diese Risiken sichtbar und zeigt, ob Herz und Gefäße bereits Veränderungen aufweisen. So lässt sich gegensteuern, bevor etwas passiert."}
+  prep={[
+    { icon: 'food', title: 'Nüchtern für die Blutabnahme', text: 'Wasser ist erlaubt. Alternativ aktuelle Werte vom Hausarzt mitbringen.' },
+    { icon: 'shirt', title: 'Sportkleidung und Schuhe', text: 'für das Belastungs-EKG.' },
+    { icon: 'pill', title: 'Medikamente wie gewohnt', text: 'Keine Änderungen ohne ärztliche Rücksprache.' },
+    { icon: 'file', title: 'Vorbefunde und Medikamentenliste', text: 'Arztbriefe, Laborwerte und Dosierungen.' },
+    { icon: 'list', title: 'Erkrankungen in der Familie', text: 'Herzinfarkt, Schlaganfall oder plötzlicher Herztod bei Angehörigen.' },
+    { icon: 'clock', title: 'Etwa eineinhalb Stunden', text: 'Alle Untersuchungen an einem Termin. Keine Überweisung nötig.' },
+  ]}
+/>
 
 In meiner Ordination in Linz biete ich den Herz-Kreislauf-Check als zusammenhängende Untersuchung an einem Termin an. Sie erhalten eine persönliche Einschätzung Ihres Risikos und konkrete Empfehlungen.
 

@@ -2,14 +2,26 @@
 title: "Spirometrie (Lungenfunktionstest) in Linz"
 description: "Kleine Spirometrie beim Kardiologen in Linz: Lungenfunktion bei Atemnot oder Husten abklären. Ablauf, Vorbereitung und häufige Fragen."
 slug: leistungen/spirometrie
+sections: true
 ---
 
 import ScheduleAppointment from '@components/ScheduleAppointment.astro';
+import ServiceHeader from '@components/ServiceHeader.astro';
 import RelatedServices from '@components/RelatedServices.astro';
 
-# Kleine Spirometrie (Lungenfunktionstest) in Linz
-
-Die Spirometrie misst, wie viel Luft eingeatmet und ausgeatmet werden kann und mit welcher Geschwindigkeit dies geschieht. Damit können Verengungen oder Einschränkungen der Atemwege erkannt und der Verlauf einer Therapie beurteilt werden.
+<ServiceHeader
+  title={"Kleine Spirometrie (Lungenfunktionstest) in Linz"}
+  crumb={"Spirometrie"}
+  lead={"Die Spirometrie misst, wie viel Luft eingeatmet und ausgeatmet werden kann und mit welcher Geschwindigkeit dies geschieht. Damit können Verengungen oder Einschränkungen der Atemwege erkannt und der Verlauf einer Therapie beurteilt werden."}
+  prep={[
+    { icon: 'list', title: 'Nicht rauchen, kein Kaffee', text: 'In den 2 bis 3 Stunden vor der Untersuchung.' },
+    { icon: 'food', title: 'Nur leicht essen', text: 'Keine große Mahlzeit direkt davor.' },
+    { icon: 'shirt', title: 'Bequeme Kleidung', text: 'Nichts, was beim tiefen Atmen einengt.' },
+    { icon: 'pill', title: 'Atemsprays wie verordnet', text: 'Pausen nur nach ärztlicher Anweisung.' },
+    { icon: 'phone', title: 'Bei Infekt vorher anrufen', text: 'Bei Erkältung oder Unwohlsein bitte Bescheid geben.' },
+    { icon: 'clock', title: 'Etwa 10 bis 20 Minuten', text: 'Keine Überweisung nötig.' },
+  ]}
+/>
 
 ## Spirometrie im Überblick
 

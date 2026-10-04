@@ -2,13 +2,25 @@
 title: "Herzrhythmusstörungen – Kardiologe in Linz"
 description: "Herzstolpern, Herzrasen oder Vorhofflimmern beim Kardiologen in Linz abklären: EKG, Langzeit-EKG, Herzultraschall und Behandlung. Termin ohne Überweisung."
 slug: leistungen/herzrhythmusstoerungen
+sections: true
 ---
 
 import ScheduleAppointment from '@components/ScheduleAppointment.astro';
+import ServiceHeader from '@components/ServiceHeader.astro';
 
-# Herzrhythmusstörungen – Abklärung und Behandlung in Linz
-
-Herzstolpern, Herzrasen oder das Gefühl, dass das Herz kurz aussetzt, gehören zu den häufigsten Gründen für einen Termin beim Kardiologen. Die meisten Rhythmusstörungen sind harmlos. Manche müssen aber behandelt werden, weil sie das Herz schwächen oder, wie das Vorhofflimmern, das Schlaganfallrisiko erhöhen. Welche Form vorliegt, lässt sich nur mit einer Aufzeichnung des Herzrhythmus klären.
+<ServiceHeader
+  title={"Herzrhythmusstörungen – Abklärung und Behandlung in Linz"}
+  crumb={"Herzrhythmusstörungen"}
+  lead={"Herzstolpern, Herzrasen oder das Gefühl, dass das Herz kurz aussetzt, gehören zu den häufigsten Gründen für einen Termin beim Kardiologen. Die meisten Rhythmusstörungen sind harmlos. Manche müssen aber behandelt werden, weil sie das Herz schwächen oder, wie das Vorhofflimmern, das Schlaganfallrisiko erhöhen. Welche Form vorliegt, lässt sich nur mit einer Aufzeichnung des Herzrhythmus klären."}
+  prep={[
+    { icon: 'food', title: 'Nicht nüchtern', text: 'Sie können vorher normal essen und trinken.' },
+    { icon: 'pill', title: 'Medikamente wie gewohnt', text: 'Auch Blutverdünner und Rhythmusmedikamente.' },
+    { icon: 'list', title: 'Beschwerden notieren', text: 'Wann, wie lange und was Sie gerade gemacht haben. Smartwatch-EKGs mitbringen.' },
+    { icon: 'file', title: 'Vorbefunde', text: 'EKGs, Langzeit-EKGs, Arztbriefe und Schrittmacherausweis.' },
+    { icon: 'shirt', title: 'Zweiteilige Kleidung', text: 'für EKG und Herzultraschall.' },
+    { icon: 'clock', title: 'Etwa 45 Minuten', text: 'Keine Überweisung nötig. Versicherungskarte mitbringen.' },
+  ]}
+/>
 
 In meiner Ordination in Linz kläre ich Herzrhythmusstörungen mit EKG, Langzeit-EKG und Herzultraschall ab und betreue Sie bei der Behandlung. Schrittmacherimplantationen führe ich am Klinikum Wels-Grieskirchen selbst durch, die Nachsorge erfolgt in der Ordination.
 

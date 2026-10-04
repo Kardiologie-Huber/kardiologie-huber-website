@@ -2112,6 +2112,12 @@ $svc-accent-on-dark: #9cc6e4;
   }
 }
 
+// Lange Verzeichnisse etwas enger, damit der Kopf nicht zu hoch wird
+.svc-toc.is-long a {
+  min-height: 32px;
+  font-size: 0.9375rem;
+}
+
 .svc-icon {
   flex: none;
   width: 20px;

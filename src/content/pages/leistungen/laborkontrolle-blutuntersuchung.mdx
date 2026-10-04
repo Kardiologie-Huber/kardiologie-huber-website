@@ -2,13 +2,25 @@
 title: "Laborkontrolle (Blutuntersuchung) in Linz"
 description: "Blutuntersuchung beim Kardiologen in Linz: Blutfette, Blutzucker, Nierenwerte und weitere Laborwerte zur Diagnostik und Verlaufskontrolle, Auswertung mit my-lab."
 slug: leistungen/laborkontrolle-blutuntersuchung
+sections: true
 ---
 
 import ScheduleAppointment from '@components/ScheduleAppointment.astro';
+import ServiceHeader from '@components/ServiceHeader.astro';
 
-# Laborkontrolle (Blutuntersuchung) in Linz
-
-Blutuntersuchungen sind ein wichtiger Bestandteil der ärztlichen Diagnostik und Verlaufskontrolle. Sie liefern wesentliche Informationen über Stoffwechsel, Organfunktion und kardiovaskuläre Risikofaktoren und bilden häufig die Grundlage für therapeutische Entscheidungen.
+<ServiceHeader
+  title={"Laborkontrolle (Blutuntersuchung) in Linz"}
+  crumb={"Laborkontrolle"}
+  lead={"Blutuntersuchungen sind ein wichtiger Bestandteil der ärztlichen Diagnostik und Verlaufskontrolle. Sie liefern wesentliche Informationen über Stoffwechsel, Organfunktion und kardiovaskuläre Risikofaktoren und bilden häufig die Grundlage für therapeutische Entscheidungen."}
+  prep={[
+    { icon: 'food', title: 'Nüchtern, wenn vereinbart', text: 'Für Blutzucker und Blutfette am besten nüchtern. Wasser ist erlaubt.' },
+    { icon: 'pill', title: 'Medikamente wie gewohnt', text: 'außer es wurde für die Blutabnahme anders vereinbart.' },
+    { icon: 'list', title: 'Medikamentenliste', text: 'mit Dosierung.' },
+    { icon: 'file', title: 'Frühere Laborwerte', text: 'zum Vergleich mit den neuen Ergebnissen.' },
+    { icon: 'shirt', title: 'Ärmel zum Hochschieben', text: 'Das Blut wird am Arm abgenommen.' },
+    { icon: 'clock', title: 'Wenige Minuten', text: 'Die Ergebnisse besprechen wir nach der Auswertung durch das Labor.' },
+  ]}
+/>
 
 In meiner Ordination in Linz werden Laborkontrollen indikationsbezogen durchgeführt. Die Laboranalysen und Befundauswertungen erfolgen in Zusammenarbeit mit dem externen medizinischen Labor [**myLab**](https://www.my-lab.at/).
 

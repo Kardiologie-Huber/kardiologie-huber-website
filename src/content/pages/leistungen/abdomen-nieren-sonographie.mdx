@@ -2,15 +2,27 @@
 title: "Ultraschall Bauch & Nieren in Linz"
 description: "Abdomen- und Nieren-Sonographie in Linz: Muss ich nüchtern sein? Ablauf, Vorbereitung und häufige Fragen zum Ultraschall von Bauch und Nieren."
 slug: leistungen/abdomen-nieren-sonographie
+sections: true
 ---
 
 import ScheduleAppointment from '@components/ScheduleAppointment.astro';
+import ServiceHeader from '@components/ServiceHeader.astro';
 import RelatedServices from '@components/RelatedServices.astro';
 import { Image } from 'astro:assets';
 
-# Ultraschall von Bauch und Nieren (Abdomen- und Nieren-Sonographie) in Linz
-
-Mit einer Ultraschalluntersuchung des Bauches können verschiedene Organe beurteilt werden, darunter **Leber, Gallenblase und -wege, Bauchspeicheldrüse, Milz, Nieren, Harnblase** sowie große Bauchgefäße. Die Methode ist strahlungsfrei und schmerzlos.
+<ServiceHeader
+  title={"Ultraschall von Bauch und Nieren (Abdomen- und Nieren-Sonographie) in Linz"}
+  crumb={"Ultraschall Bauch und Nieren"}
+  lead={"Mit einer Ultraschalluntersuchung des Bauches können verschiedene Organe beurteilt werden, darunter Leber, Gallenblase und -wege, Bauchspeicheldrüse, Milz, Nieren, Harnblase sowie große Bauchgefäße. Die Methode ist strahlungsfrei und schmerzlos."}
+  prep={[
+    { icon: 'food', title: 'Nüchtern kommen', text: '4 bis 6 Stunden vorher nichts essen, stilles Wasser ist erlaubt.' },
+    { icon: 'drop', title: 'Blase mäßig gefüllt', text: 'Etwa eine Stunde vorher ein bis zwei Gläser Wasser trinken.' },
+    { icon: 'list', title: 'Kein Kaugummi, nicht rauchen', text: 'Verschluckte Luft verschlechtert die Sicht im Ultraschall.' },
+    { icon: 'pill', title: 'Medikamente wie gewohnt', text: 'Bei Diabetes die Einnahme am Termintag vorher besprechen.' },
+    { icon: 'shirt', title: 'Zweiteilige Kleidung', text: 'Der Bauch muss frei zugänglich sein.' },
+    { icon: 'clock', title: 'Etwa 15 bis 20 Minuten', text: 'Befund direkt im Anschluss. Keine Überweisung nötig.' },
+  ]}
+/>
 
 <Image
   class="img-right"

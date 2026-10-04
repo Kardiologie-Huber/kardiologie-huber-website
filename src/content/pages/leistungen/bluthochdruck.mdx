@@ -2,13 +2,25 @@
 title: "Bluthochdruck-Behandlung beim Kardiologen in Linz"
 description: "Bluthochdruck beim Kardiologen in Linz abklären und behandeln: 24-Stunden-Blutdruckmessung, medikamentöse Therapie und Senkung des Herz-Kreislauf-Risikos."
 slug: leistungen/bluthochdruck
+sections: true
 ---
 
 import ScheduleAppointment from '@components/ScheduleAppointment.astro';
+import ServiceHeader from '@components/ServiceHeader.astro';
 
-# Bluthochdruck – Betreuung & Therapie in Linz
-
-Bluthochdruck (arterielle Hypertonie) ist eine häufige chronische Erkrankung. Er verursacht oft über lange Zeit keine Beschwerden, kann aber unbehandelt zu schweren Folgeerkrankungen führen. Eine regelmäßige ärztliche Betreuung ist daher wesentlich, um dauerhaft stabile Blutdruckwerte zu erreichen und das Risiko für Herz-, Gefäß- und Organschäden zu reduzieren.
+<ServiceHeader
+  title={"Bluthochdruck – Betreuung & Therapie in Linz"}
+  crumb={"Bluthochdruck"}
+  lead={"Bluthochdruck (arterielle Hypertonie) ist eine häufige chronische Erkrankung. Er verursacht oft über lange Zeit keine Beschwerden, kann aber unbehandelt zu schweren Folgeerkrankungen führen. Eine regelmäßige ärztliche Betreuung ist daher wesentlich, um dauerhaft stabile Blutdruckwerte zu erreichen und das Risiko für Herz-, Gefäß- und Organschäden zu reduzieren."}
+  prep={[
+    { icon: 'food', title: 'Nicht nüchtern', text: 'Sie können vorher normal essen und trinken.' },
+    { icon: 'pill', title: 'Medikamente wie gewohnt', text: 'Auch am Termintag einnehmen, damit die Werte aussagekräftig sind.' },
+    { icon: 'list', title: 'Blutdruckwerte von zu Hause', text: 'Messprotokoll oder das Messgerät mit gespeicherten Werten.' },
+    { icon: 'file', title: 'Medikamentenliste und Vorbefunde', text: 'Dosierungen, Arztbriefe und Laborwerte.' },
+    { icon: 'shirt', title: 'Kurzärmeliges Oberteil', text: 'für Blutdruckmessung und EKG.' },
+    { icon: 'clock', title: 'Etwa 45 Minuten', text: 'Keine Überweisung nötig. Versicherungskarte mitbringen.' },
+  ]}
+/>
 
 In meiner Ordination in Linz betreue ich Patientinnen und Patienten mit Bluthochdruck. Die Betreuung umfasst die Blutdruckdiagnostik, die medikamentöse Therapie sowie die regelmäßige Verlaufskontrolle und Anpassung der Behandlung.
 

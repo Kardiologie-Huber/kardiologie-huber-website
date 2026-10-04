@@ -2,13 +2,25 @@
 title: "Diabetes & Herz – Kardiologe in Linz"
 description: "Ärztliche Betreuung bei Diabetes in Linz: Stoffwechselkontrolle, medikamentöse Therapie und Beurteilung von Herz- und Gefäßrisiken durch den Kardiologen."
 slug: leistungen/diabetes-mellitus
+sections: true
 ---
 
 import ScheduleAppointment from '@components/ScheduleAppointment.astro';
+import ServiceHeader from '@components/ServiceHeader.astro';
 
-# Diabetes mellitus – Betreuung von Herz und Gefäßen in Linz
-
-Diabetes mellitus ist eine chronische Stoffwechselerkrankung, die eine kontinuierliche ärztliche Betreuung erfordert. Neben der Kontrolle des Blutzuckers spielen die Behandlung von Begleiterkrankungen sowie die medikamentöse Einstellung eine zentrale Rolle, um Folgeerkrankungen zu vermeiden. Diabetes ist zudem ein wesentlicher Risikofaktor für Herz- und Gefäßerkrankungen.
+<ServiceHeader
+  title={"Diabetes mellitus – Betreuung von Herz und Gefäßen in Linz"}
+  crumb={"Diabetes"}
+  lead={"Diabetes mellitus ist eine chronische Stoffwechselerkrankung, die eine kontinuierliche ärztliche Betreuung erfordert. Neben der Kontrolle des Blutzuckers spielen die Behandlung von Begleiterkrankungen sowie die medikamentöse Einstellung eine zentrale Rolle, um Folgeerkrankungen zu vermeiden. Diabetes ist zudem ein wesentlicher Risikofaktor für Herz- und Gefäßerkrankungen."}
+  prep={[
+    { icon: 'food', title: 'Nüchtern nur nach Absprache', text: 'Ist eine Blutabnahme vereinbart, besprechen wir vorher, wie Sie mit Essen und Medikamenten umgehen.' },
+    { icon: 'pill', title: 'Medikamente wie gewohnt', text: 'Insulin und Tabletten nicht ohne Rücksprache auslassen.' },
+    { icon: 'list', title: 'Blutzuckerwerte', text: 'Tagebuch, Messgerät oder Sensor-Daten und den letzten HbA1c-Wert.' },
+    { icon: 'file', title: 'Medikamentenliste und Vorbefunde', text: 'Arztbriefe und aktuelle Laborwerte.' },
+    { icon: 'shirt', title: 'Bequeme Kleidung', text: 'für EKG und körperliche Untersuchung.' },
+    { icon: 'clock', title: 'Etwa 45 Minuten', text: 'Keine Überweisung nötig. Versicherungskarte mitbringen.' },
+  ]}
+/>
 
 In meiner Ordination in Linz betreue ich Patientinnen und Patienten mit Diabetes. Die Betreuung umfasst sowohl die **regelmäßige Verlaufskontrolle der Stoffwechselsituation** als auch die **medikamentöse Therapie** und die **Beurteilung des Herz- und Gefäßsystems**.
 

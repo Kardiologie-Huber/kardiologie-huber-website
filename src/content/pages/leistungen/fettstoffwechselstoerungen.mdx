@@ -2,13 +2,25 @@
 title: "Cholesterin & Blutfette – Kardiologe in Linz"
 description: "Erhöhtes Cholesterin oder Triglyzeride in Linz abklären: Diagnostik, Therapie und Herzvorsorge bei Fettstoffwechselstörungen durch den Kardiologen."
 slug: leistungen/fettstoffwechselstoerungen
+sections: true
 ---
 
 import ScheduleAppointment from '@components/ScheduleAppointment.astro';
+import ServiceHeader from '@components/ServiceHeader.astro';
 
-# Fettstoffwechselstörungen – Betreuung & Therapie in Linz
-
-Fettstoffwechselstörungen betreffen die Zusammensetzung der Blutfette, insbesondere Cholesterin und Triglyzeride. Sie verlaufen häufig lange Zeit ohne Beschwerden, erhöhen jedoch das Risiko für Herz- und Gefäßerkrankungen deutlich. Eine ärztliche Betreuung ist daher wichtig, um erhöhte Werte zu erkennen, richtig einzuordnen und gezielt zu behandeln.
+<ServiceHeader
+  title={"Fettstoffwechselstörungen – Betreuung & Therapie in Linz"}
+  crumb={"Fettstoffwechselstörungen"}
+  lead={"Fettstoffwechselstörungen betreffen die Zusammensetzung der Blutfette, insbesondere Cholesterin und Triglyzeride. Sie verlaufen häufig lange Zeit ohne Beschwerden, erhöhen jedoch das Risiko für Herz- und Gefäßerkrankungen deutlich. Eine ärztliche Betreuung ist daher wichtig, um erhöhte Werte zu erkennen, richtig einzuordnen und gezielt zu behandeln."}
+  prep={[
+    { icon: 'food', title: 'Nüchtern bei Blutabnahme', text: 'Wenn Blutfette bestimmt werden, am besten nüchtern kommen. Wasser ist erlaubt.' },
+    { icon: 'pill', title: 'Medikamente wie gewohnt', text: 'Cholesterinsenker nicht eigenmächtig absetzen.' },
+    { icon: 'list', title: 'Letzte Laborwerte', text: 'Cholesterin, LDL, HDL und Triglyzeride, falls vorhanden.' },
+    { icon: 'file', title: 'Medikamentenliste und Vorbefunde', text: 'Dosierungen und Arztbriefe.' },
+    { icon: 'shirt', title: 'Bequeme Kleidung', text: 'für EKG und körperliche Untersuchung.' },
+    { icon: 'clock', title: 'Etwa 45 Minuten', text: 'Keine Überweisung nötig. Versicherungskarte mitbringen.' },
+  ]}
+/>
 
 In meiner Ordination in Linz betreue ich Patientinnen und Patienten mit Fettstoffwechselstörungen. Die Betreuung umfasst die Diagnostik erhöhter Blutfettwerte, die medikamentöse Therapie sowie die regelmäßige Verlaufskontrolle und Anpassung der Behandlung.
 

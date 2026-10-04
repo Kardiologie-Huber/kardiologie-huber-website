@@ -2,15 +2,26 @@
 title: "Ultraschall Halsschlagader (Carotis) in Linz"
 description: "Halsschlagader-Ultraschall beim Kardiologen in Linz: Plaques und Engstellen erkennen, Schlaganfallrisiko einschätzen. Ablauf, Vorbereitung und häufige Fragen."
 slug: leistungen/ultraschall-halsschlagader
+sections: true
 ---
 
 import ScheduleAppointment from '@components/ScheduleAppointment.astro';
+import ServiceHeader from '@components/ServiceHeader.astro';
 import RelatedServices from '@components/RelatedServices.astro';
 import { Image } from 'astro:assets';
 
-# Ultraschall der Halsschlagader (Carotis-Duplex-Sonographie) in Linz
-
-Mit der Duplex-Sonographie werden die Halsschlagadern (Carotiden) und die Wirbelarterien (Arteriae vertebrales) untersucht. Dabei können Gefäßwände und Blutfluss beurteilt, Ablagerungen (Plaques) und Engstellen (Stenosen) erkannt und deren Ausmaß eingeschätzt werden.
+<ServiceHeader
+  title={"Ultraschall der Halsschlagader (Carotis-Duplex-Sonographie) in Linz"}
+  crumb={"Ultraschall Halsschlagader"}
+  lead={"Mit der Duplex-Sonographie werden die Halsschlagadern (Carotiden) und die Wirbelarterien (Arteriae vertebrales) untersucht. Dabei können Gefäßwände und Blutfluss beurteilt, Ablagerungen (Plaques) und Engstellen (Stenosen) erkannt und deren Ausmaß eingeschätzt werden."}
+  prep={[
+    { icon: 'shirt', title: 'Freier Hals', text: 'Kein Rollkragen oder Schal, Schmuck am Hals ablegen.' },
+    { icon: 'food', title: 'Nicht nüchtern', text: 'Sie können vorher normal essen und trinken.' },
+    { icon: 'pill', title: 'Medikamente wie gewohnt', text: 'Auch Blutverdünner wie gewohnt einnehmen.' },
+    { icon: 'file', title: 'Vorbefunde', text: 'Frühere Ultraschall-, CT- oder MRT-Befunde.' },
+    { icon: 'clock', title: 'Etwa 15 bis 25 Minuten', text: 'Befund direkt im Anschluss. Keine Überweisung nötig.' },
+  ]}
+/>
 
 <Image
   class="img-right"

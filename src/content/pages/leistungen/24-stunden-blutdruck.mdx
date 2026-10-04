@@ -2,14 +2,26 @@
 title: "24-Stunden-Blutdruckmessung in Linz"
 description: "24-Stunden-Blutdruckmessung (ABDM) beim Kardiologen in Linz: Ablauf, Vorbereitung, Verhalten während der Messung und Blutdruck-Tagebuch zum Download."
 slug: leistungen/24-stunden-blutdruck
+sections: true
 ---
 
 import ScheduleAppointment from '@components/ScheduleAppointment.astro';
+import ServiceHeader from '@components/ServiceHeader.astro';
 import RelatedServices from '@components/RelatedServices.astro';
 
-# 24-Stunden-Blutdruckmessung (ABDM/ABPM) in Linz
-
-Bei der 24-Stunden-Blutdruckmessung wird der Blutdruck tagsüber und nachts automatisch in regelmäßigen Abständen erfasst. So entstehen verlässliche Durchschnittswerte, Schwankungen werden sichtbar und das nächtliche Blutdruckverhalten kann beurteilt werden.
+<ServiceHeader
+  title={"24-Stunden-Blutdruckmessung (ABDM/ABPM) in Linz"}
+  crumb={"24-Stunden-Blutdruck"}
+  lead={"Bei der 24-Stunden-Blutdruckmessung wird der Blutdruck tagsüber und nachts automatisch in regelmäßigen Abständen erfasst. So entstehen verlässliche Durchschnittswerte, Schwankungen werden sichtbar und das nächtliche Blutdruckverhalten kann beurteilt werden."}
+  prep={[
+    { icon: 'shirt', title: 'Kurzärmeliges Oberteil', text: 'Die Manschette sitzt am Oberarm.' },
+    { icon: 'drop', title: 'Vorher duschen', text: 'Das Gerät ist nicht wasserfest. Keine fetthaltige Creme am Oberarm.' },
+    { icon: 'pill', title: 'Medikamente wie gewohnt', text: 'Keine Änderungen ohne ärztliche Rücksprache.' },
+    { icon: 'list', title: 'Ein normaler Tag', text: 'Wählen Sie einen typischen Tag ohne außergewöhnliche Belastung.' },
+    { icon: 'file', title: 'Tagebuch führen', text: 'Tätigkeiten, Beschwerden und Schlafzeiten notieren. Eine Vorlage gibt es zum Ausdrucken.' },
+    { icon: 'clock', title: 'Zwei Termine', text: 'Anlegen des Geräts und Rückgabe nach 24 Stunden. Keine Überweisung nötig.' },
+  ]}
+/>
 
 ## 24-Stunden-Blutdruckmessung im Überblick
 
