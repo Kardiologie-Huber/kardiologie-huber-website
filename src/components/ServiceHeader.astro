@@ -70,3 +70,72 @@ const icons: Record<Icon | 'alert', string> = {
     </section>
   )
 }
+
+{
+  prep.length > 0 && (
+    <button class="svc-pill" type="button" data-svc-pill aria-hidden="true" tabindex="-1">
+      <svg class="svc-icon" viewBox="0 0 24 24" aria-hidden="true" set:html={icons.alert} />
+      {prepTitle}
+    </button>
+  )
+}
+
+{
+  prep.length > 0 && (
+    <script is:inline>
+      // "Vor Ihrem Termin": einmaliger Vorhang beim ersten Sichtbarwerden und eine
+      // mitlaufende Pille, sobald der Abschnitt nach oben aus dem Bild gescrollt ist.
+      // Ohne JavaScript oder IntersectionObserver ist alles sofort sichtbar.
+      (function () {
+        const band = document.getElementById('vor-ihrem-termin');
+        const pill = document.querySelector('[data-svc-pill]');
+        if (!band || !pill || !('IntersectionObserver' in window)) return;
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // 1. Vorhang auf (nur in sichtbaren Tabs, sonst bleibt der Block einfach stehen)
+        if (!document.hidden) {
+          band.classList.add('is-armed');
+          void band.offsetWidth;
+          const reveal = () => band.classList.add('is-in');
+          if (band.getBoundingClientRect().top < window.innerHeight * 0.85) {
+            setTimeout(reveal, 250);
+          } else {
+            const io = new IntersectionObserver(
+              (entries) => {
+                if (entries.some((e) => e.isIntersecting)) {
+                  reveal();
+                  io.disconnect();
+                }
+              },
+              { threshold: 0.25 }
+            );
+            io.observe(band);
+            setTimeout(reveal, 4000); // Sicherheitsnetz: nie dauerhaft verborgen
+          }
+        }
+
+        // 2. Mitlaufende Pille
+        const show = (on) => {
+          pill.classList.toggle('is-visible', on);
+          pill.setAttribute('aria-hidden', on ? 'false' : 'true');
+          pill.tabIndex = on ? 0 : -1;
+        };
+        new IntersectionObserver((entries) => {
+          const e = entries[0];
+          show(!e.isIntersecting && e.boundingClientRect.top < 0);
+        }).observe(band);
+
+        pill.addEventListener('click', () => {
+          band.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+          const title = band.querySelector('h2');
+          title.setAttribute('tabindex', '-1');
+          setTimeout(() => {
+            title.focus({ preventScroll: true });
+            band.classList.add('is-flash');
+            setTimeout(() => band.classList.remove('is-flash'), 1200);
+          }, reduce ? 0 : 450);
+        });
+      })();
+    </script>
+  )
+}

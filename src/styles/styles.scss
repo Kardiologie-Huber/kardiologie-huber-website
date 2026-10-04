@@ -2114,6 +2114,136 @@ $svc-prep-icon: #9cc6e4; // helles Blau, passend zum Dunkelblau
   }
 }
 
+// "Vor Ihrem Termin": Vorhang beim ersten Sichtbarwerden (Klassen setzt ServiceHeader.astro).
+// Ohne .is-armed ist der Block sofort sichtbar.
+$svc-ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+.svc-prep.is-armed {
+  clip-path: inset(0 100% 0 0);
+
+  h2,
+  li {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+.svc-prep.is-armed.is-in {
+  clip-path: inset(0 -100vmax);
+  transition: clip-path 0.7s $svc-ease;
+
+  h2,
+  li {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.45s $svc-ease, transform 0.45s $svc-ease;
+  }
+
+  h2 {
+    transition-delay: 0.35s;
+  }
+
+  @for $i from 1 through 8 {
+    li:nth-child(#{$i}) {
+      transition-delay: #{0.4 + $i * 0.05}s;
+    }
+  }
+}
+
+// Hinweise leuchten kurz auf, wenn man über die Pille zurückspringt
+.svc-prep li {
+  border-radius: 10px;
+  transition: background-color 0.6s ease, box-shadow 0.6s ease;
+}
+
+.svc-prep.is-flash li {
+  background: rgba(156, 198, 228, 0.14);
+  box-shadow: 0 0 0 8px rgba(156, 198, 228, 0.14);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+// Mitlaufende Pille "Vor Ihrem Termin" unten rechts
+.svc-pill {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 20px 0 16px;
+  border: 0;
+  border-radius: 999px;
+  background: $svc-prep-bg;
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  box-shadow: 0 12px 30px -12px rgba($primary, 0.6);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(24px) scale(0.96);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+
+  &.is-visible {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    transition: opacity 0.4s $svc-ease, transform 0.5s $svc-ease;
+  }
+
+  &:hover,
+  &:focus-visible {
+    background: $primary-light-background;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $svc-prep-icon;
+    outline-offset: 3px;
+  }
+
+  .svc-icon {
+    width: 22px;
+    height: 22px;
+    color: $svc-prep-icon;
+  }
+
+  @include media-breakpoint-down(sm) {
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .svc-prep.is-armed {
+    clip-path: none;
+
+    h2,
+    li {
+      transform: none;
+    }
+  }
+
+  .svc-prep.is-armed.is-in {
+    clip-path: inset(0 -100vmax);
+    transition: none;
+
+    h2,
+    li {
+      transition: opacity 0.3s ease;
+      transition-delay: 0s !important;
+    }
+  }
+
+  .svc-pill,
+  .svc-pill.is-visible {
+    transform: none;
+  }
+}
+
 // Abschnitte der Leistungsseiten: Überschrift links, Text rechts (sectionize.ts)
 .svc-section {
   h2 {
