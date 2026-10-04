@@ -1,20 +1,36 @@
 ---
+// "Termin buchen" vor dem Footer: hellblaues Band ohne Karte.
+// Links Überschrift und Text, rechts Termin-Button, darunter Telefon und E-Mail.
 const { title, description } = Astro.props;
 import { PHONE, EMAIL, LATIDO } from '../constants';
 const phoneHref = `tel:+43${PHONE.replace(/\s/g, '').replace(/^0/, '')}`;
 ---
 
-<section class="schedule-appointment">
-  <div class="appointment-card">
-    <h2>{title ? title : 'Termin buchen'}</h2>
-    <p class="appointment-desc">{description ? description : 'Buchen Sie Ihren Termin am einfachsten und schnellsten online – rund um die Uhr und ohne Wartezeiten am Telefon. So können Sie in Ruhe den für Sie passenden Zeitpunkt auswählen.'}</p>
-    <p class="appointment-btn"><a class="btn btn-secondary appointment-cta" role="button" href={LATIDO} target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2" /><path d="M3.5 10h17M8 3v4M16 3v4" /></svg>Online Termin buchen</a></p>
-    <div class="appointment-foot">
-      <p class="appointment-alt">Falls Sie lieber telefonisch oder per E-Mail einen Termin vereinbaren möchten:</p>
-      <p class="appointment-contact">
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3.5 6.5 8.5 6.5 8.5-6.5" /></svg>Email: <a href={`mailto:${EMAIL}`}>{EMAIL}</a></span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" /></svg>Telefon: <a href={phoneHref}>{PHONE}</a></span>
-      </p>
-    </div>
+<section class="schedule-appointment" aria-labelledby="appointment-title">
+  <div class="appointment-text">
+    <h2 id="appointment-title">{title ? title : 'Termin buchen'}</h2>
+    <p class="appointment-desc">
+      {
+        description
+          ? description
+          : 'Buchen Sie Ihren Termin am einfachsten und schnellsten online – rund um die Uhr und ohne Wartezeiten am Telefon. So können Sie in Ruhe den für Sie passenden Zeitpunkt auswählen.'
+      }
+    </p>
+  </div>
+
+  <div class="appointment-actions">
+    <a class="appointment-cta" href={LATIDO} target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2" /><path d="M3.5 10h17M8 3v4M16 3v4" /></svg>
+      Online Termin buchen
+    </a>
+    <p class="appointment-alt">Lieber telefonisch oder per E-Mail?</p>
+    <a class="appointment-line" href={phoneHref}>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" /></svg>
+      <span>{PHONE}</span>
+    </a>
+    <a class="appointment-line" href={`mailto:${EMAIL}`}>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3.5 6.5 8.5 6.5 8.5-6.5" /></svg>
+      <span>{EMAIL}</span>
+    </a>
   </div>
 </section>

@@ -764,99 +764,112 @@ main {
 }
 
 // Termin-Block (ScheduleAppointment, auf fast allen Seiten): weiße Karte auf einem Nebelblau-Band über die volle Breite
+// "Termin buchen" vor dem Footer (ScheduleAppointment.astro): hellblaues Band ohne Karte,
+// links Überschrift und Text, rechts Button sowie Telefon und E-Mail in gleicher Größe.
 .schedule-appointment {
   margin-block: $padding * 2;
-  padding-block: 48px;
+  padding-block: 48px 52px;
   background: $surface;
   box-shadow: 0 0 0 100vmax $surface;
   clip-path: inset(0 -100vmax);
 
   @include media-breakpoint-up(lg) {
-    padding-block: 64px;
+    display: grid;
+    grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+    column-gap: 64px;
+    align-items: center;
+    padding-block: 64px 68px;
   }
 
   h2 {
     margin: 0 0 12px;
     color: $primary;
+    font-size: clamp(1.75rem, 1.4vw + 1.2rem, 2.25rem);
     text-wrap: balance;
   }
 
-  p {
+  .appointment-desc {
+    max-width: 52ch;
     margin: 0;
+    color: #3d5266;
     line-height: 1.6;
   }
 
-  .appointment-card {
-    max-width: 760px;
-    margin-inline: auto;
-    padding: 32px 24px;
-    border-radius: 12px;
-    background: #fff;
-    box-shadow: 0 24px 48px -32px rgba($primary, 0.4), 0 1px 3px rgba($primary, 0.06);
-    text-align: center;
+  .appointment-actions {
+    margin-top: 28px;
 
-    @include media-breakpoint-up(md) {
-      padding: 48px 56px 40px;
+    @include media-breakpoint-up(lg) {
+      margin-top: 0;
+      padding-left: 40px;
+      border-left: 1px solid rgba($primary, 0.14);
     }
-  }
-
-  .appointment-desc {
-    max-width: 56ch;
-    margin-inline: auto;
-    color: #3d5266;
-  }
-
-  .appointment-btn {
-    margin-top: 24px;
   }
 
   .appointment-cta {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
-    min-height: 52px;
-    padding: 13px 28px;
+    min-height: 56px;
+    padding: 0 30px;
     border-radius: 999px;
+    background: $secondary;
+    color: #fff !important;
     font-size: 1.0625rem;
-    font-weight: 600;
-    text-transform: none;
-    letter-spacing: 0;
+    font-weight: 650;
+    text-decoration: none !important;
+    transition: background-color 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      background: $secondary-hover;
+    }
   }
 
-  .appointment-foot {
-    margin-top: 28px;
-    padding-top: 20px;
-    border-top: 1px solid rgba($primary, 0.14);
+  .appointment-alt {
+    margin: 22px 0 8px;
+    font-size: 0.9375rem;
     color: #3d5266;
   }
 
-  .appointment-contact {
+  // Telefon und E-Mail bewusst gleich groß
+  .appointment-line {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px 32px;
-    margin-top: 10px;
-
-    span {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    a {
-      font-variant-numeric: tabular-nums;
-    }
+    align-items: center;
+    gap: 12px;
+    min-height: 44px;
+    color: $primary !important;
+    font-size: 1.1875rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    text-decoration: none !important;
+    overflow-wrap: anywhere;
 
     svg {
       color: $secondary;
     }
+
+    &:hover span,
+    &:focus-visible span {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
   }
 
-  .appointment-cta svg,
-  .appointment-contact svg {
+  svg {
     flex: none;
-    width: 18px;
-    height: 18px;
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .appointment-cta svg {
+    width: 20px;
+    height: 20px;
   }
 }
 
