@@ -5,6 +5,7 @@ slug: leistungen/24-stunden-blutdruck
 ---
 
 import ScheduleAppointment from '@components/ScheduleAppointment.astro';
+import RelatedServices from '@components/RelatedServices.astro';
 
 # 24-Stunden-Blutdruckmessung (ABDM/ABPM) in Linz
 
@@ -80,5 +81,12 @@ Ja, bei Messbeginn Arm ruhig halten.
 Keine. Es handelt sich um eine Druckmessung ohne Strahlung.
 
 </div>
+
+<RelatedServices items={[
+  { title: 'Bluthochdruck', href: '/leistungen/bluthochdruck/', text: 'Abklärung und medikamentöse Einstellung' },
+  { title: 'Herzultraschall', href: '/leistungen/echokardiographie/', text: 'Pumpkraft, Herzklappen und Herzmuskel' },
+  { title: 'Ultraschall der Halsschlagader', href: '/leistungen/ultraschall-halsschlagader/', text: 'Plaques und Engstellen der Halsgefäße' },
+  { title: 'Herz-Kreislauf-Check', href: '/leistungen/herz-kreislauf-check/', text: 'Kardiologische Vorsorge an einem Termin' },
+]} />
 
 <ScheduleAppointment></ScheduleAppointment>

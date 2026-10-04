@@ -5,6 +5,7 @@ slug: leistungen/stent-kontrolle
 ---
 
 import ScheduleAppointment from '@components/ScheduleAppointment.astro';
+import RelatedServices from '@components/RelatedServices.astro';
 
 # Stent-Kontrolle in Linz
 
@@ -100,5 +101,12 @@ Die Kombination aus zwei Plättchenhemmern (meist Aspirin und ein zweites Medika
 
 </div>
 
+
+<RelatedServices items={[
+  { title: 'Nachkontrolle nach Herzinfarkt', href: '/leistungen/nachkontrolle-nach-herzinfarkt/', text: 'Herzfunktion, Belastbarkeit und Medikamente' },
+  { title: 'Belastungs-EKG', href: '/leistungen/ergometrie/', text: 'Rhythmus und Durchblutung unter Anstrengung' },
+  { title: 'Herzultraschall', href: '/leistungen/echokardiographie/', text: 'Pumpkraft, Herzklappen und Herzmuskel' },
+  { title: 'Fettstoffwechselstörungen', href: '/leistungen/fettstoffwechselstoerungen/', text: 'Cholesterin und Triglyzeride senken' },
+]} />
 
 <ScheduleAppointment></ScheduleAppointment>

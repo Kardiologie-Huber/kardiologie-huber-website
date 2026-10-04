@@ -5,6 +5,7 @@ slug: leistungen/ultraschall-halsschlagader
 ---
 
 import ScheduleAppointment from '@components/ScheduleAppointment.astro';
+import RelatedServices from '@components/RelatedServices.astro';
 import { Image } from 'astro:assets';
 
 # Ultraschall der Halsschlagader (Carotis-Duplex-Sonographie) in Linz
@@ -108,5 +109,12 @@ Ja, es gibt keine Einschränkungen.
 Nein. Als [Wahlarzt](/wahlarzt/) kann ich Sie ohne Überweisung untersuchen. Die Honorarnote können Sie bei der Krankenkasse zur teilweisen Rückerstattung einreichen.
 
 </div>
+
+<RelatedServices items={[
+  { title: 'Herz-Kreislauf-Check', href: '/leistungen/herz-kreislauf-check/', text: 'Kardiologische Vorsorge an einem Termin' },
+  { title: 'Fettstoffwechselstörungen', href: '/leistungen/fettstoffwechselstoerungen/', text: 'Cholesterin und Triglyzeride senken' },
+  { title: 'Bluthochdruck', href: '/leistungen/bluthochdruck/', text: 'Abklärung und medikamentöse Einstellung' },
+  { title: 'Herzultraschall', href: '/leistungen/echokardiographie/', text: 'Pumpkraft, Herzklappen und Herzmuskel' },
+]} />
 
 <ScheduleAppointment></ScheduleAppointment>

@@ -5,6 +5,7 @@ slug: leistungen/polygraphie
 ---
 
 import ScheduleAppointment from '@components/ScheduleAppointment.astro';
+import RelatedServices from '@components/RelatedServices.astro';
 
 # Polygraphie in Linz (ambulantes Schlafapnoe-Screening)
 
@@ -115,5 +116,12 @@ Ja. Die meisten Menschen gewöhnen sich nach kurzer Zeit daran.
 Ich bespreche mit Ihnen die Ergebnisse und die nächsten Schritte – z. B. weitere Abklärung, Beratung zu Lebensstilmaßnahmen oder eine Therapie (z. B. CPAP) in Zusammenarbeit mit einem Schlaflabor.
 
 </div>
+
+<RelatedServices items={[
+  { title: 'Bluthochdruck', href: '/leistungen/bluthochdruck/', text: 'Abklärung und medikamentöse Einstellung' },
+  { title: 'Herzrhythmusstörungen', href: '/leistungen/herzrhythmusstoerungen/', text: 'Herzstolpern, Herzrasen, Vorhofflimmern' },
+  { title: 'Herzschwäche', href: '/leistungen/herzschwaeche/', text: 'Atemnot, Wassereinlagerungen, Pumpschwäche' },
+  { title: 'Langzeit-EKG', href: '/leistungen/langzeit-ekg/', text: 'Herzrhythmus über 24 bis 48 Stunden' },
+]} />
 
 <ScheduleAppointment></ScheduleAppointment>

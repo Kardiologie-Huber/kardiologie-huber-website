@@ -5,6 +5,7 @@ slug: leistungen/ergometrie
 ---
 
 import ScheduleAppointment from '@components/ScheduleAppointment.astro';
+import RelatedServices from '@components/RelatedServices.astro';
 import { Image } from 'astro:assets';
 
 # Belastungs-EKG (Ergometrie) in Linz
@@ -112,5 +113,12 @@ Bei akuten Beschwerden wie frischem Herzinfarkt oder instabiler Angina pectoris,
 Nein. Als [Wahlarzt](/wahlarzt/) kann ich Sie ohne Überweisung untersuchen. Die Honorarnote können Sie bei Ihrer Krankenkasse zur teilweisen Rückerstattung einreichen.
 
 </div>
+
+<RelatedServices items={[
+  { title: 'Stent-Kontrolle', href: '/leistungen/stent-kontrolle/', text: 'Nachsorge nach Stentimplantation' },
+  { title: 'Herz-Kreislauf-Check', href: '/leistungen/herz-kreislauf-check/', text: 'Kardiologische Vorsorge an einem Termin' },
+  { title: 'OP-Freigabe', href: '/leistungen/op-freigabe/', text: 'Kardiologische Beurteilung vor einer Operation' },
+  { title: 'Herzultraschall', href: '/leistungen/echokardiographie/', text: 'Pumpkraft, Herzklappen und Herzmuskel' },
+]} />
 
 <ScheduleAppointment></ScheduleAppointment>

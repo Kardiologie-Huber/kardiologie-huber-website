@@ -5,6 +5,7 @@ slug: leistungen/spirometrie
 ---
 
 import ScheduleAppointment from '@components/ScheduleAppointment.astro';
+import RelatedServices from '@components/RelatedServices.astro';
 
 # Kleine Spirometrie (Lungenfunktionstest) in Linz
 
@@ -67,5 +68,12 @@ Die forcierten Atemzüge können kurzfristig anstrengend sein, dauern aber nur w
 Ja. Die Ergebnisse (z. B. FEV₁/FVC) werden erklärt und eingeordnet.
 
 </div>
+
+<RelatedServices items={[
+  { title: 'Herzschwäche', href: '/leistungen/herzschwaeche/', text: 'Atemnot, Wassereinlagerungen, Pumpschwäche' },
+  { title: 'Polygraphie', href: '/leistungen/polygraphie/', text: 'Schlafapnoe-Screening zu Hause' },
+  { title: 'Herzultraschall', href: '/leistungen/echokardiographie/', text: 'Pumpkraft, Herzklappen und Herzmuskel' },
+  { title: 'Belastungs-EKG', href: '/leistungen/ergometrie/', text: 'Rhythmus und Durchblutung unter Anstrengung' },
+]} />
 
 <ScheduleAppointment></ScheduleAppointment>

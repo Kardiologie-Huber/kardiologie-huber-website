@@ -5,6 +5,7 @@ slug: leistungen/abdomen-nieren-sonographie
 ---
 
 import ScheduleAppointment from '@components/ScheduleAppointment.astro';
+import RelatedServices from '@components/RelatedServices.astro';
 import { Image } from 'astro:assets';
 
 # Ultraschall von Bauch und Nieren (Abdomen- und Nieren-Sonographie) in Linz
@@ -108,5 +109,12 @@ Ultraschall ist strahlungsfrei, sofort verfügbar und der Befund wird direkt bes
 Nein. Als [Wahlarzt](/wahlarzt/) kann ich Sie ohne Überweisung untersuchen. Die Honorarnote können Sie bei der Krankenkasse zur teilweisen Rückerstattung einreichen.
 
 </div>
+
+<RelatedServices items={[
+  { title: 'Herz-Kreislauf-Check', href: '/leistungen/herz-kreislauf-check/', text: 'Kardiologische Vorsorge an einem Termin' },
+  { title: 'Bluthochdruck', href: '/leistungen/bluthochdruck/', text: 'Abklärung und medikamentöse Einstellung' },
+  { title: 'Herzschwäche', href: '/leistungen/herzschwaeche/', text: 'Atemnot, Wassereinlagerungen, Pumpschwäche' },
+  { title: 'Laborkontrolle', href: '/leistungen/laborkontrolle-blutuntersuchung/', text: 'Blutfette, Blutzucker, Nierenwerte' },
+]} />
 
 <ScheduleAppointment></ScheduleAppointment>
