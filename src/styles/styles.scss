@@ -2037,8 +2037,8 @@ main table {
 // Abschnitt "Vor Ihrem Termin" direkt unter dem Kopf (ServiceHeader.astro).
 // Hintergrundfarbe zentral hier umstellen: $primary (Dunkelblau) oder $petrol.
 $petrol: #0f4c5c;
-$svc-prep-bg: $petrol;
-$svc-prep-icon: #a6dbe0; // helles Türkis, passend zum Petrol
+$svc-prep-bg: $primary;
+$svc-prep-icon: #9cc6e4; // helles Blau, passend zum Dunkelblau
 
 .svc-prep {
   margin-bottom: 48px;
